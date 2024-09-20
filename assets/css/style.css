@@ -142,7 +142,7 @@ body {
 }
 
 .beranda span {
-    color: #fff;
+    color: #09efff;
     font-size: 40px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -185,7 +185,7 @@ body {
     text-align: center;
     font-weight: 600;
     letter-spacing: 2px;
-    color: #ffce09;
+    color: #09efff;
     margin: 10px 0px 15px;
 }
 
@@ -307,7 +307,7 @@ body {
     font-size: 20px;
     letter-spacing: 2px;
     margin: 10px 0px;
-    color: #dea402;
+    color: #02dede;
 }
 
 .area-menu .judul {
@@ -630,15 +630,30 @@ body {
   .main-title {
     font-size: 3rem;
     font-weight: bold;
-    color: #000;
+    color: #09efff;
     margin-bottom: 1rem;
   }
   
   .sub-title {
     font-size: 1.5rem;
-    color: #666;
+    color: #ffce09;
+  }
+
+  .main-title2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #000607;
+    margin-bottom: 1rem;
   }
   
+  .sub-title2 {
+    font-size: 1.5rem;
+    color: #6d695a;
+  }
+  
+  .space5{
+    color: #fff;
+  }
   /* Hero Section */
   .hero-section {
     height: 100vh;
