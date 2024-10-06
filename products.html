@@ -5,14 +5,12 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Paras-TechnologyLTD</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link rel="shortcut icon" href="assets/img/LOGO_(Transparent bckgrnd).png" type="image/x-icon" />
-
   <!-- Vendor CSS Files -->
   <link rel="stylesheet" href="assets/vendor/aos.css/aos.css" />
   <link rel="stylesheet" href="assets/vendor/flickity.css/flickity.css" />
@@ -21,47 +19,64 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 
 
-
 </head>
 
 <body>
   <!-- ======= Header ======= -->
   <div class="nav">
-    <a data-scroll data-easing="easeInQuint" href="index.html" data-aos="fade-down" data-aos-duration="400"
-      data-aos-delay="50">Home</a>
-
-
+      <a data-scroll data-easing="easeInQuint" href="index.html" data-aos="fade-down" data-aos-duration="400"
+        data-aos-delay="50">Home</a>
+      <a data-scroll data-easing="easeInQuint" href="#ecg" data-aos="fade-down" data-aos-duration="400"
+        data-aos-delay="150">ECG</a>
+      <a data-scroll data-easing="easeInQuint" href="#pm" data-aos="fade-down" data-aos-duration="400"
+        data-aos-delay="150">Patient Monitoring</a>
+      <a data-scroll data-easing="easeInQuint" href="#ult" data-aos="fade-down" data-aos-duration="400"
+        data-aos-delay="150">Ultrasound</a>
+      <a data-scroll data-easing="easeInQuint" href="#hem" data-aos="fade-down" data-aos-duration="400"
+        data-aos-delay="150">Hematology</a>
     <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="" data-aos="fade-down" data-aos-duration="1500">
-
-
-
-    <img src="assets/img/menu.png" alt="" id="btn-nav" data-aos="fade-down" data-aos-duration="700" data-aos-delay="50">
-    <a data-scroll data-easing="easeInQuint" href="contact.html" data-aos="fade-down" data-aos-duration="400"
-      data-aos-delay="50">Contact Us</a>
+      <a data-scroll data-easing="easeInQuint" href="#ms" data-aos="fade-down" data-aos-duration="400"
+        data-aos-delay="150">Medical Softwares</a>
+      <a data-scroll data-easing="easeInQuint" href="#ser" data-aos="fade-down" data-aos-duration="400"
+        data-aos-delay="150">Services</a>
+      <a data-scroll data-easing="easeInQuint" href="#mc" data-aos="fade-down" data-aos-duration="400"
+        data-aos-delay="150">Medical Consumables</a>
+      <a data-scroll data-easing="easeInQuint" href="contact.html" data-aos="fade-down" data-aos-duration="400"
+        data-aos-delay="50">Contact Us</a>
+    <img onclick=showSidebar() src="assets/img/menu.png" alt="" id="btn-nav" data-aos="fade-down" data-aos-duration="700" data-aos-delay="50">
   </div>
-
-
   <!-- ======= Navbar ======= -->
-  <div class="nav-menu">
+  <div class="sidebar">
     <div class="btn-menu">
-      <img src="assets/img/close.png" alt="" id="btn-menu">
+      <img onclick=hideSidebar() src="assets/img/close.png" alt="" id="btn-menu">
     </div>
     <a id="nav-link" data-scroll data-easing="easeInQuint" href="index.html">Home</a>
-    <a id="nav-link1" data-scroll data-easing="easeInQuint" href="#tentang">About Us</a>
-    <a id="nav-link2" data-scroll data-easing="easeInQuint" href="#menu">Menu</a>
-    <a id="nav-link3" data-scroll data-easing="easeInQuint" href="#review">Review</a>
-    <a id="nav-link4" data-scroll data-easing="easeInQuint" href="#partnership">Partnership</a>
-    <a id="nav-link5" data-scroll data-easing="easeInQuint" href="#lokasi">Location</a>
+    <a id="nav-link" data-scroll data-easing="easeInQuint" href="#ecg">ECG</a>
+    <a id="nav-link1" data-scroll data-easing="easeInQuint" href="#pm">Patient Monitoring</a>
+    <a id="nav-link2" data-scroll data-easing="easeInQuint" href="#ult">Ultrasound</a>
+    <a id="nav-link3" data-scroll data-easing="easeInQuint" href="#hem">Hematology</a>
+    <a id="nav-link4" data-scroll data-easing="easeInQuint" href="#ms">Medical Softwares</a>
+    <a id="nav-link5" data-scroll data-easing="easeInQuint" href="#ser">Services</a>
+    <a id="nav-link5" data-scroll data-easing="easeInQuint" href="#mc">Medical Consumables</a>
     <a id="nav-link5" data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
   </div> <!-- End Header -->
-
+  <script>
+    function showSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+    function hideSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none'
+    }
+  </script>
 
   <!-- ======= Outlet End ======= -->
 
   <!-- ======= Galery Start ======= -->
   <div class="gallery container">
     <!-- Medical Equipment Section -->
-    <section class="hero-section">
+    <section class="hero-section" id="">
       <div class="content-center">
         <h1 class="main-title">Medical Equipment</h1>
         <p class="sub-title">State-of-the-art tools for medical professionals</p>
@@ -148,8 +163,478 @@
       </div>
     </section>
   
+     <!-- ECG products -->
+     <section class="software-section" id="ecg">
+      <div class="content-center">
+        <h1 class="main-title2">ECG</h1>
+        <p class="sub-title2">Comprehensive ECG products. </p>
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+      </div>
+  
+      <div class="image-row">
+        <div class="image-item">
+          <a href="SE-1200_Pro.html"> <!-- Replace with your desired link -->
+            <img src="assets/img/ECG1.jpg" alt="PACS Software">
+          </a>
+          <h2>SE-1200/1201 Pro</h2>
+          <p>The SE-1200/1201 Pro provides various network solutions to share the ECG data with IT system via LAN, Wi-Fi, Bluetooth or 4G.</p>
+        </div>
+        
+        <div class="image-item">
+          <a href="ECG-iSE-Series.html">
+          <img src="assets/img/ECG2.jpg" alt="HIMS System">
+          </a>
+          <h2>iSE</h2>
+          <p>The iSE provides various network solutions to share the ECG data with IT system via LAN, Wi-Fi, Bluetooth or 4G.</p>
+        </div>
+        <div class="image-item">
+          <a href="SE1202.html">
+          <img src="assets/img/ECG3.jpg" alt="HIMS System">
+        </a>
+          <h2>SE-1202</h2>
+          <p>Without any third-party software, SE-1202 is able to directly access hospital systems via HL7/DICOM.In addition, 4G network is now ready on SE-1202.</p>
+        </div>
+        
+      </div>
+
+      <div class="image-row">
+        <div class="image-item">
+          <a href="SE-18.html">
+          <img src="assets/img/ECG4.jpg" alt="PACS Software">
+        </a>
+          <h2>SE-18</h2>
+          <p>The flexible lead system enables users to select the applicable leads according to clinical requirements.Advanced features are also supported, including Pharma Study, HRV, VCG, TVCG, and SAECG.</p>
+        </div>
+        <div class="image-item">
+          <a href="SE-12.html">
+          <img src="assets/img/ECG5.jpg" alt="HIMS System">
+        </a>
+          <h2>SE-12 Series</h2>
+          <p>The SE-12 Series ECG devices support your diagnosis with trustful references, satisfying every demanding need of your practice.With different models targeted in different practices, you may choose accordingly for resting ECG, stress test, or mobile applications.</p>
+        </div>
+        <div class="image-item">
+          <a href="SE-601.html">
+          <img src="assets/img/ECG6.jpg" alt="HIMS System">
+        </a>
+          <h2>SE-601 Series</h2>
+          <p>Integraded with its alphanumeric keyboard, built-in rechargeable battery and large storage capacity, the SE-601 Series is prepared to be carried through your daily practices.</p>
+        </div>
+      </div>
+
+      <div class="image-row">
+        <div class="image-item">
+          <a href="SE-301.html">
+          <img src="assets/img/ECG7.jpg" alt="PACS Software">
+        </a>
+          <h2>SE-301</h2>
+          <p>It is specifically developed for those who pursue portability without compromising performance,especially in mobile applications, such as ward rounding, emergency room, home visiting, etc.</p>
+        </div>
+        <div class="image-item">
+          <a href="SE-3_300.html">
+          <img src="assets/img/ECG8.jpg" alt="HIMS System">
+        </a>
+          <h2>SE-3/300</h2>
+          <p>The SE-3 and SE-300 are compact 3-channel ECG devices that enable 12-lead simultaneous sampling and displaying.With the quick start capability and one-button workflow, they can be your reliable assistant anytime on duty.</p>
+        </div>
+        <div class="image-item">
+          <a href="SE-1515.html">
+          <img src="assets/img/ECG9.jpg" alt="HIMS System">
+        </a>
+          <h2>SE-1515</h2>
+          <p>Combining exquisite ECG sampling boxes and comprehensive software together, the SE-1515 provides efficient access to:resting ECG test, stress test, ECG data management and ECG network gateway.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patient Monitoring -->
+    <section class="software-section" id="pm">
+      <div class="content-center">
+        <h1 class="main-title2">Patient Monitoring</h1>
+        <p class="sub-title2">Modular patient Monitoring.</p>
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+      </div>
+  
+      <div class="image-row">
+        <div class="image-item">
+          <a href="PM-iV.html">
+          <img src="assets/img/pat1.jpg" alt="PACS Software">
+        </a>
+          <h2>iV Series</h2>
+          <p>The iV Series patient monitor earns technology progression when keeping the workflow clean and clear.</p>
+        </div>
+        <div class="image-item">
+          <a href="PMeliteV.html">
+          <img src="assets/img/pat2.png" alt="HIMS System">
+        </a>
+          <h2>elite V series</h2>
+          <p>With its plug-and-play modules, the elite V series is able to monitor a wide range of parameters simultaneously, adapting from critical cares to anesthesia monitoring.</p>
+        </div>
+        <div class="image-item">
+          <a href="PMiM20.html">
+          <img src="assets/img/pat3.jpg" alt="HIMS System">
+        </a>
+          <h2>iM20 </h2>
+          <p>Serving as both a multi-parameter module of elite V series and a transport monitor, the iM20 provides a seamless monitoring solution both inside and outside hospital, connecting from emergency to critial cares.</p>
+        </div>
+        
+      </div>
+
+      <div class="content-center">
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+        <p class="sub-title2">Compact patient Monitoring.</p>
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+      </div>
+      <div class="image-row">
+        <div class="image-item">
+          <a href="PMiX.html">
+          <img src="assets/img/pat7.jpg" alt="PACS Software">
+        </a>
+          <h2>iX Series</h2>
+          <p>the iX Series patient monitor earns technology progression when keeping the workflow clean and clear.</p>
+        </div>
+        <div class="image-item">
+          <a href="PMiM.html">
+          <img src="assets/img/pat5.png" alt="HIMS System">
+        </a>
+          <h2>IM series</h2>
+          <p>the iM series are able to satisfy most clinical demands from general wards to cardiac units, from intensive care units to operation theatres.</p>
+        </div>
+        <div class="image-item">
+          <a href="CXSeries.html">
+          <img src="assets/img/pat6.jpg" alt="HIMS System">
+        </a>
+          <h2>CX series</h2>
+          <p>CX series patient monitors, precise target to primary clinical demands, ensure high quality, durability, and accuracy affordably.</p>
+        </div>
+      </div>
+      <div class="content-center">
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+        <p class="sub-title2">Vital signs.</p>
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+      </div>
+      <div class="image-row">
+        <div class="image-item">
+          <a href="iM3s.html">
+          <img src="assets/img/vit1.jpg" alt="PACS Software">
+        </a>
+          <h2>iM3s</h2>
+          <p>iM3s presents a fashionable handheld design,delivering extraordinary portability throughout spot checks. Though small in size, it integrates all necessary vital measurements together, including SpO2, NIBP and optional TEMP.</p>
+        </div>
+        <div class="image-item">
+          <a href="iM3.html">
+          <img src="assets/img/vit2.jpg" alt="HIMS System">
+        </a>
+          <h2>iM3</h2>
+          <p>Bringing in full options of SpO2, NIBP and Temp, iM3 serves for both monitoring and spot check applications.</p>
+        </div>
+        <div class="image-item">
+          <a href="M3_M3A.html">
+          <img src="assets/img/vit3.jpg" alt="HIMS System">
+        </a>
+          <h2>M3/M3A</h2>
+          <p>the M3/M3A provides essential measurements of patient's SpO2, NIBP, and body temperature, bringing high performance vital signs to primary and sub-acute cares.</p>
+        </div>
+      </div>
+      <div class="image-row">
+        <div class="image-item">
+          <a href="M3B.html">
+          <img src="assets/img/vit4.jpg" alt="PACS Software">
+        </a>
+          <h2>M3B</h2>
+          <p>With SpO2 and CO2 monitoring, the M3B provides comprehensive figures for the respiratory system.</p>
+        </div>
+        <div class="image-item">
+          <a href="H100B_H100N.html">
+          <img src="assets/img/vit5.jpg" alt="HIMS System">
+        </a>
+          <h2>H100 models</h2>
+          <p>Designed to be pocket-size oximeters, the H100 models can be easily carried and used everywhere. With AA batteries, the device can continuously work up to 48 hours.</p>
+        </div>
+        <div class="image-item">
+          <a href="H10.html">
+          <img src="assets/img/vit6.jpg" alt="HIMS System">
+        </a>
+          <h2>H10</h2>
+          <p>Integrating complex components in a fingertip size product, the H10 is small in size. It combines SpO2, PR, and plethysmogram/bar graph on one display.</p>
+        </div>
+      </div>
+      <div class="content-center">
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+        <p class="sub-title2">Telemetry & IT.</p>
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+      </div>
+      <div class="image-row">
+        <div class="image-item">
+          <a href="iT30_50.html">
+          <img src="assets/img/tele1.jpg" alt="PACS Software">
+        </a>
+          <h2>iT30/iT50</h2>
+          <p>The iT30/iT50 telemetry monitor provides advanced monitoring throughout your facility. Designed to help improve outcomes, the iT30/iT50 portable patient monitor allows continuous surveillance during ambulation and transportation.</p>
+        </div>
+        <div class="image-item">
+          <a href="iT20.html">
+          <img src="assets/img/tele2.jpg" alt="HIMS System">
+        </a>
+          <h2>iT20</h2>
+          <p>As a wearable transmitter, the iT20 works together with the MFM-CMS central monitoring station via Wi-Fi connections. It provides ECG, SpO2 and Respiration monitoring for mobile patients indoors.</p>
+        </div>
+        <div class="image-item">
+          <a href="MFM-CMS.html">
+          <img src="assets/img/tele3.jpg" alt="HIMS System">
+        </a>
+          <h2>MFM-CMS</h2>
+          <p>It offers seamless monitoring management from transportation to hospitalization, from mobile patients to bedside cares, from intensive units to operation theatres.</p>
+        </div>
+      </div>
+      <!-- Ultrasound -->
+      <section class="software-section" id="ult">
+        <div class="content-center">
+          <h1 class="main-title2">Ultrasound</h1>
+          <p class="sub-title2">Cart-based colour doppler.</p>
+          <div class="space5">
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
+          </div>
+        </div>
+    
+        <div class="image-row">
+          <div class="image-item">
+            <img src="assets/img/ult1.jpg" alt="PACS Software">
+            <h2>Acclarix LX3</h2>
+            <p>Integrated with compact appearance, cutting-edge technology and intelligent workflow, Acclarix LX3 is to provide more valuable innovation.</p>
+          </div>
+          <div class="image-item">
+            <img src="assets/img/ult2.jpg" alt="HIMS System">
+            <h2>Acclarix LX9</h2>
+            <p>When referring to performance, renovation and multiformity - there is one ultrasound system that delivers more.</p>
+          </div>
+          <div class="image-item">
+            <img src="assets/img/ult3.jpg" alt="HIMS System">
+            <h2>Acclarix LX8 </h2>
+            <p>The Acclarix LX8 Ultrasound System features a host of design breakthroughs that make day-to-day operation easy , fast and intuitive.</p>
+          </div>
+          
+        </div>
+  
+        <div class="content-center">
+          <div class="space5">
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
+          </div>
+          <p class="sub-title2">Portable colour doppler.</p>
+          <div class="space5">
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
+          </div>
+        </div>
+        <div class="image-row">
+          <div class="image-item">
+            <img src="assets/img/ult5.jpg" alt="PACS Software">
+            <h2>Acclarix AX9</h2>
+            <p>Powered by the latest SynSight zoon sonography platform,the Acclarix AX9 offers extraordinary profitability in both imaging quality and automatic solutions.</p>
+          </div>
+          <div class="image-item">
+            <img src="assets/img/ult6.jpg" alt="HIMS System">
+            <h2>Acclarix AX8</h2>
+            <p>the AX8 offers extraordinary profitability in both imaging quality and automatic solutions,combined with its portable design and simplified workflow.</p>
+          </div>
+          <div class="image-item">
+            <img src="assets/img/ult7.jpg" alt="HIMS System">
+            <h2>Acclarix AX3</h2>
+            <p>Alone with the unique dual – sockets inspiration in a 4.5kg lightweight magnesium alloy body, the remarkable Acclarix AX3 Compact Ultrasound System delivers a surprising combination of features to meet the demands of point-of-care imaging. </p>
+          </div>
+        </div>
+        <div class="image-row">
+          <div class="image-item">
+            <img src="assets/img/ult8.jpg" alt="PACS Software">
+            <h2>Acclarix AX2</h2>
+            <p>The Acclarix AX2 has been design from the relentless focus on delivering uncompromising performance at a cost-effect price to each sonographer.</p>
+          </div>
+          <div class="image-item">
+            <img src="assets/img/ult9.jpg" alt="HIMS System">
+            <h2>U60</h2>
+            <p> The U60 is focused on providing clear imaging for confident diagnosis and procedure guidance, a compact, user centered design, and a comprehensive set of applications.</p>
+          </div>
+          <div class="image-item">
+            <img src="assets/img/ult10.jpg" alt="HIMS System">
+            <h2>U50</h2>
+            <p>The U50 PE is an economical color Doppler diagnostic ultrasound system.</p>
+          </div>
+        </div>
+        
+        
+    </section>
+
+    <!-- Hematology -->
+    <section class="software-section" id="hem">
+      <div class="content-center">
+        <h1 class="main-title2">Hematology</h1>
+        <p class="sub-title2">5-PART Hematology.</p>
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+      </div>
+  
+      <div class="image-row">
+        <div class="image-item">
+          <img src="assets/img/HEM1.jpg" alt="PACS Software">
+          <h2>H80</h2>
+          <p>Introducing our new hematology analyzer, designed to lighten the burden and streamline workflow, ensuring efficient and accurate results for every blood sample.</p>
+        </div>
+        <div class="image-item">
+          <img src="assets/img/HEM2jpg.jpg" alt="HIMS System">
+          <h2>H80S</h2>
+          <p>Designed with reliability and efficiency, Our H80 Series identify the pain points of lab, and provide valuable solutions to meet the needs of robust performance and simplified workload at the end-users.</p>
+        </div>
+        
+        
+      </div>
+      <div class="image-row">
+        <div class="image-item">
+          <img src="assets/img/HEM3.jpg" alt="PACS Software">
+          <h2>H60</h2>
+          <p>Equipped with an integrated, intuitive operation system, it brings a reliable system with clinical values and effective cost control. The H60 series is tailored to you. </p>
+        </div>
+        <div class="image-item">
+          <img src="assets/img/HEM4.jpg" alt="HIMS System">
+          <h2>H60S</h2>
+          <p>The H60 Series is positioned in low to moderate volume laboratories, committed to lightening your work with an enjoyable experience.</p>
+        </div>
+        
+        
+      </div>
+
+      <div class="content-center">
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+        <p class="sub-title2">3-PART Hematology.</p>
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+      </div>
+      <div class="image-row">
+        <div class="image-item">
+          <img src="assets/img/HEM5.jpg" alt="PACS Software">
+          <h2>H30 Pro</h2>
+          <p>H30 Pro is a robust 3-part hematology analyzer integrating a range of advanced features intended for a cost-minded and quality-focused clinical laboratory.</p>
+        </div>
+        <div class="image-item">
+          <img src="assets/img/HEM6.jpg" alt="HIMS System">
+          <h2>H30</h2>
+          <p>"Simple yet Reliable, Compact yet Powerful." This notion becomes the new trend of market. </p>
+        </div>
+        
+      </div>
+      
+      <div class="content-center">
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+        <p class="sub-title2">Reagents</p>
+        <div class="space5">
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+        </div>
+      </div>
+      <div class="image-row">
+        <div class="image-item">
+          <img src="assets/img/HEM7.jpg" alt="PACS Software">
+          <h2>Hematology Control & Calibrator</h2>
+          <p>Combining up to 33 parameters in total, the Edan hematology control mainly covers the commonly tested full blood profile in a single control.  In order to ensure the highest possible standards in laboratory testing, calibrator is recommended to perform. As a  complete hematology system, control and calibrator are signification components as well as to evaluate the precision and accuracy.</p>
+        </div>
+        <div class="image-item">
+          <img src="assets/img/HEM9.jpg" alt="HIMS System">
+          <h2>Hematology reagents </h2>
+          <p>The proprietary reagents equipped with Edan hematology analyzer, 
+
+            ensure not only low reagent consumption, but excellent performance. 
+            
+            Dedicated hematology reagents are important components as complete hematology system to ensure reliable results. </p>
+        </div>
+        
+      </div>
+      
+      
+  </section>
     <!-- Medical Software Section -->
-    <section class="software-section">
+    <section class="software-section" id="ms">
       <div class="content-center">
         <h1 class="main-title2">Medical Softwares</h1>
         <p class="sub-title2">Innovative software solutions for healthcare management</p>
@@ -187,9 +672,8 @@
         </div>
       </div>
     </section>
-  
     <!-- Services Section -->
-    <section class="services-section">
+    <section class="services-section" id="ser">
       <div class="content-center">
         <h1 class="main-title2">Our Services</h1>
         <p class="sub-title2">Expert installation, repair, and modification services</p>
@@ -217,9 +701,9 @@
         </div>
       </div>
     </section>
-  
+    
     <!-- Medical Consumables Section -->
-    <section class="consumables-section">
+    <section class="consumables-section" id="mc">
       <div class="content-center">
         <h1 class="main-title2">Medical Consumables</h1>
         <p class="sub-title2">Explore our extensive range of medical consumables</p>

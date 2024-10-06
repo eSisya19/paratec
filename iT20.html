@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="applicable-device" content="pc,mobile">
+<title>PM iT20-Edan</title>
+<meta name="keywords" content="Edan, Patient Monitor, Telemetry, Cardiologry, Mindray">
+<meta name="description" content="As a wearable transmitter, the iT20 works together with the MFM-CMS central monitoring station via Wi-Fi connections. It provides ECG, SpO2 and Respiration monitoring for mobile patients indoors.">
+<meta name="google-site-verification" content="3ylyQ05OsR0ZBXy0Cec7KHNbSPw_aej8Uk4-3TAgkPg">
+<link rel="stylesheet" type="text/css" href="./iT20_files/layui.css">
+<link rel="stylesheet" type="text/css" href="./iT20_files/animate.min.css">
+<link rel="stylesheet" type="text/css" href="./iT20_files/layout.css">
+<script type="text/javascript" async="" src="./iT20_files/analytics.js.download"></script><script type="text/javascript" async="" src="./iT20_files/js"></script><script async="" src="./iT20_files/gtm.js.download"></script><script async="" src="./iT20_files/gtm.js.download"></script><script src="./iT20_files/hm.js.download"></script><script type="text/javascript" src="./iT20_files/jquery.min.js.download"></script>
+<script type="text/javascript" src="./iT20_files/swiper.jquery.min.js.download"></script>
+<script type="text/javascript" src="./iT20_files/wow.jquery.js.download"></script>
+<script type="text/javascript" src="./iT20_files/TweenMax.min.js.download"></script>
+<script type="text/javascript" src="./iT20_files/jquery.mousewheel.min.js.download"></script>
+<script type="text/javascript" src="./iT20_files/layui.js.download"></script>
+<!--统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?83e78da06ea90e0e8e223cf48d3edabb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5W3MHLK');</script>
+<!-- End Google Tag Manager -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./iT20_files/js(1)"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-EJPVZY84TM');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5W3MHLK');</script>
+<!-- End Google Tag Manager -->
+<script src="./iT20_files/share.js.download"></script></head>
+
+<body class="active">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5W3MHLK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- inheader 头部 start -->
+<header class="inheader clearfix active" id="he">
+
+    
+    
+    <div class="inlogo fl">
+        <a href="index.html">
+            <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="EDAN 理邦仪器">
+        </a>
+    </div>
+        <li class=" ">
+            <h3> <a class="innav-a" href="products.html">Back</a><span class="innav-span"></span></h3>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+    
+
+    <!-- mobile-btn 移动端导航 start -->
+    <div class="mobile-btn fr">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <!-- mobile-btn 移动端导航 end -->
+
+    
+
+</header>
+<!-- inheader 头部 end -->
+<script>
+     $(function () {
+        $("[name='topformBySearch']").submit(function () {
+            var keywords = $("[name='tbtopSearchKeyword']").val();
+            if (keywords == "") {
+                layer.msg("Please input keywords!", 1, 8);
+                return false;
+            }
+            if (!CheckInput(keywords)) {
+                layer.msg("Keywords contain special characters, please re-enter!", 1, 8);
+                return false;
+            }
+            window.location.href = "/search/index.html?keytext=" + escape(keywords);
+            return false;
+        });
+    })
+
+    function CheckInput(obj) {
+        var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]")
+        if (pattern.test(obj)) {
+            return false;
+        }
+        return true;
+    }
+</script><!-- edition 版本切换 start -->
+<!-- data-lang当前语言版本 英文站en，中文站zh -->
+<div class="edition" data-lang="zh">
+    <div class="edition-con">
+        <div class="edition-text">选择另一个国家或地区，以获得适用于你所在位置的内容和在线购物选项。</div>
+
+        <div class="edition-view">
+            <!-- cn.png中文图标  en.png英文图标 -->
+            <div class="edition-message"><img src="./iT20_files/cn.png" alt=""> <span>中文</span></div>
+
+            <a href="javascript:;" class="edition-a">继续</a>
+        </div>
+        <a href="javascript:;" class="edition-close"><span></span></a>
+    </div>
+</div>
+<!-- edition 版本切换 end --> 
+     <!-- 自定义颜色共用类名 start -->
+    <style>
+        body {
+            background-color: #2c03e2cf;
+        }
+       .nei-ermenu a.active,.productspost-one,.product-bat span,.propost-after1:after{
+            background: #2c03e2cf !important;
+        }
+		.propost-twotxt h3,.propost-twodes,.propost-threetit,.propost-threesw2txt h3,.propost-threesw2txt .propost-threesw2des,.recom-proul li h3,.recom-tit{
+			color: #F99B0C !important;
+		}
+		
+		.prevbtn span,.prevbtn span:after,.nextbtn span,.nextbtn span:after{
+			border-color: #F99B0C !important;
+		}
+		
+		.prevbtn:hover span,.nextbtn:hover span{
+			background: #F99B0C !important;
+		}
+		
+		.prevbtn:hover span:after,.nextbtn:hover span:after{
+			border-color:#2c03e2cf!important
+		}
+		.prevbtn2,.nextbtn2{
+			border-color:#F99B0C !important;
+		}
+		.download-a{
+			border-color: #F99B0C !important;
+			color: #F99B0C !important;
+		}
+		.download-a:hover{
+			color: #e20333cf !important;
+			background: #F99B0C !important;
+		}
+        .inheader{
+            background: #2c03e2cf;
+        }
+        .innav-ul{
+            background: #2c03e2cf;
+        }
+        .innav-a {
+            display: block;
+            width: 100%;
+            line-height: 70px;
+            font-size: 22px;
+            color: #f7f3f3;
+           
+        }
+        .footer {
+            width: 100%;
+            height: 100%;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            background-color: rgba(255, 255, 255, 0.412);
+            color: #000000;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .footer-1 .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+        
+        .footer-logo h1 {
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-1 p {
+            font-size: 13px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        .sosial-media img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .footer-1,
+        .footer-2,
+        .footer-3,
+        .footer-4 {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+        }
+        
+        .footer-2 h1,
+        .footer-3 h1,
+        .footer-4 h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-2 a,
+        .footer-4 a {
+            color: #000;
+            margin-bottom: 5px;
+        }
+        
+        .footer-4 a:hover {
+            color: #ffce09;
+        }
+        
+        .footer-3 p {
+            font-size: 15px;
+            color: #000;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        footer {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.625);
+        }
+        
+        footer h1 {
+            text-align: center;
+            line-height: 50px;
+            color: rgb(0, 0, 0);
+            font-size: 1rem;
+        }
+        
+        footer h1 a {
+            color: #000000;
+            display: inline-block;
+        }
+        
+        footer h1 a:hover {
+            color: #ffce09;
+        }
+        
+        @media screen and (max-width:768px) {
+            .nav {
+                justify-content: space-between;
+                padding: 0px 30px;
+            }
+        
+            .nav a {
+                display: none;
+            }
+        
+            #btn-nav {
+                display: block;
+            }
+        
+            .box-menu {
+                flex-direction: column;
+                margin: 10px;
+                width: 280px;
+            }
+        
+            .area-menu {
+                width: 260px;
+                height: 220px;
+            }
+        
+            .footer {
+                flex-direction: column;
+            }
+        
+            .area-visi .main-carousel {
+                width: 300px;
+            }
+        
+            .area-visi img {
+                width: 300px;
+            }
+        
+            .visi-kiri {
+                width: 300px;
+            }
+        
+            .box-visi img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
+        @media screen and (max-width:600px) {
+            .nav-menu {
+                width: 100%;
+            }
+        
+            .beranda span {
+                font-size: 30px;
+            }
+        
+            .tentang img {
+                width: 300px;
+                height: 260px;
+            }
+        
+            .area-tentang {
+                width: 300px;
+            }
+        
+            .main-carousel {
+                width: 95%;
+            }
+        
+            .main-carousel .carousel-cell img {
+                margin: 10px;
+            }
+        }
+   </style>
+    <!-- 自定义颜色共用类名 start -->
+         <!-- nei-banner 内页banner start -->
+<div class="nei-banner">
+    
+    
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+ 
+            <div class="swiper-slide">
+                
+                <a href="javascript:;" id="bannerlink">
+                    <img src="./iT20_files/20191108053950_930804.jpg" alt="">
+                </a>
+				
+                
+
+            </div>
+          
+
+        </div>
+    </div>
+</div>
+<!-- nei-banner 内页banner end -->
+        <!-- productspost1 产品详情1 start -->
+    <div class="productspost-one clrwhite">
+        <h2 class="productspost-h2 clr99d4dc wow fadeInUp animated animated" style="visibility: visible; animation-name: fadeInUp;"><span style="color: rgb(255, 255, 255);">
+  
+ 
+ Telemetry via Wi-Fi networks<br>
+ 
+ 
+ </span></h2><div class="productspost-des clr99d4dc wow fadeInUp animated animated" style="visibility: visible; animation-name: fadeInUp;"><p><span style="color: rgb(255, 255, 255);">
+   
+ 
+ As a wearable transmitter, the iT20 works together with the MFM-CMS central monitoring station via Wi-Fi <br>connections. It provides ECG, SpO<sub>2</sub> and Respiration monitoring for mobile patients indoors. 
+ 
+  </span>
+ 
+ 
+ </p></div>
+    </div>
+
+    <div class="propost5-one propost5-three">
+        <div class="swiper-container swiper-container-horizontal">
+            <div class="swiper-wrapper" style="transform: translate3d(-5715px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide before swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="2" style="width: 1905px;">
+                     <img src="./iT20_files/20191108102942_274561.jpg" alt="Lightweight Design">
+                    <div class="propost-twotxt">
+                        <h4>Lightweight Design</h4>
+                         
+                        <div class="propost-twodes clr595757">
+                            
+                             <p>Weight: &lt;140g</p>
+                                
+                        </div>
+                    </div>
+                </div>
+                 
+                <div class="swiper-slide before swiper-slide-duplicate-next" data-swiper-slide-index="0" style="width: 1905px;">
+                     <img src="./iT20_files/20191108054026_680841.jpg" alt="IPX7 Waterproof Design">
+                    <div class="propost-twotxt">
+                        <h4>IPX7 Waterproof Design</h4>
+                         
+                        <div class="propost-twodes clr595757">
+                            
+                             <p>For easy cleaning and to prevent accidental water damage</p>
+                                
+                        </div>
+                    </div>
+                </div>
+                 
+                <div class="swiper-slide before swiper-slide-prev" data-swiper-slide-index="1" style="width: 1905px;">
+                     <img src="./iT20_files/20191206032832_044976.jpg" alt="Ultimate Battery Duration">
+                    <div class="propost-twotxt">
+                        <h4>Ultimate Battery Duration</h4>
+                         
+                        <div class="propost-twodes clr595757">
+                            
+                             <p>100 hours battery duration with 20 seconds hot swap power backup</p>
+                                
+                        </div>
+                    </div>
+                </div>
+                 
+                <div class="swiper-slide before swiper-slide-active after" data-swiper-slide-index="2" style="width: 1905px;">
+                     <img src="./iT20_files/20191108102942_274561.jpg" alt="Lightweight Design">
+                    <div class="propost-twotxt">
+                        <h4>Lightweight Design</h4>
+                         
+                        <div class="propost-twodes clr595757">
+                            
+                             <p>Weight: &lt;140g</p>
+                                
+                        </div>
+                    </div>
+                </div>
+                 
+            <div class="swiper-slide before swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0" style="width: 1905px;">
+                     <img src="./iT20_files/20191108054026_680841.jpg" alt="IPX7 Waterproof Design">
+                    <div class="propost-twotxt">
+                        <h4>IPX7 Waterproof Design</h4>
+                         
+                        <div class="propost-twodes clr595757">
+                            
+                             <p>For easy cleaning and to prevent accidental water damage</p>
+                                
+                        </div>
+                    </div>
+                </div></div>
+            <a href="javascript:;" class="prevbtn btnbg2"><span></span></a>
+            <a href="javascript:;" class="nextbtn btnbg2"><span></span></a>
+        </div>
+    </div>
+
+    <div class="propost5-one propost5-two">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                 
+                <div class="swiper-slide before after">
+                    <img src="./iT20_files/20191108054440_587078.jpg" alt="Smart Lead Identification">
+                    <div class="propost-twotxt">
+                       <h4>Smart Lead Identification</h4>
+                          
+                        <div class="propost-twodes clr595757">
+                            
+                             <p>The iT20 identifies 3/5-lead ECG cable automatically and picks the lead map accordingly without manual interventions.</p>
+                                
+                        </div>
+                    </div>
+                </div>
+                 
+            </div>
+            <a href="javascript:;" class="prevbtn btnbg2" style="display: none;"><span></span></a>
+            <a href="javascript:;" class="nextbtn btnbg2" style="display: none;"><span></span></a>
+        </div>
+    </div>
+
+    <div class="propost5-one propost5-four">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                 
+                <div class="swiper-slide before after">
+                     <img src="./iT20_files/20191108054059_180812.jpg" alt="Remote Pager">
+                    <div class="propost-twotxt">
+                        <h4>Remote Pager</h4>
+                         
+                        <div class="propost-twodes clr595757">
+                            
+                             <p>Unlike in traditional telemetry systems that only the patient can call the nurse, in the iT20 telemetry system, the nurse can also call any mobile patient from the MFM-CMS central station.</p>
+                                
+                        </div>
+                    </div>
+                </div>
+                 
+            </div>
+            <a href="javascript:;" class="prevbtn btnbg2" style="display: none;"><span></span></a>
+            <a href="javascript:;" class="nextbtn btnbg2" style="display: none;"><span></span></a>
+        </div>
+    </div>
+    
+    
+
+    <div class="productspost-three bgwhite" style="background: #fff;">
+        <div class="commonweb">
+            <div>
+            <h3 class="propost4-oneh3 paddingbtm0" style="white-space: normal;">Rich Display Info on Patient's Side</h3><div class="propost-threedes wow fadeInUp textcenter clr595757 animated" style="white-space: normal; visibility: hidden; animation-name: none;">On its high-brightness OLED display, the iT20 is able to present either the measurements or the trends.</div>
+            </div>    
+
+            <div class="propost-threesw2">
+                <div class="swiper-container swiper-container-horizontal">
+                    <div class="swiper-wrapper">
+                        
+                        <div class="swiper-slide swiper-slide-active" style="width: 300px;">
+                            <a href="javascript:;">
+                                <div class="propost-threesw2img">
+                                    <img src="./iT20_files/20191108054155_837116.png" alt="ECG &amp; SpO&lt;sub&gt;2&lt;/sub&gt;">
+                                </div>
+                                
+                                <div class="propost-threesw2txt">
+
+                                    <h3>ECG &amp; SpO<sub>2</sub></h3>
+                                    
+                                    <div class="propost-threesw2des">
+                                      
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                         
+                        <div class="swiper-slide swiper-slide-next" style="width: 300px;">
+                            <a href="javascript:;">
+                                <div class="propost-threesw2img">
+                                    <img src="./iT20_files/20191108054159_837231.png" alt="ECG &amp; RR">
+                                </div>
+                                
+                                <div class="propost-threesw2txt">
+
+                                    <h3>ECG &amp; RR</h3>
+                                    
+                                    <div class="propost-threesw2des">
+                                      
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                         
+                        <div class="swiper-slide" style="width: 300px;">
+                            <a href="javascript:;">
+                                <div class="propost-threesw2img">
+                                    <img src="./iT20_files/20191108054202_993340.png" alt="SpO&lt;sub&gt;2&lt;/sub&gt; &amp; PR">
+                                </div>
+                                
+                                <div class="propost-threesw2txt">
+
+                                    <h3>SpO<sub>2</sub> &amp; PR</h3>
+                                    
+                                    <div class="propost-threesw2des">
+                                      
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                         
+                        <div class="swiper-slide" style="width: 300px;">
+                            <a href="javascript:;">
+                                <div class="propost-threesw2img">
+                                    <img src="./iT20_files/20191108054206_321441.png" alt="Large Font">
+                                </div>
+                                
+                                <div class="propost-threesw2txt">
+
+                                    <h3>Large Font</h3>
+                                    
+                                    <div class="propost-threesw2des">
+                                      
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                         
+                        <div class="swiper-slide" style="width: 300px;">
+                            <a href="javascript:;">
+                                <div class="propost-threesw2img">
+                                    <img src="./iT20_files/20191108054209_915211.png" alt="Trend">
+                                </div>
+                                
+                                <div class="propost-threesw2txt">
+
+                                    <h3>Trend</h3>
+                                    
+                                    <div class="propost-threesw2des">
+                                      
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                         
+                    </div>
+                </div>
+
+                <div class="product-bat swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span></div>
+                <a href="javascript:;" class="prevbtn2 swiper-button-disabled"></a>
+                <a href="javascript:;" class="nextbtn2"></a>
+            </div>
+             <!--
+              <div class="margin95">
+				<a class="download-a " href="javascript:;">DOWNLOAD</a>
+	            <div class="download-list">
+	            	<ul class="clearfix">
+                        
+	            		<li><a href="https://www.edan.com/Uploads/20230525023922_349644.pdf" target="_blank">iT20</a></li>
+	            		 
+	            	</ul>
+	            </div>
+			</div> 
+               
+            <h2 class="recom-tit clr5f5f5f">Related Products</h2>
+            <ul class="recom-proul ul009dce">
+                
+                 <li>
+                    <a href="https://www.edan.com/product/f/PM_MFM-CMS.html">
+                        <h3>MFM-CMS</h3>
+                        <h4>Central Monitoring System</h4>
+                    </a>
+                </li>
+                   
+            </ul>
+              
+        </div>
+    </div>
+
+     productspost1 产品详情1 end -->
+
+
+  <!-- ======= Footer Start ======= -->
+  <div class="footer">
+    <div class="footer-1">
+      <div class="footer-logo" data-aos="fade-down" data-aos-duration="800">
+        <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="">
+        <h1>Paras-TechnologyLTD</h1>
+      </div>
+      <p data-aos="fade-up" data-aos-duration="800">Provide The Best Service <br> Lets make the world a better place</p>
+      <div class="sosial-media">
+        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL">
+          <img src="assets/img/facebook.png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="200">
+        </a>
+        <a href="https://x.com/eSisya19">
+          <img src="assets/img/twitter.png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="300">
+        </a>
+        <a href="https://wa.link/13e0nj">
+          <img src="assets/img/whatsapp (1).png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="300">
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-2">
+      <h1 data-aos="fade-down" data-aos-duration="800" data-aos-delay="200">Contact</h1>
+      <a href="" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">Tel:+260 97 8900232</a>
+      <a href="https://wa.link/13e0nj" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">Whatsapp:+260 974 687 558</a>
+      <a href="gmail.com" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">Email:admin@Paras-Technology.com</a>
+    </div>
+
+    
+    <div class="footer-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+      <h1>Nav</h1>
+      <a data-scroll data-easing="easeInQuint" href="index.html">Home</a>
+      <a data-scroll data-easing="easeInQuint" href="products.html">Products</a>
+      <a data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
+      <!--<a data-scroll data-easing="easeInQuint" href="port.html">Porfolio</a>-->
+    </div>
+  </div>
+  <footer>
+    <h1>&copy; Copyright 2024, <a href=""> PARAS-TECHNOLOGY LIMITED</a> All Rights Reserved</h1>
+  </footer>
+  <!-- ======= Footer End ======= -->
+ <script type="text/javascript" src="./iT20_files/layout.js.download"></script>
+	
+
+
+</body></html>
