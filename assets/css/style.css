@@ -841,7 +841,12 @@ body{
         display: none;
         width: 250px
     }
-     .contact-inputs{
+    .contact-inputs{
         width: 80vw;
+    }
+}
+@media(max-width:800px){
+    .prod p{
+      display: none;
     }
 }
