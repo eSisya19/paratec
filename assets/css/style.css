@@ -845,8 +845,11 @@ body{
         width: 80vw;
     }
 }
-@media(max-width:800px){
+@media(max-width:810px){
     .prod p{
       display: none;
+    }
+    #nophones {
+        display: none;
     }
 }
