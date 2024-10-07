@@ -841,4 +841,7 @@ body{
         display: none;
         width: 250px
     }
+     .contact-inputs{
+        width: 80vw;
+    }
 }
