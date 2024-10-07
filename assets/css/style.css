@@ -845,7 +845,7 @@ body{
         width: 80vw;
     }
 }
-@media(max-width:810px){
+@media(max-width:900px){
     .prod p{
       display: none;
     }
