@@ -752,7 +752,7 @@ body{
     height:15px;
 }
 .contact-right img{
-    width: 700px;
+    width: 450px;
 }
 @media(max-width:950px){
     .contact-inputs{
