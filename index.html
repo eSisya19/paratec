@@ -374,7 +374,83 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const beranda = document.getElementById('beranda');
+    const images = [
+      'assets/img/1487-1-philips-heartstart-xl.jpg',
+      'assets/img/1487-1-philips-heartstart-xl.jpg',
+      'assets/img/1487-1-philips-heartstart-xl.jpg'
+    ];
 
+    function getRandomPosition() {
+      const x = Math.floor(Math.random() * (beranda.offsetWidth - 100));
+      const y = Math.floor(Math.random() * (beranda.offsetHeight - 100));
+      return { x, y };
+    }
+
+    function createImageElement(src) {
+      const img = document.createElement('img');
+      img.src = src;
+      img.style.position = 'absolute';
+      const { x, y } = getRandomPosition();
+      img.style.left = `${x}px`;
+      img.style.top = `${y}px`;
+      img.style.width = '100px';
+      img.style.height = '100px';
+      img.onload = () => {
+        img.style.display = 'block';
+      };
+      img.onerror = () => {
+        console.error(`Failed to load image: ${src}`);
+      };
+      return img;
+    }
+
+    images.forEach(src => {
+      const imgElement = createImageElement(src);
+      beranda.appendChild(imgElement);
+    });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const beranda = document.getElementById('beranda');
+    const images = [
+      'assets/img/image1.png',
+      'assets/img/image2.png',
+      'assets/img/image3.png'
+    ];
+
+    function getRandomPosition() {
+      const x = Math.floor(Math.random() * (beranda.offsetWidth - 100));
+      const y = Math.floor(Math.random() * (beranda.offsetHeight - 100));
+      return { x, y };
+    }
+
+    function createImageElement(src) {
+      const img = document.createElement('img');
+      img.src = src;
+      img.style.position = 'absolute';
+      const { x, y } = getRandomPosition();
+      img.style.left = `${x}px`;
+      img.style.top = `${y}px`;
+      img.style.width = '100px';
+      img.style.height = '100px';
+      return img;
+    }
+
+    function placeImagesRandomly() {
+      beranda.innerHTML = ''; // Clear previous images
+      images.forEach(src => {
+        const imgElement = createImageElement(src);
+        beranda.appendChild(imgElement);
+      });
+    }
+
+    setInterval(placeImagesRandomly, 2000); // Change images every 2 seconds
+  });
+</script>
 </body>
 
 </html>
