@@ -166,25 +166,26 @@
     }
     
     function createImageForSmallScreen(src) {
-        const img = document.createElement('img');
-        img.src = src;
-        img.className = 'image-container';
-    
-        // Set position and size for small screens
-        const maxTop = window.innerHeight - 100;
-        const maxLeft = window.innerWidth - 100;
-    
-        img.style.top = `${Math.random() * maxTop}px`;
-        img.style.left = `${Math.random() * maxLeft}px`;
-        img.style.width = '100px';
-        img.style.height = '100px';
-    
-        document.body.appendChild(img);
-    
-        setTimeout(() => {
-            img.remove();
-        }, 5000);
-    }
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'image-container';
+
+    // Set position and size for small screens
+    const imageSize = 70; // Smaller size for small screens
+    const maxTop = Math.max(0, window.innerHeight - imageSize);
+    const maxLeft = Math.max(0, window.innerWidth - imageSize);
+
+    img.style.top = `${Math.random() * maxTop}px`;
+    img.style.left = `${Math.random() * maxLeft}px`;
+    img.style.width = `${imageSize}px`;
+    img.style.height = `${imageSize}px`;
+
+    document.body.appendChild(img);
+
+    setTimeout(() => {
+        img.remove();
+    }, 5000);
+}
     
     function handleImages() {
         const isSmallScreen = window.innerWidth < 768;
