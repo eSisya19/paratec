@@ -63,6 +63,31 @@
       background-color: rgba(0, 0, 0, 0.1);
       color: #650bad;
     }
+    .image-container {
+      position: absolute;
+      animation: throw 5s forwards, fade 5s forwards;
+      opacity: 0.002; /* Reduced opacity */
+      z-index: 1;
+  }
+  @keyframes throw {
+      0% {
+          transform: translate(0, 0) rotate(0deg);
+      }
+      100% {
+          transform: translate(calc(5vw - 10px), calc(5vh - 10px)) rotate(60deg);
+      }
+  }
+  @keyframes fade {
+    0%, 20% {
+        opacity: 0.002;
+    }
+    40%, 60% {
+        opacity: 0.3;
+    }
+    80%, 100% {
+        opacity: 0;
+    }
+}
   </style>
 
 </head>
@@ -104,6 +129,46 @@
   <!-- ======= Home Start ======= -->
   <div class="beranda" id="beranda">
     <span id="typed" data-aos="fade-up" data-aos-duration="500"></span>
+    <script>
+      const images = [
+          'assets/img/03ed1bd45a.jpg.500x500 copy.jpg',
+          'assets/img/Bestodent-Platinum-Dental-Chair-online-at-best-prices-Dentalstall-scaled.jpg',
+          'assets/img/carestream printer copy.jpeg',
+          'assets/img/download (2) copy.jpeg',
+          'assets/img/download copy.jpeg',
+          'assets/img/flat.png',
+          'assets/img/gallery-cr-vita-flex-1.jpg',
+          'assets/img/image324.png',
+          'assets/img/x-ray-film-1643952444-6186521.jpeg',
+          'assets/img/png-transparent-x-ray-generator-digital-radiography-radiology-medical-equipments-medicine-xray-medical-equipment copy.png',
+          'assets/img/refurbished-Logiq-e10-price.jpg'
+      ];
+
+      function createImageElement(src) {
+        const img = document.createElement('img');
+        img.src = src;
+        img.className = 'image-container';
+        img.style.top = `${Math.random() * (991 - 150)}px`;
+            img.style.left = `${Math.random() * (1770 - 150)}px`;
+        img.style.width = '150px';
+        img.style.height = '150px';
+        document.body.appendChild(img);
+
+        setTimeout(() => {
+            img.remove();
+        }, 5000);
+    }
+
+    images.forEach(src => {
+        createImageElement(src);
+    });
+
+    setInterval(() => {
+        images.forEach(src => {
+            createImageElement(src);
+        });
+    }, 2500);
+</script>
   </div>
   <!-- ======= Home End ======= -->
 
