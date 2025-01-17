@@ -148,8 +148,8 @@
         const img = document.createElement('img');
         img.src = src;
         img.className = 'image-container';
-        img.style.top = `${Math.random() * (991 - 150)}px`;
-            img.style.left = `${Math.random() * (1770 - 150)}px`;
+        img.style.top = `${Math.random() * (window.innerHeight - 150)}px`;
+        img.style.left = `${Math.random() * (window.innerWidth - 150)}px`;
         img.style.width = '150px';
         img.style.height = '150px';
         document.body.appendChild(img);
@@ -157,17 +157,17 @@
         setTimeout(() => {
             img.remove();
         }, 5000);
-    }
+      }
 
-    images.forEach(src => {
-        createImageElement(src);
-    });
+      images.forEach(src => {
+          createImageElement(src);
+      });
 
-    setInterval(() => {
-        images.forEach(src => {
-            createImageElement(src);
-        });
-    }, 2500);
+      setInterval(() => {
+          images.forEach(src => {
+              createImageElement(src);
+          });
+      }, 2500);
 </script>
   </div>
   <!-- ======= Home End ======= -->
