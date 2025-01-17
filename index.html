@@ -144,30 +144,67 @@
           'assets/img/refurbished-Logiq-e10-price.jpg'
       ];
 
-      function createImageElement(src) {
+      function createImageForLargeScreen(src) {
         const img = document.createElement('img');
         img.src = src;
         img.className = 'image-container';
-        img.style.top = `${Math.random() * (window.innerHeight - 150)}px`;
-        img.style.left = `${Math.random() * (window.innerWidth - 150)}px`;
+    
+        // Set position and size for large screens
+        const maxTop = 991 - 150;
+        const maxLeft = 1770 - 150;
+    
+        img.style.top = `${Math.random() * maxTop}px`;
+        img.style.left = `${Math.random() * maxLeft}px`;
         img.style.width = '150px';
         img.style.height = '150px';
+    
         document.body.appendChild(img);
-
+    
         setTimeout(() => {
             img.remove();
         }, 5000);
-      }
-
-      images.forEach(src => {
-          createImageElement(src);
-      });
-
-      setInterval(() => {
-          images.forEach(src => {
-              createImageElement(src);
-          });
-      }, 2500);
+    }
+    
+    function createImageForSmallScreen(src) {
+        const img = document.createElement('img');
+        img.src = src;
+        img.className = 'image-container';
+    
+        // Set position and size for small screens
+        const maxTop = window.innerHeight - 100;
+        const maxLeft = window.innerWidth - 100;
+    
+        img.style.top = `${Math.random() * maxTop}px`;
+        img.style.left = `${Math.random() * maxLeft}px`;
+        img.style.width = '100px';
+        img.style.height = '100px';
+    
+        document.body.appendChild(img);
+    
+        setTimeout(() => {
+            img.remove();
+        }, 5000);
+    }
+    
+    function handleImages() {
+        const isSmallScreen = window.innerWidth < 768;
+    
+        images.forEach(src => {
+            if (isSmallScreen) {
+                createImageForSmallScreen(src);
+            } else {
+                createImageForLargeScreen(src);
+            }
+        });
+    }
+    
+    // Call the appropriate function and repeat at intervals
+    handleImages();
+    
+    setInterval(() => {
+        handleImages();
+    }, 2500);
+    
 </script>
   </div>
   <!-- ======= Home End ======= -->
