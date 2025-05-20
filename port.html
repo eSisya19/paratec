@@ -13,181 +13,679 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Page</title>
-    <link rel="stylesheet" href="styles2.css">
+    <title>Our Services - Paras Technology</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    /* Sidebar Styles */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: 250px;
-      z-index: 999;
-      background-color: rgba(245, 245, 245, 0.37);
-      backdrop-filter: blur(10px);
-      box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-      display: none;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-    }
+        :root {
+            --primary-color: cyan;
+            --secondary-color: #09050e;
+            --accent-color: #9370db;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
 
-    /* Button menu styling */
-    .btn-menu {
-      width: 100%;
-      padding: 10px;
-      text-align: right;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    .btn-menu img {
-      cursor: pointer;
-      width: 20px;
-      height: 20px;
-    }
+        body {
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    /* Navigation links */
-    .sidebar a {
-      padding: 10px 20px;
-      text-decoration: none;
-      color: black;
-      font-size: 16px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
 
-    .sidebar a:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-      color: #650bad;
-    }
-  </style>
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background-color: rgba(101, 11, 173, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            height: 100vh;
+            width: 280px;
+            background-color: var(--white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            z-index: 1000;
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(101, 11, 173, 0.1);
+            color: var(--primary-color);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/img/pattern.png');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .service-subtitle {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .service-description {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            flex-grow: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2a2a2a;
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .footer-logo h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .footer-tagline {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .social-media {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .social-icon i {
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: #ddd;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-link i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .copyright a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .service-card {
+                max-width: 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+    </style>
 </head>
 
 <body>
     <header>
         <div class="container">
             <div class="nav">
-                    <a data-scroll data-easing="easeInQuint" href="index.html" data-aos="fade-down" data-aos-duration="400"
-                    data-aos-delay="50">Home</a>
-                <img class="img1" onclick=showSidebar() src="assets/img/LOGO_(Transparent bckgrnd).png" alt="" data-aos="fade-down"
-                    data-aos-duration="1500">
-                
-                    <a data-scroll data-easing="easeInQuint" href="contact.html" data-aos="fade-down"
-                    data-aos-duration="400" data-aos-delay="50">Contact Us</a>
+                <a href="index.html" class="logo">
+                    <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo">
+                    <h1>Paras Technology</h1>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="services.html" class="active">Services</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <button class="menu-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
-        <!-- ======= Navbar ======= -->
-  <div class="sidebar">
-    <div class="btn-menu">
-      <img onclick=hideSidebar() src="assets/img/close.png" alt="" id="btn-menu">
-    </div>
-    <a id="nav-link" data-scroll data-easing="easeInQuint" href="index.html">Home</a>
-    <a id="nav-link5" data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
-  </div> <!-- End Header -->
-  <script>
-    function showSidebar(){
-      const sidebar = document.querySelector('.sidebar')
-      sidebar.style.display = 'flex'
-    }
-    function hideSidebar(){
-      const sidebar = document.querySelector('.sidebar')
-      sidebar.style.display = 'none'
-    }
-  </script>
     </header>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
 
     <section class="hero">
         <div class="container">
-            <!--
-            <h1>Find the best support for your products</h1>
-            <p>Browse support resources, or get in touch with a customer representative</p>
-            -->
+            <div class="hero-content">
+                <h1 class="animate">Medical Technology Solutions</h1>
+                <p class="animate delay-1">Providing cutting-edge medical technology and services to improve healthcare delivery and patient outcomes</p>
+            </div>
         </div>
     </section>
 
-    <section class="support-options">
+    <section class="services">
         <div class="container">
-            <h2>We provide various services, please see if you like any:</h2>
-            <div class="options">
-                <div class="option">
-                    <img src="assets/img/image1.jpg" alt="Option 1">
-                    <h3>MEDICAL HARDWARE & SOFTWARE</h3>
-                    <h4>Supply of Medical hardware and softwares such as PACs software and hardware: complete PACs with RIS and HIS</h4>
+            <h2 class="section-title animate">Our Medical Technology Services</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card animate delay-1">
+                    <div class="service-img">
+                        <img src="assets/img/image1.jpg" alt="Medical Hardware & Software">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">MEDICAL HARDWARE & SOFTWARE</h3>
+                        <h4 class="service-subtitle">Complete Healthcare Technology Solutions</h4>
+                        <p class="service-description">Supply of Medical hardware and software such as PACS software and hardware: complete PACS with RIS and HIS for integrated healthcare information management.</p>
+                    </div>
                 </div>
-                <div class="option">
-                    <img src="assets/img/computer-network-services-768x576-b.png" alt="Option 2">
-                    <h3>MEDICAL NETWORKING</h3>
-                    <h4>Medical Networking: Computer networking and internet networking. </h4>
-                    <p>This Ensures that your network makes sense for your organization while maintaining proper connectivity and permissions is what our certified network professionals do best through our computer network services.</p>
+
+                <!-- Service 2 -->
+                <div class="service-card animate delay-2">
+                    <div class="service-img">
+                        <img src="assets/img/computer-network-services-768x576-b.png" alt="Medical Networking">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">MEDICAL NETWORKING</h3>
+                        <h4 class="service-subtitle">Specialized Healthcare Connectivity</h4>
+                        <p class="service-description">Our certified network professionals ensure your medical network makes sense for your organization while maintaining proper connectivity and permissions through our computer network services.</p>
+                    </div>
                 </div>
-                <div class="option">
-                    <img src="assets/img/image324.png" alt="Option 3">
-                    <h3>DIGITAL MOTION X-RAYS</h3>
-                    <h4>SHMADZU Digital Motion X-ray system: These are powered by battery-powered electric motors that aid in movement as technicians propel the mobile units with less effort.</h4>
-                    <p> Mobile X-ray systems are often used for chest X-rays of patients who cannot be brought to the radiology department. Mobile Imaging provides comprehensive X-ray, EKG, and ultrasound services directly to medical institutions, homes, and businesses. They are typically cheaper and faster than third-party alternatives and can support overburdened in-house image processing departments.</p>
+
+                <!-- Service 3 -->
+                <div class="service-card animate delay-3">
+                    <div class="service-img">
+                        <img src="assets/img/image324.png" alt="Digital Motion X-Rays">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">DIGITAL MOTION X-RAYS</h3>
+                        <h4 class="service-subtitle">Advanced Imaging Solutions</h4>
+                        <p class="service-description">SHIMADZU Digital Motion X-ray systems are powered by battery-powered electric motors that aid in movement as technicians propel the mobile units with less effort, ideal for patients who cannot be brought to the radiology department.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card animate delay-4">
+                    <div class="service-img">
+                        <img src="assets/img/imagw4.jpg" alt="All-in-One R/F System">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">ALL-IN-ONE R/F SYSTEM</h3>
+                        <h4 class="service-subtitle">Comprehensive Radiographic/Fluoroscopy</h4>
+                        <p class="service-description">Our R/F systems show continuous X-ray images on monitors, like an X-ray movie. The image is transmitted to a monitor so the movement of a body part or an instrument or contrast agent through the body can be seen in detail.</p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card animate delay-5">
+                    <div class="service-img">
+                        <img src="assets/img/cr2 copy.jpeg" alt="Fujifilm Prima T2 CR Machine">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">FUJIFILM PRIMA T2 CR</h3>
+                        <h4 class="service-subtitle">High-Speed Imaging Solution</h4>
+                        <p class="service-description">The Fujifilm Prima T2 CR Machine is a table-top reader unit which boasts a world-class high processing speed of 73 IPs/hour, helping reduce patient waiting time and increasing examination workflow efficiency.</p>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card animate delay-5">
+                    <div class="service-img">
+                        <img src="assets/img/image326.png" alt="FDR Smart X">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">FDR SMART X</h3>
+                        <h4 class="service-subtitle">Digital Radiography Excellence</h4>
+                        <p class="service-description">The FDR Smart X offers ceiling suspended X-ray tube configurations and floor-mounted options, providing flexible solutions for your imaging department with high image quality via Fujifilm's latest D-EVO II series DR panels.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <footer class="footer">
         <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo">
+                        <h2>Paras Technology</h2>
+                    </div>
+                    <p class="footer-tagline">Provide The Best Service. Let's make the world a better place through advanced medical technology.</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/eSisya19" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://wa.link/13e0nj" class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a>
+                        <a href="services.html" class="footer-link"><i class="fas fa-chevron-right"></i> Services</a>
+                        <a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Information</h3>
+                    <div class="footer-links">
+                        <a href="tel:+260978900232" class="footer-link">
+                            <i class="fas fa-phone"></i> +260 97 8900232
+                        </a>
+                        <a href="https://wa.link/13e0nj" class="footer-link">
+                            <i class="fab fa-whatsapp"></i> +260 974 687 558
+                        </a>
+                        <a href="mailto:admin@Paras-Technology.com" class="footer-link">
+                            <i class="fas fa-envelope"></i> admin@Paras-Technology.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; Copyright 2025, <a href="index.html">PARAS-TECHNOLOGY LIMITED</a>. All Rights Reserved
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate');
             
-            <div class="options">
-                <div class="option">
-                    <img src="assets/img/imagw4.jpg" alt="Option 1">
-                    <h3> ALL-IN-ONE-R/F SYSTEM</h3>
-                    <h4>All-in-one R/F system: Radiographic/fluoroscopy (R/F) is a type of medical imaging that shows a continuous X-ray image on a monitor, much like an X-ray movie.</h4>
-                    <p> The image is transmitted to a monitor so the movement of a body part or an instrument or contrast agent through the body can be seen in detail.</p>
-                </div>
-                <div class="option">
-                    <img src="assets/img/cr2 copy.jpeg" alt="Option 2">
-                    <h3>FUJIFILM PRIMA T2 CR MACHINE</h3>
-                    <h4>Fujifilm Prima T2 CR Machine: is a table-top reader unit which boasts a world-class high processing speed of 73 IPs/hour.</h4>
-                    <p>In the high speed mode (5 pixels/mm), throughput is enhanced almost 70% compared with FCR PRIMA T (only for IPs of 14″ × 17″ and 14″ × 14″ ). As with all Fujifilm equipment FCR PRIMA T2 is easy to operate. It will help reduce patient waiting time and greatly increase the efficiency of examination workflow.</p>
-                </div>
-                <div class="option">
-                    <img src="assets/img/image326.png" alt="Option 3">
-                    <h3>FDR SMART X</h3>
-                    <h4>FDR Smart X Digital Radiography System: The Smart X offers ceiling suspended X-ray tube configurations as well as a floor-mounted X-ray tube option for use with the upright stand and table. </h4>
-                    <p>providing flexible solutions for your imaging department. Compatible with Fujifilm’s latest D-EVO II series DR panels with their advanced features and high image quality. Also, CR cassette and F/S cassette are available for FDR Smart X.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+            // Initial animation for elements in viewport
+            animatedElements.forEach(element => {
+                if (isInViewport(element)) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                } else {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(20px)';
+                }
+            });
+            
+            // Detect when elements enter viewport during scroll
+            window.addEventListener('scroll', function() {
+                animatedElements.forEach(element => {
+                    if (isInViewport(element) && element.style.opacity === '0') {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.bottom >= 0
+                );
+            }
+        });
+    </script>
 </body>
-<!-- ======= Footer Start ======= -->
-<div class="footer">
-    <div class="footer-1">
-      <div class="footer-logo" data-aos="fade-down" data-aos-duration="800">
-        <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="">
-        <h1>Paras-TechnologyLTD</h1>
-      </div>
-      <p data-aos="fade-up" data-aos-duration="800">Provide The Best Service <br> Lets make the world a better place</p>
-      <div class="sosial-media">
-        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL">
-          <img src="assets/img/facebook.png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="200">
-        </a>
-        <a href="https://x.com/eSisya19">
-          <img src="assets/img/twitter.png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="300">
-        </a>
-        <a href="https://wa.link/13e0nj">
-          <img src="assets/img/whatsapp (1).png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="300">
-        </a>
-      </div>
-    </div>
-
-    <div class="footer-2">
-      <h1 data-aos="fade-down" data-aos-duration="800" data-aos-delay="200">Contact</h1>
-      <a href="" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">Tel:+260 97 8900232</a>
-      <a href="https://wa.link/13e0nj" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">Whatsapp:+260 974 687 558</a>
-      <a href="gmail.com" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">Email:admin@Paras-Technology.com</a>
-    </div>
-
-    
-    
-  </div>
-  <footer>
-    <h1>&copy; Copyright 2024, <a href=""> PARAS-TECHNOLOGY LIMITED</a> All Rights Reserved</h1>
-  </footer>
-  <!-- ======= Footer End ======= -->
 
 </html>
