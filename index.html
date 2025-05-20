@@ -16,8 +16,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Paras Technology</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="Medical Equipment and Technology Solutions" name="description">
+  <meta content="Medical Equipment, PACS, Healthcare Technology, X-ray, Dental" name="keywords">
 
   <!-- Favicons -->
   <link rel="shortcut icon" href="assets/img/LOGO_(Transparent bckgrnd).png" type="image/x-icon" />
@@ -29,74 +29,466 @@
   <!-- Template Main CSS File -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    /* Sidebar Styles */
+    /* General Improvements */
+    :root {
+      --primary-color: #0d0c0e;
+      --secondary-color: #efe7f7;
+      --accent-color: #18b7d3;
+      --text-color: #333;
+      --light-bg: #f5f5f5;
+      --white: #ffffff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+    }
+
+    /* Header Improvements */
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+
+    .nav img {
+      height: 50px;
+      transition: var(--transition);
+    }
+
+    .nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    .nav a:hover {
+      color: var(--primary-color);
+      background-color: rgba(101, 11, 173, 0.1);
+    }
+
+    /* Mobile Nav Button */
+    #btn-nav {
+      display: none;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      padding: 5px;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    #btn-nav:hover {
+      background-color: rgba(101, 11, 173, 0.1);
+    }
+
+    /* Sidebar Styles - Improved */
     .sidebar {
       position: fixed;
       top: 0;
-      right: 0;
+      right: -250px; /* Start off-screen */
       height: 100vh;
       width: 250px;
       z-index: 999;
-      background-color: rgba(245, 245, 245, 0.37);
-      backdrop-filter: blur(10px);
-      box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-      display: none;
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(15px);
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
+      transition: right 0.3s ease;
+      padding-top: 15px;
+    }
+
+    .sidebar.active {
+      right: 0;
     }
 
     /* Button menu styling */
     .btn-menu {
       width: 100%;
-      padding: 10px;
+      padding: 15px;
       text-align: right;
     }
 
     .btn-menu img {
       cursor: pointer;
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
+      padding: 5px;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    .btn-menu img:hover {
+      background-color: rgba(101, 11, 173, 0.1);
     }
 
     /* Navigation links */
     .sidebar a {
-      padding: 10px 20px;
+      width: 100%;
+      padding: 15px 25px;
       text-decoration: none;
-      color: black;
-      font-size: 16px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      color: var(--text-color);
+      font-size: 18px;
+      transition: var(--transition);
+      border-left: 3px solid transparent;
     }
 
     .sidebar a:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-      color: #650bad;
+      background-color: rgba(101, 11, 173, 0.1);
+      color: var(--primary-color);
+      border-left: 3px solid var(--primary-color);
     }
+
+    /* Floating image animation */
     .image-container {
       position: absolute;
-      animation: throw 5s forwards, fade 5s forwards;
-      opacity: 0.002; /* Reduced opacity */
+      animation: float 8s ease-in-out infinite, fade 5s forwards;
+      opacity: 0.05; /* Reduced opacity */
       z-index: 1;
-  }
-  @keyframes throw {
-      0% {
-          transform: translate(0, 0) rotate(0deg);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .image-container:hover {
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
       }
-      100% {
-          transform: translate(calc(5vw - 10px), calc(5vh - 10px)) rotate(60deg);
+      50% {
+        transform: translateY(-20px) rotate(5deg);
       }
-  }
-  @keyframes fade {
-    0%, 20% {
-        opacity: 0.002;
     }
-    40%, 60% {
-        opacity: 0.3;
+
+    @keyframes fade {
+      0%, 20% {
+        opacity: 0.02;
+      }
+      40%, 60% {
+        opacity: 0.2;
+      }
+      80%, 100% {
+        opacity: 0.05;
+      }
     }
-    80%, 100% {
-        opacity: 0;
+
+    /* Modern Cards */
+    .box-visi, .box-review {
+      background-color: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      padding: 25px;
+      margin: 15px;
     }
-}
+
+    .box-visi:hover, .box-review:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Buttons */
+    .modern-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      margin-top: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .modern-btn:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(101, 11, 173, 0.2);
+    }
+
+    /* Footer Improvements */
+    .footer {
+      background-color: #f8f9fa;
+      padding-top: 50px;
+      padding-bottom: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .footer h1 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent-color);
+      display: inline-block;
+    }
+
+    .footer a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin-bottom: 10px;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .footer a:hover {
+      color: var(--primary-color);
+      transform: translateX(5px);
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .sosial-media {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .sosial-media img {
+      width: 30px;
+      height: 30px;
+      transition: var(--transition);
+    }
+
+    .sosial-media img:hover {
+      transform: scale(1.2);
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* Hero Section */
+    .beranda {
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /*background: linear-gradient(135deg, rgba(101, 11, 173, 0.8) 0%, rgba(138, 43, 226, 0.8) 100%); */
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0 20px;
+    }
+
+    .beranda-content {
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .beranda h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .beranda p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav {
+        justify-content: space-between;
+        padding: 15px;
+      }
+      
+      .nav a {
+        display: none;
+      }
+      
+      .nav img:first-of-type {
+        height: 40px;
+        display: block;
+      }
+      
+      #btn-nav {
+        display: block;
+      }
+
+      .beranda h1 {
+        font-size: 2rem;
+      }
+
+      .beranda p {
+        font-size: 1rem;
+      }
+      
+      .area-visi {
+        flex-direction: column;
+      }
+      
+      .box-visi, .box-review {
+        margin: 10px 0;
+      }
+      
+      .footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .footer-logo {
+        justify-content: center;
+      }
+      
+      .sosial-media {
+        justify-content: center;
+      }
+    }
+
+    /* About Section */
+    .tentang {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .tentang img {
+      max-width: 150px;
+      margin-bottom: 30px;
+    }
+
+    .area-tentang {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .judul {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    .judul::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      width: 50%;
+      height: 3px;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    /* Executive Section */
+    .review {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: var(--light-bg);
+    }
+
+    .area-review {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .box-review {
+      flex: 0 0 calc(25% - 30px);
+      min-width: 250px;
+      text-align: center;
+    }
+
+    .box-review img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid var(--primary-color);
+      transition: var(--transition);
+    }
+
+    .box-review:hover img {
+      transform: scale(1.1);
+      box-shadow: 0 8px 16px rgba(101, 11, 173, 0.3);
+    }
+
+    /* Google Maps */
+    .lokasi {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .lokasi iframe {
+      width: 100%;
+      max-width: 1000px;
+      height: 450px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-top: 30px;
+    }
+
+    /* Partner Section */
+    .partner {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: var(--light-bg);
+    }
+
+    .main-carousel {
+      margin-top: 30px;
+    }
+
+    .carousel-cell img {
+      height: 100px;
+      object-fit: contain;
+      margin: 10px;
+      filter: grayscale(0.5);
+      transition: var(--transition);
+    }
+
+    .carousel-cell img:hover {
+      filter: grayscale(0);
+      transform: scale(1.05);
+    }
   </style>
 
 </head>
@@ -108,33 +500,32 @@
       data-aos-delay="100">Portfolio</a>
     <a data-scroll data-easing="easeInQuint" href="#review" data-aos="fade-down" data-aos-duration="400"
       data-aos-delay="150">Executive</a>
-    <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="" data-aos="fade-down" data-aos-duration="1500">
-      <a data-scroll data-easing="easeInQuint" href="products.html" data-aos="fade-down" data-aos-duration="400"
+    <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo" data-aos="fade-down" data-aos-duration="1500">
+    <a data-scroll data-easing="easeInQuint" href="products.html" data-aos="fade-down" data-aos-duration="400"
       data-aos-delay="50">Products</a>
-    <img  onclick=showSidebar() src="assets/img/menu.png" alt="" id="btn-nav" data-aos="fade-down" data-aos-duration="700" data-aos-delay="50">
+    <img onclick="toggleSidebar()" src="assets/img/menu.png" alt="Menu" id="btn-nav" data-aos="fade-down" data-aos-duration="700" data-aos-delay="50">
     <a data-scroll data-easing="easeInQuint" href="contact.html" data-aos="fade-down" data-aos-duration="400"
       data-aos-delay="50">Contact Us</a>
   </div>
   <!-- ======= Navbar ======= -->
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <div class="btn-menu">
-      <img onclick=hideSidebar() src="assets/img/close.png" alt="" id="btn-menu">
+      <img onclick="toggleSidebar()" src="assets/img/close.png" alt="Close" id="btn-menu">
     </div>
     <a id="nav-link" data-scroll data-easing="easeInQuint" href="index.html">Home</a>
     <a id="nav-link1" data-scroll data-easing="easeInQuint" href="products.html">Products</a>
-    <a id="nav-link1" data-scroll data-easing="easeInQuint" href="port.html">Portfolio</a>
+    <a id="nav-link2" data-scroll data-easing="easeInQuint" href="port.html">Portfolio</a>
+    <a id="nav-link3" data-scroll data-easing="easeInQuint" href="#review">Executive</a>
+    <a id="nav-link4" data-scroll data-easing="easeInQuint" href="#tentang">About Us</a>
     <a id="nav-link5" data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
   </div> <!-- End Header -->
   <script>
-    function showSidebar(){
-      const sidebar = document.querySelector('.sidebar')
-      sidebar.style.display = 'flex'
-    }
-    function hideSidebar(){
-      const sidebar = document.querySelector('.sidebar')
-      sidebar.style.display = 'none'
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('active');
     }
   </script>
+
   <!-- ======= Home Start ======= -->
   <div class="beranda" id="beranda">
     <span id="typed" data-aos="fade-up" data-aos-duration="500"></span>
@@ -221,269 +612,127 @@
 
   <!-- ======= About Start ======= -->
   <div class="tentang container" id="tentang">
-    <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="200">
+    <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="200">
     <div class="area-tentang" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
       <h1 class="judul">About Us</h1>
       <p>
-        Paras Technology was formed in 2018 November and since then the company has been building its capacity through repairing of hospital equipment that has been abandoned and this includes Japanese, Chinese and Europeans machines with different brands which has been very successful for us to have a very good relationship with the ministry of health, public hospitals and private hospitals. Well, this is a company that is run by Engineers with vast experience in different sectors; PACS/ DICOM Systems, Electrical, Electronics, Maintenance, Latest Digital Medical Equipment Technology such us CT, MRI, Mammography, Ultrasound, Theatre Operating Lamps, Anesthesia Machine, Dental Chair and Other Electrical Theatre Equipment’s, Incubator, Warmers.
+        Founded in November 2018, Paras Technology has built a strong reputation through refurbishing abandoned hospital equipment from Japanese, Chinese, and European manufacturers. This success has fostered excellent relationships with the Ministry of Health, public hospitals, and private healthcare facilities across the region.
       </p>
-      <h1 class="judul">WHAT WE DO</h1>
       <p>
-        We Supply, provide Maintenance and Servicing of various Electrical/Electronic
-        medical instruments, devices .We also provide radiation protection consultancy and we do
-        installation of any kind of equipment.</p>
+        Our company is managed by highly experienced engineers specializing in various fields including PACS/DICOM systems, electrical and electronic systems, maintenance, and modern digital medical equipment such as CT, MRI, Mammography, Ultrasound, Theatre Operating Lamps, Anesthesia Machines, Dental Chairs, and many other critical healthcare technologies.
+      </p>
+      <h1 class="judul">What We Do</h1>
+      <p>
+        We supply, maintain, and service a wide range of electrical/electronic medical instruments and devices. Our expertise extends to radiation protection consultancy, and we provide comprehensive installation services for all types of medical equipment. Our goal is to ensure healthcare facilities have reliable, well-maintained technology to deliver the best patient care possible.
+      </p>
+      <a href="contact.html" class="modern-btn" data-aos="fade-up" data-aos-duration="800">Contact Us Today</a>
     </div>
   </div>
   <!-- ======= About End ======= -->
 
-  <!-- ======= visi Start ======= -->
+  <!-- ======= Vision & Mission Start ======= -->
   <div class="visi container">
     <h1 class="judul">Vision & Mission</h1>
     <div class="area-visi">
       <div class="visi-kiri">
         <div class="box-visi" data-aos="fade-up" data-aos-duration="500">
-          <img src="assets/img/pelayanan.png" alt="">
-          <h1>CLIENTELE FOCUS:</h1>
-          <p> we strive to exceed clientele expectations when delivering our products and services.
-          </p>
+          <img src="assets/img/pelayanan.png" alt="Client Focus Icon">
+          <h1>CLIENTELE FOCUS</h1>
+          <p>We strive to exceed client expectations in every aspect of our product and service delivery, ensuring complete satisfaction and lasting partnerships.</p>
         </div>
         <div class="box-visi" data-aos="fade-up" data-aos-duration="500">
-          <img src="assets/img/pacs-top-img01-photoroom.png-photoroom.png" alt="">
+          <img src="assets/img/pacs-top-img01-photoroom.png-photoroom.png" alt="Medical Hardware & Software Icon">
           <h1>MEDICAL HARDWARE & SOFTWARE</h1>
-          <p>Supply of Medical hardware and softwares such as PACs software and hardware: complete PACs with RIS and HIS</p>
+          <p>We supply cutting-edge medical hardware and software solutions, including comprehensive PACS systems with RIS and HIS integration for seamless healthcare operations.</p>
         </div>
         <div class="box-visi" data-aos="fade-up" data-aos-duration="500">
-          <img src="assets/img/suasana.png" alt="">
+          <img src="assets/img/suasana.png" alt="Medical Networking Icon">
           <h1>MEDICAL NETWORKING</h1>
-          <p> Computer networking and internet networking. This Ensures that your network makes sense for your organization while maintaining proper connectivity and permissions is what our certified network professionals do best through our computer network services.</p>
+          <p>Our certified network professionals design and implement computer and internet networking solutions tailored to your organization's specific needs, ensuring proper connectivity and appropriate permissions.</p>
         </div>
       </div>
-      <div id="nophones"  class="main-carousel">
+      <div id="nophones" class="main-carousel">
         <div class="carousel-cell">
-          <img src="assets/img/Screenshot 2024-08-03 015924.jpg" alt="">
+          <img src="assets/img/Screenshot 2024-08-03 015924.jpg" alt="Medical Equipment Image">
         </div>
-        
         <div class="carousel-cell">
-          <img src="assets/img/Screenshot 2024-08-03 020130.jpg" alt="">
+          <img src="assets/img/Screenshot 2024-08-03 020130.jpg" alt="Medical Equipment Image">
         </div>
       </div>
     </div>
   </div>
-  <!-- ======= visi End ======= -->
+  <!-- ======= Vision & Mission End ======= -->
 
-  <!-- ======= Menu Start 
-  <div class="menu container" id="menu">
-    <h1 class="judul" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Medical Equipment</h1>
-    <div class="carousel">
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/png-transparent-x-ray-generator-digital-radiography-radiology-medical-equipments-medicine-xray-medical-equipment.png" alt="">
-        <div class="area-menu">
-          <h1 class="judul">Digital X-ray Machine</h1>
-          <p>X-ray Machines Available for purchase</p>
-          <h1 class="harga"></h1>
-        </div>
-      </div>
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/Bestodent-Platinum-Dental-Chair-online-at-best-prices-Dentalstall-scaled.jpg" alt="">
-        <div class="area-menu">
-          <h1 class="judul">Dental Chair</h1>
-          <p></p>
-          <h1 class="harga"></h1>
-        </div>
-      </div>
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/2-cr-system-500x500.jpg" alt="">
-        <div class="area-menu">
-          <h1 class="judul">CR system</h1>
-          <p></p>
-          <h1 class="harga"></h1>
-        </div>
-      </div>
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/flat.png" alt="">
-        <div class="area-menu">
-          <h1 class="judul">Flat panel detectors</h1>
-          <p></p>
-          <h1 class="harga"></h1>
-        </div>
-      </div>
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/gallery-cr-vita-flex-1.jpg" alt="">
-        <div class="area-menu">
-          <h1 class="judul">CR Machine</h1>
-          <p></p>
-          <h1 class="harga"></h1>
-        </div>
-      </div>
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/mobile.jpg" alt="">
-        <div class="area-menu">
-          <h1 class="judul">Mobile X-ray</h1>
-          <p></p>
-          <h1 class="harga"></h1>
-        </div>
-      </div>
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/PETCT.jpg" alt="">
-        <div class="area-menu">
-          <h1 class="judul">PETCT</h1>
-          <p>
-          </p>
-          <h1 class="harga"></h1>
-        </div>  
-      </div>
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/refurbished-Logiq-e10-price.jpg" alt="">
-        <div class="area-menu">
-          <h1 class="judul">Ultrasound</h1>
-          <p>
-          </p>
-          <h1 class="harga"></h1>
-        </div>  
-      </div>
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/x-ray-film-1643952444-6186521.jpeg" alt="">
-        <div class="area-menu">
-          <h1 class="judul">Xray films</h1>
-          <p>
-          </p>
-          <h1 class="harga"></h1>
-        </div>  
-      </div>
-    </div>
-  </div>
-
-  <div class="menu container" id="menu">
-    <h1 class="judul" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Medical softwares</h1>
-    <div class="carousel">
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/nuffield_healthcare_blog_image-01.jpg" alt="">
-        <div class="area-menu">
-          <h1 class="judul">Hospital Management System</h1>
-          <p></p>
-          <h1 class="harga"></h1>
-        </div>
-      </div>
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/OIF.jpeg" alt="">
-        <div class="area-menu">
-          <h1 class="judul">PACS</h1>
-          <p></p>
-          <h1 class="harga"></h1>
-        </div>
-      </div>
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/pacs-radiology.jpg" alt="">
-        <div class="area-menu">
-          <h1 class="judul">CR system</h1>
-          <p></p>
-          <h1 class="harga"></h1>
-        </div>
-      </div>
-      <div class="box-menu carousel-cell">
-        <img src="assets/img/flat.png" alt="">
-        <div class="area-menu">
-          <h1 class="judul">Flat panel detectors</h1>
-          <p></p>
-          <h1 class="harga"></h1>
-        </div>
-      </div>
-      
-      </div>
-    </div>
-  </div>
-   Menu End ======= -->
-
-  <!-- ======= Review Start ======= -->
+  <!-- ======= Executive Start ======= -->
   <div class="review container" id="review">
-    <h1 class="judul" data-aos="zoom-in-up" data-aos-duration="1000">Executive</h1>
+    <h1 class="judul" data-aos="zoom-in-up" data-aos-duration="1000">Executive Team</h1>
     <div class="area-review">
-
       <div class="box-review" data-aos="fade-up" data-aos-duration="1500">
-        <img src="assets/img/1000_F_269157868_KuKWdTSZ08lYL3r1u1EdyKcLTDPJsov3.jpg" alt="">
+        <img src="assets/img/1000_F_269157868_KuKWdTSZ08lYL3r1u1EdyKcLTDPJsov3.jpg" alt="Ms. Sandra Kunda">
         <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Ms. Sandra Kunda</h1>
         <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="800">Managing Director</p>
-        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Cell: +260950930084</p>
+        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Cell: +260 950 930 084</p>
       </div>
       
       <div class="box-review" data-aos="fade-up" data-aos-duration="1500">
-        <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="">
-        <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Mrs.Emily Nambeya</h1>
+        <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Mrs. Emily Nambeya">
+        <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Mrs. Emily Nambeya</h1>
         <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="800">Accounts/Administration</p>
-        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Cell:+260 97 8900232</p>
+        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Cell: +260 978 900 232</p>
       </div>
 
       <div class="box-review" data-aos="fade-up" data-aos-duration="1500">
-        <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="">
+        <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Mr. Edwin Sisya">
         <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Mr. Edwin Sisya</h1>
         <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="800">Biomedical IT Manager</p>
-        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Whatsapp: +260 974687558</p>
+        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Whatsapp: +260 974 687 558</p>
       </div>
 
       <div class="box-review" data-aos="fade-up" data-aos-duration="1500">
-        <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="">
-        <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Ms. Bertha kamalondo</h1>
-        <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="800">marketing business manager</p> </p>
-        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Cell: +260 96 8838336</p>
+        <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Ms. Bertha Kamalondo">
+        <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Ms. Bertha Kamalondo</h1>
+        <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="800">Marketing Business Manager</p>
+        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Cell: +260 968 838 336</p>
       </div>
-      
-      
-
     </div>
   </div>
-  <!-- ======= Review End ======= -->
+  <!-- ======= Executive End ======= -->
 
   <!-- ======= Partnership Start ======= -->
   <div class="partner container" id="partnership"> 
-    <h1 class="judul" data-aos="zoom-in-up" data-aos-duration="500">Partners</h1>
+    <h1 class="judul" data-aos="zoom-in-up" data-aos-duration="500">Our Partners</h1>
     <div class="main-carousel">
       <div class="carousel-cell">
-        <img src="assets/img/vatech-uk.png" alt="">
+        <img src="assets/img/vatech-uk.png" alt="Vatech UK">
       </div>
       <div class="carousel-cell">
-        <img src="assets/img/Infratel_logo.jpg" alt="">
+        <img src="assets/img/Infratel_logo.jpg" alt="Infratel">
       </div>
       <div class="carousel-cell">
-        <img src="assets/img/MOH.jpeg" alt="">
+        <img src="assets/img/MOH.jpeg" alt="Ministry of Health">
       </div>
       <div class="carousel-cell">
-        <img src="assets/img/trivitron.png" alt="">
+        <img src="assets/img/trivitron.png" alt="Trivitron">
       </div>
       <div class="carousel-cell">
-        <img src="assets/img/sonicdicom.png" alt="">
+        <img src="assets/img/sonicdicom.png" alt="Sonic DICOM">
       </div>
       <div class="carousel-cell">
-        <img src="assets/img/download.jpg" alt="">
+        <img src="assets/img/download.jpg" alt="Partner">
       </div>
       <div class="carousel-cell">
-        <img src="assets/img/inlogo.png" alt="">
+        <img src="assets/img/inlogo.png" alt="Partner">
       </div>
-
-      
     </div>
   </div>
   <!-- ======= Partnership End ======= -->
 
   <!-- ======= Outlet Start ======= -->
   <div class="lokasi container" id="lokasi">
-    <h1 class="judul" data-aos="fade-up" data-aos-duration="500">Outlet</h1>
+    <h1 class="judul" data-aos="fade-up" data-aos-duration="500">Our Location</h1>
     <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3846.5834061990017!2d28.388049!3d-15.399032000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDIzJzU2LjUiUyAyOMKwMjMnMTcuMCJF!5e0!3m2!1sen!2szm!4v1739532376784!5m2!1sen!2szm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
   <!-- ======= Outlet End ======= -->
-
-  <!-- ======= Galery Start ======= --
-  <div class="gallery container">
-    <h1 class="judul">Galery</h1>
-    <div class="area-gallery" id="content">
-      <img src="assets/img/toko.jpg" alt="">
-      <img src="assets/img/toko2.jpg" alt="">
-      <img src="assets/img/toko3.jpg" alt="">
-      <img src="assets/img/toko1.jpg" alt="">
-      <img src="assets/img/gallery1.jpg" alt="">
-      <img src="assets/img/gallery2.jpg" alt="">
-    </div>
-  </div>
-  <!-- ======= Galery End ======= -->
 
   <!-- ======= Footer Start ======= -->
   <div class="footer">
@@ -524,7 +773,7 @@
     </div>
   </div>
   <footer>
-    <h1>&copy; Copyright 2024, <a href=""> PARAS TECHNOLOGY LIMITED</a> All Rights Reserved</h1>
+    <h1>&copy; Copyright 2025, <a href=""> PARAS TECHNOLOGY LIMITED</a> All Rights Reserved</h1>
   </footer>
   <!-- ======= Footer End ======= -->
 
