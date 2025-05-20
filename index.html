@@ -489,6 +489,272 @@
       filter: grayscale(0);
       transform: scale(1.05);
     }
+    /* Vision & Mission Section Styling */
+.vision-mission {
+  padding: 80px 0;
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  color: #333;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #2b4c7e;
+  letter-spacing: 0.5px;
+}
+
+.section-tagline {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 60px;
+  color: #666;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.vision-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.vision-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(43, 76, 126, 0.15);
+}
+
+.card-icon {
+  text-align: center;
+  padding: 30px 20px 10px;
+}
+
+.card-icon img {
+  height: 70px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.vision-card:hover .card-icon img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 20px 25px 35px;
+  flex-grow: 1;
+}
+
+.card-content h2 {
+  color: #2b4c7e;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.card-content p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.stats-showcase {
+  margin-top: 80px;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #2b4c7e, #3a67a5);
+  border-radius: 12px;
+  color: white;
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(43, 76, 126, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-10px);
+}
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+  transform: rotate(30deg);
+  pointer-events: none;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.stat-number span {
+  font-size: 1.3rem;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-left: 5px;
+}
+
+.stat-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.cta-section {
+  margin-top: 70px;
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(43, 76, 126, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(43, 76, 126, 0.1);
+}
+
+.cta-section h3 {
+  font-size: 1.8rem;
+  color: #2b4c7e;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: #2b4c7e;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(43, 76, 126, 0.3);
+}
+
+.cta-button:hover {
+  background: #3a67a5;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(43, 76, 126, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .vision-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .section-title {
+    font-size: 2.4rem;
+  }
+  
+  .stats-container {
+    padding: 0 20px;
+  }
+  
+  .stat-item {
+    min-width: 200px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .vision-mission {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-tagline {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+  
+  .stat-item {
+    min-width: 40%;
+    flex: 0 0 calc(50% - 20px);
+  }
+  
+  .cta-section h3 {
+    font-size: 1.5rem;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .vision-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 15px;
+  }
+  
+  .vision-card {
+    max-width: 100%;
+  }
+  
+  .stats-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .stat-item {
+    width: 100%;
+    min-width: 100%;
+  }
+  
+  .card-content h2 {
+    font-size: 1.2rem;
+  }
+  
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 280px;
+  }
+}
   </style>
 
 </head>
@@ -612,7 +878,7 @@
 
   <!-- ======= About Start ======= -->
   <div class="tentang container" id="tentang">
-    <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="200">
+    <!-- <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="200"> -->
     <div class="area-tentang" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
       <h1 class="judul">About Us</h1>
       <p>
@@ -631,38 +897,65 @@
   <!-- ======= About End ======= -->
 
   <!-- ======= Vision & Mission Start ======= -->
-  <div class="visi container">
-    <h1 class="judul">Vision & Mission</h1>
-    <div class="area-visi">
-      <div class="visi-kiri">
-        <div class="box-visi" data-aos="fade-up" data-aos-duration="500">
-          <img src="assets/img/pelayanan.png" alt="Client Focus Icon">
-          <h1>CLIENTELE FOCUS</h1>
-          <p>We strive to exceed client expectations in every aspect of our product and service delivery, ensuring complete satisfaction and lasting partnerships.</p>
-        </div>
-        <div class="box-visi" data-aos="fade-up" data-aos-duration="500">
-          <img src="assets/img/pacs-top-img01-photoroom.png-photoroom.png" alt="Medical Hardware & Software Icon">
-          <h1>MEDICAL HARDWARE & SOFTWARE</h1>
-          <p>We supply cutting-edge medical hardware and software solutions, including comprehensive PACS systems with RIS and HIS integration for seamless healthcare operations.</p>
-        </div>
-        <div class="box-visi" data-aos="fade-up" data-aos-duration="500">
-          <img src="assets/img/suasana.png" alt="Medical Networking Icon">
-          <h1>MEDICAL NETWORKING</h1>
-          <p>Our certified network professionals design and implement computer and internet networking solutions tailored to your organization's specific needs, ensuring proper connectivity and appropriate permissions.</p>
-        </div>
+<div class="vision-mission container">
+  <h1 class="section-title">Shaping Tomorrow's Healthcare</h1>
+  <p class="section-tagline">Innovative solutions that transform patient care and clinical outcomes</p>
+  
+  <div class="vision-grid">
+    <div class="vision-card" data-aos="fade-up" data-aos-duration="300">
+      <div class="card-icon">
+        <img src="assets/img/pelayanan.png" alt="Client Focus Icon">
       </div>
-      <div id="nophones" class="main-carousel">
-        <div class="carousel-cell">
-          <img src="assets/img/Screenshot 2024-08-03 015924.jpg" alt="Medical Equipment Image">
-        </div>
-        <div class="carousel-cell">
-          <img src="assets/img/Screenshot 2024-08-03 020130.jpg" alt="Medical Equipment Image">
-        </div>
+      <div class="card-content">
+        <h2>PATIENT-CENTERED EXCELLENCE</h2>
+        <p>We go beyond expectations to deliver solutions that empower healthcare providers, enhance patient experiences, and build enduring partnerships based on trust and results.</p>
+      </div>
+    </div>
+    
+    <div class="vision-card" data-aos="fade-up" data-aos-duration="500">
+      <div class="card-icon">
+        <img src="assets/img/pacs-top-img01-photoroom.png-photoroom.png" alt="Medical Hardware & Software Icon">
+      </div>
+      <div class="card-content">
+        <h2>INTEGRATED HEALTHCARE TECHNOLOGY</h2>
+        <p>Our state-of-the-art medical hardware and software solutions seamlessly integrate PACS, RIS, and HIS systems to streamline workflows and optimize diagnostic capabilities across healthcare facilities.</p>
+      </div>
+    </div>
+    
+    <div class="vision-card" data-aos="fade-up" data-aos-duration="700">
+      <div class="card-icon">
+        <img src="assets/img/suasana.png" alt="Medical Networking Icon">
+      </div>
+      <div class="card-content">
+        <h2>SECURE MEDICAL CONNECTIVITY</h2>
+        <p>Engineered by certified network professionals, our custom connectivity solutions ensure robust, secure, and compliant healthcare networking that adapts to your organization's evolving needs.</p>
       </div>
     </div>
   </div>
-  <!-- ======= Vision & Mission End ======= -->
-
+  
+  <div class="stats-showcase">
+    <div class="stats-container">
+      <div class="stat-item" data-aos="fade-up" data-aos-duration="400">
+        <div class="stat-number">7+ <span>Years</span></div>
+        <div class="stat-title">Industry Excellence</div>
+      </div>
+      <div class="stat-item" data-aos="fade-up" data-aos-duration="600">
+        <div class="stat-number">500+ <span>Services</span></div>
+        <div class="stat-title">Successfully Provided</div>
+      </div>
+      <div class="stat-item" data-aos="fade-up" data-aos-duration="800">
+        <div class="stat-number">97.8% <span>Rate</span></div>
+        <div class="stat-title">Client Satisfaction</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cta-section">
+    <h3>Ready to transform your healthcare technology?</h3>
+    <a href="contact.html" class="cta-button">Get Started</a>
+  </div>
+</div>
+<!-- ======= Vision & Mission End ======= -->
   <!-- ======= Executive Start ======= -->
   <div class="review container" id="review">
     <h1 class="judul" data-aos="zoom-in-up" data-aos-duration="1000">Executive Team</h1>
