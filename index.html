@@ -4,6 +4,7 @@
 <head>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J20J4RWT8G"></script>
   <script>
@@ -1281,52 +1282,136 @@
   <!-- ======= Outlet End ======= -->
 
   <!-- ======= Footer Start ======= -->
-  <div class="footer">
-    <div class="footer-1">
-      <div class="footer-logo" data-aos="fade-down" data-aos-duration="800">
-        <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="">
-        <h1>Paras-Technology</h1>
-      </div>
-      <p data-aos="fade-up" data-aos-duration="800">Provide The Best Service <br> Lets make the world a better place</p>
-      <div class="sosial-media">
-        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL">
-          <img src="assets/img/facebook.png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="200">
-        </a>
-        <a href="https://x.com/eSisya19">
-          <img src="assets/img/twitter.png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="300">
-        </a>
-        <a href="https://wa.link/13e0nj">
-          <img src="assets/img/whatsapp (1).png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="300">
-        </a>
-      </div>
-    </div>
+  <style>
+        .footer {
+            background: black;
+            color: white;
+            padding: 2.5rem 0 1rem;
+        }
 
-    <div class="footer-2">
-      <h1 data-aos="fade-down" data-aos-duration="800" data-aos-delay="200">Contact</h1>
-      <a href="" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">Cell:+260 97 8900232 / +260 96 8740238</a>
-      
-      <a href="gmail.com" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">Email:admin@Paras-Technology.com</a>
-      <a href="" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">Our address - Paras Technology Limited,Paras Technology, LTD.Plot 644 Peri Peri street,Salama Park, Lusaka, Zambia.</a>
-    </div>
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-    
-    <div class="footer-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-      <h1>Nav</h1>
-      <a data-scroll data-easing="easeInQuint" href="index.html">Home</a>
-      <a data-scroll data-easing="easeInQuint" href="products.html">Products</a>
-      <a data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
-      <!--<a data-scroll data-easing="easeInQuint" href="port.html">Porfolio</a>-->
-    </div>
-  </div>
-  <footer class="footer">
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo">
-                        <h2>Paras Technology</h2>
-                    </div>
-                    <p class="footer-tagline">Provide The Best Service. Let's make the world a better place through advanced medical technology.</p>
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .social-media {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .contact-info a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-bottom a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .footer-content {
+                padding: 0 1rem;
+            }
+            
+            .footer {
+                padding: 2rem 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Paras Technology</h2>
+                    <p>Provide The Best Service. Let's make the world a better place through advanced medical technology.</p>
                     <div class="social-media">
                         <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
@@ -1340,32 +1425,30 @@
                     </div>
                 </div>
 
-                <div class="footer-col">
-                    <h3 class="footer-title">Quick Links</h3>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
                     <div class="footer-links">
-                        <a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a>
-                        <a href="services.html" class="footer-link"><i class="fas fa-chevron-right"></i> Services</a>
-                        <a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact Us</a>
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="services.html" class="footer-link">Services</a>
+                        <a href="products.html" class="footer-link">Products</a>
+                        <a href="contact.html" class="footer-link">Contact Us</a>
                     </div>
                 </div>
 
-                <div class="footer-col">
-                    <h3 class="footer-title">Contact Information</h3>
-                    <div class="footer-links">
-                        <a href="tel:+260978900232" class="footer-link">
-                            <i class="fas fa-phone"></i> +260 97 8900232
-                        </a>
-                        <a href="https://wa.link/13e0nj" class="footer-link">
-                            <i class="fab fa-whatsapp"></i> +260 974 687 558
-                        </a>
-                        <a href="mailto:admin@Paras-Technology.com" class="footer-link">
-                            <i class="fas fa-envelope"></i> admin@Paras-Technology.com
-                        </a>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <a href="tel:+260978900232">+260 97 8900232</a><br>
+                        <a href="tel:+260968740238">+260 96 8740238</a><br><br>
+                        <a href="mailto:admin@Paras-Technology.com">admin@Paras-Technology.com</a><br><br>
+                        Plot 644 Peri Peri Street<br>
+                        Salama Park, Lusaka, Zambia
                     </div>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; Copyright 2025, <a href="index.html">PARAS-TECHNOLOGY LIMITED</a>. All Rights Reserved
+
+            <div class="footer-bottom">
+                &copy; Copyright 2025, <a href="index.html">PARAS TECHNOLOGY LIMITED</a>. All Rights Reserved
             </div>
         </div>
     </footer>
