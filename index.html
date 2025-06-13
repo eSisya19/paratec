@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J20J4RWT8G"></script>
   <script>
@@ -420,7 +422,7 @@
     .review {
       padding: 60px 20px;
       text-align: center;
-      background-color: var(--light-bg);
+      
     }
 
     .area-review {
@@ -958,38 +960,288 @@
 </div>
 <!-- ======= Vision & Mission End ======= -->
   <!-- ======= Executive Start ======= -->
-  <div class="review container" id="review">
-    <h1 class="judul" data-aos="zoom-in-up" data-aos-duration="1000">Executive Team</h1>
-    <div class="area-review">
-      <div class="box-review" data-aos="fade-up" data-aos-duration="1500">
-        <img src="assets/img/1000_F_269157868_KuKWdTSZ08lYL3r1u1EdyKcLTDPJsov3.jpg" alt="Ms. Sandra Kunda">
-        <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Ms. Sandra Kunda</h1>
-        <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="800">Managing Director</p>
-        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Cell: +260 950 930 084</p>
-      </div>
-      
-      <div class="box-review" data-aos="fade-up" data-aos-duration="1500">
-        <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Mrs. Emily Nambeya">
-        <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Mrs. Emily Nambeya</h1>
-        <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="800">Accounts/Administration</p>
-        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Cell: +260 978 900 232</p>
-      </div>
+   <style>
+  .review.container {
+            padding: 120px 20px;
+            position: relative;
+        }
 
-      <div class="box-review" data-aos="fade-up" data-aos-duration="1500">
-        <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Mr. Edwin Sisya">
-        <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Mr. Edwin Sisya</h1>
-        <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="800">Biomedical IT Manager</p>
-        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Whatsapp: +260 974 687 558</p>
-      </div>
+        .review.container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(13, 71, 161, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(25, 118, 210, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
 
-      <div class="box-review" data-aos="fade-up" data-aos-duration="1500">
-        <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Ms. Bertha Kamalondo">
-        <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Ms. Bertha Kamalondo</h1>
-        <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="800">Marketing Business Manager</p>
-        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">Cell: +260 968 838 336</p>
-      </div>
+        
+
+        .area-review {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .box-review {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .box-review::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s;
+        }
+
+        .box-review:hover::before {
+            left: 100%;
+        }
+
+        .box-review:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.2),
+                0 10px 30px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .box-review img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.2),
+                inset 0 2px 10px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .box-review:hover img {
+            transform: scale(1.1) rotate(5deg);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.3),
+                inset 0 2px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        
+
+     
+        
+
+        .box-review p:first-of-type {
+            font-weight: 500;
+            
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .box-review p:last-of-type {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            border-radius: 25px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .box-review p:last-of-type::before {
+            content: '\f095';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #4ecdc4;
+        }
+
+        .box-review:hover p:last-of-type {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Floating particles animation */
+        .box-review::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-10px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .review.container {
+                padding: 80px 15px;
+            }
+            
+            .area-review {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .box-review {
+                padding: 30px 25px;
+            }
+            
+            .box-review img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Enhanced hover effects for desktop */
+        @media (hover: hover) {
+            .box-review {
+                cursor: pointer;
+            }
+            
+            .box-review:hover {
+                animation: pulse 2s infinite;
+            }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+            50% { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+            100% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+        }
+    </style>
+</head>
+<body>
+    <div class="review container" id="review">
+        <h1 class="judul" data-aos="zoom-in-up" data-aos-duration="1000">Executive Team</h1>
+        <div class="area-review">
+            <div class="box-review" data-aos="fade-up" data-aos-duration="1500">
+                <img src="assets/img/1000_F_269157868_KuKWdTSZ08lYL3r1u1EdyKcLTDPJsov3.jpg" alt="Ms. Sandra Kunda">
+                <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Ms. Sandra Kunda</h1>
+                <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="800">Managing Director</p>
+                <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">+260 950 930 084</p>
+            </div>
+            
+            <div class="box-review" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Mrs. Emily Nambeya">
+                <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="700">Mrs. Emily Nambeya</h1>
+                <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="1000">Accounts/Administration</p>
+                <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="1000">+260 978 900 232</p>
+            </div>
+
+            <div class="box-review" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Mr. Edwin Sisya">
+                <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="900">Mr. Edwin Sisya</h1>
+                <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="1200">Biomedical IT Manager</p>
+                <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="1200">+260 974 687 558</p>
+            </div>
+
+            <div class="box-review" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Ms. Bertha Kamalondo">
+                <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="1100">Ms. Bertha Kamalondo</h1>
+                <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="1400">Marketing Business Manager</p>
+                <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="1400">+260 968 838 336</p>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Add interactive hover sound effect (optional)
+        document.querySelectorAll('.box-review').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add ripple effect on click
+        document.querySelectorAll('.box-review').forEach(card => {
+            card.addEventListener('click', function(e) {
+                const ripple = document.createElement('div');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                this.appendChild(ripple);
+                
+                ripple.addEventListener('animationend', () => {
+                    ripple.remove();
+                });
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
   <!-- ======= Executive End ======= -->
 
   <!-- ======= Partnership Start ======= -->
@@ -1066,9 +1318,57 @@
       <!--<a data-scroll data-easing="easeInQuint" href="port.html">Porfolio</a>-->
     </div>
   </div>
-  <footer>
-    <h1>&copy; Copyright 2025, <a href=""> PARAS TECHNOLOGY LIMITED</a> All Rights Reserved</h1>
-  </footer>
+  <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo">
+                        <h2>Paras Technology</h2>
+                    </div>
+                    <p class="footer-tagline">Provide The Best Service. Let's make the world a better place through advanced medical technology.</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/eSisya19" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://wa.link/13e0nj" class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a>
+                        <a href="services.html" class="footer-link"><i class="fas fa-chevron-right"></i> Services</a>
+                        <a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Information</h3>
+                    <div class="footer-links">
+                        <a href="tel:+260978900232" class="footer-link">
+                            <i class="fas fa-phone"></i> +260 97 8900232
+                        </a>
+                        <a href="https://wa.link/13e0nj" class="footer-link">
+                            <i class="fab fa-whatsapp"></i> +260 974 687 558
+                        </a>
+                        <a href="mailto:admin@Paras-Technology.com" class="footer-link">
+                            <i class="fas fa-envelope"></i> admin@Paras-Technology.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; Copyright 2025, <a href="index.html">PARAS-TECHNOLOGY LIMITED</a>. All Rights Reserved
+            </div>
+        </div>
+    </footer>
   <!-- ======= Footer End ======= -->
 
   <!-- Vendor JS Files -->
