@@ -1,0 +1,60 @@
+# Company Activity Manager
+
+A full-featured web application built with HTML, CSS, and JavaScript, using Supabase as the backend.
+
+## Features
+
+-   **Authentication:** Manual login system with Admin and Employee roles.
+-   **Dashboard:** At-a-glance summary of company activities.
+-   **Employee Tools:** Submit reports, make requests, mark attendance, and view bulletins.
+-   **Admin Panel:** Manage users, approve requests, send bulletins, manage assets, and view audit logs.
+-   **Modular Architecture:** Designed for easy expansion and maintenance.
+
+## Setup Instructions
+
+### Step 1: Set up Supabase
+
+1.  Go to [supabase.com](https://supabase.com) and create a new project.
+2.  Once your project is ready, go to the **SQL Editor**.
+3.  Click **"New query"**. Copy the entire content of `supabase_schema.sql` from this repository and run it. This will create all the necessary tables.
+4.  **Disable Row Level Security (RLS) - FOR DEMO PURPOSES ONLY!**
+    -   Go to **Authentication -> Policies**.
+    -   For each table created, you will see that RLS is enabled. Click on the table and **disable RLS**.
+    -   **Warning:** In a production environment, you MUST use RLS to secure your data. This is disabled here only to simplify the demo.
+5.  Navigate to **Project Settings -> API**.
+    -   Find your **Project URL**.
+    -   Find your **Project API Keys**. You will need the `anon` (public) key.
+
+### Step 2: Configure the Frontend
+
+1.  Open the `config.js` file.
+2.  Replace the placeholder values with your actual Supabase Project URL and `anon` key.
+
+```javascript
+// config.js
+const SUPABASE_URL = 'YOUR_SUPABASE_URL'; // e.g., 'https://xyz.supabase.co'
+const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+```
+
+### Step 3: (Optional) Import Initial Data
+
+1.  In the Supabase dashboard, go to the **Table Editor**.
+2.  Select a table (e.g., `users`).
+3.  Click **"Insert" -> "Import data from CSV"**.
+4.  Use the corresponding template from the `/csv_templates` directory to create your data and upload it.
+    -   **Important for `users` table:** The password must be pre-hashed using **SHA-256**. You can use an online tool to hash your initial passwords for testing.
+
+### Step 4: Deploy to GitHub Pages
+
+1.  Create a new repository on GitHub.
+2.  Push the entire project folder to the repository.
+3.  In your repository's **Settings**, go to the **Pages** tab.
+4.  Under **"Build and deployment"**, select the source as **"Deploy from a branch"**.
+5.  Choose the `main` (or `master`) branch and the `/(root)` folder. Click **Save**.
+6.  Your site will be deployed in a few minutes at `https://<your-username>.github.io/<your-repo-name>/`.
+
+## How to Use the App
+
+-   **Admin Login:** Use the credentials of a user with the `Admin` role.
+-   **Employee Login:** Use the credentials of a user with the `Employee` role.
+-   The UI will adapt based on the logged-in user's role.
