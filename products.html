@@ -61,7 +61,7 @@
       top: 0;
       background-color: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      z-index: 100;
+      z-index: 1000;
       box-shadow: var(--shadow);
     }
 
@@ -82,6 +82,45 @@
     .nav a:hover {
       color: var(--primary-color);
       background-color: rgba(101, 11, 173, 0.1);
+    }
+
+    /* Sub-Navigation */
+    .sub-nav {
+      position: sticky;
+      top: 80px;
+      /* Adjust based on main nav height */
+      background-color: white;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      padding: 10px 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      border-bottom: 1px solid #eee;
+    }
+
+    .sub-nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .sub-nav a {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+
+    .sub-nav a:hover,
+    .sub-nav a.active {
+      color: white;
+      background-color: var(--accent-color);
     }
 
     /* Mobile Nav Button */
@@ -107,7 +146,7 @@
       /* Start off-screen */
       height: 100vh;
       width: 250px;
-      z-index: 999;
+      z-index: 1001;
       background-color: rgba(255, 255, 255, 0.97);
       backdrop-filter: blur(15px);
       box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
@@ -172,7 +211,8 @@
       color: white;
       text-align: center;
       position: relative;
-      margin-bottom: 40px;
+      margin-bottom: 0;
+      /* Removed margin to connect with sub-nav */
     }
 
     .hero-content {
@@ -199,6 +239,8 @@
       padding: 60px 20px;
       max-width: 1200px;
       margin: 0 auto;
+      scroll-margin-top: 140px;
+      /* Offset for sticky headers */
     }
 
     .section-title {
@@ -268,6 +310,7 @@
       flex-grow: 1;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
 
     .image-item h2 {
@@ -283,13 +326,50 @@
       margin-bottom: 15px;
       line-height: 1.5;
       font-weight: 400;
-      flex-grow: 1;
+      /* Uniform height logic */
+      max-height: 80px;
+      /* Approx 3 lines */
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      position: relative;
+    }
+
+    .image-item h4.expanded {
+      max-height: 500px;
+      /* Large enough to fit content */
     }
 
     .image-item p {
       font-size: 0.9rem;
       color: #777;
       margin-top: 10px;
+      /* Uniform height logic */
+      max-height: 60px;
+      /* Approx 3 lines */
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .image-item p.expanded {
+      max-height: 500px;
+    }
+
+    .see-more-btn {
+      background: none;
+      border: none;
+      color: var(--accent-color);
+      cursor: pointer;
+      font-weight: 600;
+      padding: 0;
+      margin-top: 10px;
+      align-self: flex-start;
+      font-size: 0.9rem;
+      display: none;
+      /* Hidden by default, shown via JS */
+    }
+
+    .see-more-btn:hover {
+      text-decoration: underline;
     }
 
     .image-item a {
@@ -403,6 +483,11 @@
       .image-row {
         grid-template-columns: 1fr;
       }
+
+      .sub-nav-container {
+        justify-content: flex-start;
+        /* Allow scroll */
+      }
     }
 
     .cta-button {
@@ -436,6 +521,20 @@
     <a href="products.html">Products</a>
     <a href="contact.html">Contact Us</a>
     <img src="assets/img/menu.png" id="btn-nav" alt="Menu">
+  </div>
+
+  <!-- ======= Sub-Navigation ======= -->
+  <div class="sub-nav">
+    <div class="sub-nav-container">
+      <a href="#equipment">General</a>
+      <a href="#ecg">ECG</a>
+      <a href="#pm">Monitoring</a>
+      <a href="#ult">Ultrasound</a>
+      <a href="#hem">Hematology</a>
+      <a href="#ms">Software</a>
+      <a href="#ser">Services</a>
+      <a href="#mc">Consumables</a>
+    </div>
   </div>
 
   <!-- ======= Sidebar ======= -->
@@ -479,7 +578,7 @@
           alt="X-ray Generator">
         <div class="image-item-content">
           <h2>X-ray Generator</h2>
-          <h4>High-quality medical imaging technology</h4>
+          <h4 class="expandable-text">High-quality medical imaging technology</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
@@ -487,14 +586,14 @@
           alt="Dental Chair">
         <div class="image-item-content">
           <h2>Dental Chair</h2>
-          <h4>Comfort and precision for dental care</h4>
+          <h4 class="expandable-text">Comfort and precision for dental care</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="300">
         <img src="assets/img/machinery-medical-equipment-hospital-room_1048944-13038203.jpg" alt="Simple catalogue">
         <div class="image-item-content">
           <h2>Simple catalogue</h2>
-          <h4>Modern, advanced & simple machinery</h4>
+          <h4 class="expandable-text">Modern, advanced & simple machinery</h4>
         </div>
       </div>
     </div>
@@ -504,21 +603,21 @@
         <img src="assets/img/2-cr-system-500x500.jpg" alt="CR System">
         <div class="image-item-content">
           <h2>CR System</h2>
-          <h4>Efficient, fast, and accurate radiography</h4>
+          <h4 class="expandable-text">Efficient, fast, and accurate radiography</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
         <img src="assets/img/mobile.jpg" alt="Mobile X-ray">
         <div class="image-item-content">
           <h2>Mobile X-ray</h2>
-          <h4>Portable solutions for on-site diagnostics</h4>
+          <h4 class="expandable-text">Portable solutions for on-site diagnostics</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="300">
         <img src="assets/img/1487-1-philips-heartstart-xl.jpg" alt="Defibrillator">
         <div class="image-item-content">
           <h2>Defibrillator</h2>
-          <h4>Essential for restoring a normal heart rhythm</h4>
+          <h4 class="expandable-text">Essential for restoring a normal heart rhythm</h4>
         </div>
       </div>
     </div>
@@ -528,21 +627,21 @@
         <img src="assets/img/cr2.jpeg" alt="CR System">
         <div class="image-item-content">
           <h2>CR System</h2>
-          <h4>Efficient, fast, and accurate radiography</h4>
+          <h4 class="expandable-text">Efficient, fast, and accurate radiography</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
         <img src="assets/img/flat apneel.jpeg" alt="Flat panel detector">
         <div class="image-item-content">
           <h2>Flat panel detector</h2>
-          <h4>Digitize x-ray images</h4>
+          <h4 class="expandable-text">Digitize x-ray images</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="300">
         <img src="assets/img/MRI photo2.jpg" alt="MRI">
         <div class="image-item-content">
           <h2>MRI</h2>
-          <h4>Essential for viewing 3D & 4D patient images</h4>
+          <h4 class="expandable-text">Essential for viewing 3D & 4D patient images</h4>
         </div>
       </div>
     </div>
@@ -552,21 +651,21 @@
         <img src="assets/img/6276ae4bb9ccf82b49ad73be_GE CASE + T2100...jpg" alt="Defibrillator">
         <div class="image-item-content">
           <h2>Defibrillator</h2>
-          <h4>Essential for restoring a normal heart rhythm</h4>
+          <h4 class="expandable-text">Essential for restoring a normal heart rhythm</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
         <img src="assets/img/1692969702798.jpg" alt="C-arm machine">
         <div class="image-item-content">
           <h2>C-arm machine</h2>
-          <h4>C-arms are particularly useful for fluoroscopic imaging</h4>
+          <h4 class="expandable-text">C-arms are particularly useful for fluoroscopic imaging</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="300">
         <img src="assets/img/PETCT.jpg" alt="PET/CT">
         <div class="image-item-content">
           <h2>PET/CT</h2>
-          <h4>Essential for viewing 3D & 4D patient images</h4>
+          <h4 class="expandable-text">Essential for viewing 3D & 4D patient images</h4>
         </div>
       </div>
     </div>
@@ -585,8 +684,8 @@
           <img src="assets/img/ECG1.jpg" alt="SE-1200/1201 Pro">
           <div class="image-item-content">
             <h2>SE-1200/1201 Pro</h2>
-            <h4>The SE-1200/1201 Pro provides various network solutions to share the ECG data with IT system via LAN,
-              Wi-Fi, Bluetooth or 4G.</h4>
+            <h4 class="expandable-text">The SE-1200/1201 Pro provides various network solutions to share the ECG data
+              with IT system via LAN, Wi-Fi, Bluetooth or 4G.</h4>
           </div>
         </a>
       </div>
@@ -595,8 +694,8 @@
           <img src="assets/img/ECG2.jpg" alt="iSE">
           <div class="image-item-content">
             <h2>iSE</h2>
-            <h4>The iSE provides various network solutions to share the ECG data with IT system via LAN, Wi-Fi,
-              Bluetooth or 4G.</h4>
+            <h4 class="expandable-text">The iSE provides various network solutions to share the ECG data with IT system
+              via LAN, Wi-Fi, Bluetooth or 4G.</h4>
           </div>
         </a>
       </div>
@@ -605,9 +704,9 @@
           <img src="assets/img/ECG3.jpg" alt="SE-1202">
           <div class="image-item-content">
             <h2>SE-1202</h2>
-            <h4>Without any third-party software, SE-1202 is able to directly access hospital systems via HL7/DICOM.
-            </h4>
-            <p>In addition, 4G network is now ready on SE-1202.</p>
+            <h4 class="expandable-text">Without any third-party software, SE-1202 is able to directly access hospital
+              systems via HL7/DICOM.</h4>
+            <p class="expandable-text">In addition, 4G network is now ready on SE-1202.</p>
           </div>
         </a>
       </div>
@@ -619,9 +718,10 @@
           <img src="assets/img/ECG4.jpg" alt="SE-18">
           <div class="image-item-content">
             <h2>SE-18</h2>
-            <h4>The flexible lead system enables users to select the applicable leads according to clinical
-              requirements.</h4>
-            <p>Advanced features are also supported, including Pharma Study, HRV, VCG, TVCG, and SAECG.</p>
+            <h4 class="expandable-text">The flexible lead system enables users to select the applicable leads according
+              to clinical requirements.</h4>
+            <p class="expandable-text">Advanced features are also supported, including Pharma Study, HRV, VCG, TVCG, and
+              SAECG.</p>
           </div>
         </a>
       </div>
@@ -630,10 +730,10 @@
           <img src="assets/img/ECG5.jpg" alt="SE-12 Series">
           <div class="image-item-content">
             <h2>SE-12 Series</h2>
-            <h4>The SE-12 Series ECG devices support your diagnosis with trustful references, satisfying every demanding
-              need of your practice.</h4>
-            <p>With different models targeted in different practices, you may choose accordingly for resting ECG, stress
-              test, or mobile applications.</p>
+            <h4 class="expandable-text">The SE-12 Series ECG devices support your diagnosis with trustful references,
+              satisfying every demanding need of your practice.</h4>
+            <p class="expandable-text">With different models targeted in different practices, you may choose accordingly
+              for resting ECG, stress test, or mobile applications.</p>
           </div>
         </a>
       </div>
@@ -642,8 +742,8 @@
           <img src="assets/img/ECG6.jpg" alt="SE-601 Series">
           <div class="image-item-content">
             <h2>SE-601 Series</h2>
-            <h4>Integrated with its alphanumeric keyboard, built-in rechargeable battery and large storage capacity, the
-              SE-601 Series is prepared to be carried through your daily practices.</h4>
+            <h4 class="expandable-text">Integrated with its alphanumeric keyboard, built-in rechargeable battery and
+              large storage capacity, the SE-601 Series is prepared to be carried through your daily practices.</h4>
           </div>
         </a>
       </div>
@@ -655,8 +755,9 @@
           <img src="assets/img/ECG7.jpg" alt="SE-301">
           <div class="image-item-content">
             <h2>SE-301</h2>
-            <h4>It is specifically developed for those who pursue portability without compromising performance,
-              especially in mobile applications such as ward rounding, emergency room, home visiting, etc.</h4>
+            <h4 class="expandable-text">It is specifically developed for those who pursue portability without
+              compromising performance, especially in mobile applications such as ward rounding, emergency room, home
+              visiting, etc.</h4>
           </div>
         </a>
       </div>
@@ -665,10 +766,10 @@
           <img src="assets/img/ECG8.jpg" alt="SE-3/300">
           <div class="image-item-content">
             <h2>SE-3/300</h2>
-            <h4>The SE-3 and SE-300 are compact 3-channel ECG devices that enable 12-lead simultaneous sampling and
-              displaying.</h4>
-            <p>With the quick start capability and one-button workflow, they can be your reliable assistant anytime on
-              duty.</p>
+            <h4 class="expandable-text">The SE-3 and SE-300 are compact 3-channel ECG devices that enable 12-lead
+              simultaneous sampling and displaying.</h4>
+            <p class="expandable-text">With the quick start capability and one-button workflow, they can be your
+              reliable assistant anytime on duty.</p>
           </div>
         </a>
       </div>
@@ -677,8 +778,9 @@
           <img src="assets/img/ECG9.jpg" alt="SE-1515">
           <div class="image-item-content">
             <h2>SE-1515</h2>
-            <h4>Combining exquisite ECG sampling boxes and comprehensive software together, the SE-1515 provides
-              efficient access to: resting ECG test, stress test, ECG data management and ECG network gateway.</h4>
+            <h4 class="expandable-text">Combining exquisite ECG sampling boxes and comprehensive software together, the
+              SE-1515 provides efficient access to: resting ECG test, stress test, ECG data management and ECG network
+              gateway.</h4>
           </div>
         </a>
       </div>
@@ -698,8 +800,8 @@
           <img src="assets/img/pat1.jpg" alt="iV Series">
           <div class="image-item-content">
             <h2>iV Series</h2>
-            <h4>The iV Series patient monitor earns technology progression when keeping the workflow clean and clear.
-            </h4>
+            <h4 class="expandable-text">The iV Series patient monitor earns technology progression when keeping the
+              workflow clean and clear.</h4>
           </div>
         </a>
       </div>
@@ -708,8 +810,8 @@
           <img src="assets/img/pat2.png" alt="elite V series">
           <div class="image-item-content">
             <h2>elite V series</h2>
-            <h4>With its plug-and-play modules, the elite V series is able to monitor a wide range of parameters
-              simultaneously, adapting from critical cares to anesthesia monitoring.</h4>
+            <h4 class="expandable-text">With its plug-and-play modules, the elite V series is able to monitor a wide
+              range of parameters simultaneously, adapting from critical cares to anesthesia monitoring.</h4>
           </div>
         </a>
       </div>
@@ -718,8 +820,8 @@
           <img src="assets/img/pat3.jpg" alt="iM20">
           <div class="image-item-content">
             <h2>iM20</h2>
-            <h4>Serving as both a multi-parameter module of elite V series and a transport monitor, the iM20 provides a
-              seamless monitoring solution both inside and outside hospital.</h4>
+            <h4 class="expandable-text">Serving as both a multi-parameter module of elite V series and a transport
+              monitor, the iM20 provides a seamless monitoring solution both inside and outside hospital.</h4>
           </div>
         </a>
       </div>
@@ -731,8 +833,8 @@
           <img src="assets/img/pat7.jpg" alt="iX Series">
           <div class="image-item-content">
             <h2>iX Series</h2>
-            <h4>The iX Series patient monitor earns technology progression when keeping the workflow clean and clear.
-            </h4>
+            <h4 class="expandable-text">The iX Series patient monitor earns technology progression when keeping the
+              workflow clean and clear.</h4>
           </div>
         </a>
       </div>
@@ -741,8 +843,8 @@
           <img src="assets/img/pat5.png" alt="IM series">
           <div class="image-item-content">
             <h2>IM series</h2>
-            <h4>The iM series are able to satisfy most clinical demands from general wards to cardiac units, from
-              intensive care units to operation theatres.</h4>
+            <h4 class="expandable-text">The iM series are able to satisfy most clinical demands from general wards to
+              cardiac units, from intensive care units to operation theatres.</h4>
           </div>
         </a>
       </div>
@@ -751,8 +853,8 @@
           <img src="assets/img/pat6.jpg" alt="CX series">
           <div class="image-item-content">
             <h2>CX series</h2>
-            <h4>CX series patient monitors, precise target to primary clinical demands, ensure high quality, durability,
-              and accuracy affordably.</h4>
+            <h4 class="expandable-text">CX series patient monitors, precise target to primary clinical demands, ensure
+              high quality, durability, and accuracy affordably.</h4>
           </div>
         </a>
       </div>
@@ -768,10 +870,10 @@
           <img src="assets/img/vit1.jpg" alt="iM3s">
           <div class="image-item-content">
             <h2>iM3s</h2>
-            <h4>iM3s presents a fashionable handheld design, delivering extraordinary portability throughout spot
-              checks.</h4>
-            <p>Though small in size, it integrates all necessary vital measurements together, including SpO2, NIBP and
-              optional TEMP.</p>
+            <h4 class="expandable-text">iM3s presents a fashionable handheld design, delivering extraordinary
+              portability throughout spot checks.</h4>
+            <p class="expandable-text">Though small in size, it integrates all necessary vital measurements together,
+              including SpO2, NIBP and optional TEMP.</p>
           </div>
         </a>
       </div>
@@ -780,8 +882,8 @@
           <img src="assets/img/vit2.jpg" alt="iM3">
           <div class="image-item-content">
             <h2>iM3</h2>
-            <h4>Bringing in full options of SpO2, NIBP and Temp, iM3 serves for both monitoring and spot check
-              applications.</h4>
+            <h4 class="expandable-text">Bringing in full options of SpO2, NIBP and Temp, iM3 serves for both monitoring
+              and spot check applications.</h4>
           </div>
         </a>
       </div>
@@ -790,8 +892,8 @@
           <img src="assets/img/vit3.jpg" alt="M3/M3A">
           <div class="image-item-content">
             <h2>M3/M3A</h2>
-            <h4>The M3/M3A provides essential measurements of patient's SpO2, NIBP, and body temperature, bringing high
-              performance vital signs to primary and sub-acute cares.</h4>
+            <h4 class="expandable-text">The M3/M3A provides essential measurements of patient's SpO2, NIBP, and body
+              temperature, bringing high performance vital signs to primary and sub-acute cares.</h4>
           </div>
         </a>
       </div>
@@ -803,7 +905,8 @@
           <img src="assets/img/vit4.jpg" alt="M3B">
           <div class="image-item-content">
             <h2>M3B</h2>
-            <h4>With SpO2 and CO2 monitoring, the M3B provides comprehensive figures for the respiratory system.</h4>
+            <h4 class="expandable-text">With SpO2 and CO2 monitoring, the M3B provides comprehensive figures for the
+              respiratory system.</h4>
           </div>
         </a>
       </div>
@@ -812,8 +915,9 @@
           <img src="assets/img/vit5.jpg" alt="H100 models">
           <div class="image-item-content">
             <h2>H100 models</h2>
-            <h4>Designed to be pocket-size oximeters, the H100 models can be easily carried and used everywhere.</h4>
-            <p>With AA batteries, the device can continuously work up to 48 hours.</p>
+            <h4 class="expandable-text">Designed to be pocket-size oximeters, the H100 models can be easily carried and
+              used everywhere.</h4>
+            <p class="expandable-text">With AA batteries, the device can continuously work up to 48 hours.</p>
           </div>
         </a>
       </div>
@@ -822,8 +926,9 @@
           <img src="assets/img/vit6.jpg" alt="H10">
           <div class="image-item-content">
             <h2>H10</h2>
-            <h4>Integrating complex components in a fingertip size product, the H10 is small in size.</h4>
-            <p>It combines SpO2, PR, and plethysmogram/bar graph on one display.</p>
+            <h4 class="expandable-text">Integrating complex components in a fingertip size product, the H10 is small in
+              size.</h4>
+            <p class="expandable-text">It combines SpO2, PR, and plethysmogram/bar graph on one display.</p>
           </div>
         </a>
       </div>
@@ -839,9 +944,10 @@
           <img src="assets/img/tele1.jpg" alt="iT30/iT50">
           <div class="image-item-content">
             <h2>iT30/iT50</h2>
-            <h4>The iT30/iT50 telemetry monitor provides advanced monitoring throughout your facility.</h4>
-            <p>Designed to help improve outcomes, the iT30/iT50 portable patient monitor allows continuous surveillance
-              during ambulation and transportation.</p>
+            <h4 class="expandable-text">The iT30/iT50 telemetry monitor provides advanced monitoring throughout your
+              facility.</h4>
+            <p class="expandable-text">Designed to help improve outcomes, the iT30/iT50 portable patient monitor allows
+              continuous surveillance during ambulation and transportation.</p>
           </div>
         </a>
       </div>
@@ -850,9 +956,9 @@
           <img src="assets/img/tele2.jpg" alt="iT20">
           <div class="image-item-content">
             <h2>iT20</h2>
-            <h4>As a wearable transmitter, the iT20 works together with the MFM-CMS central monitoring station via Wi-Fi
-              connections.</h4>
-            <p>It provides ECG, SpO2 and Respiration monitoring for mobile patients indoors.</p>
+            <h4 class="expandable-text">As a wearable transmitter, the iT20 works together with the MFM-CMS central
+              monitoring station via Wi-Fi connections.</h4>
+            <p class="expandable-text">It provides ECG, SpO2 and Respiration monitoring for mobile patients indoors.</p>
           </div>
         </a>
       </div>
@@ -861,8 +967,8 @@
           <img src="assets/img/tele3.jpg" alt="MFM-CMS">
           <div class="image-item-content">
             <h2>MFM-CMS</h2>
-            <h4>It offers seamless monitoring management from transportation to hospitalization, from mobile patients to
-              bedside cares, from intensive units to operation theatres.</h4>
+            <h4 class="expandable-text">It offers seamless monitoring management from transportation to hospitalization,
+              from mobile patients to bedside cares, from intensive units to operation theatres.</h4>
           </div>
         </a>
       </div>
@@ -881,24 +987,24 @@
         <img src="assets/img/ult1.jpg" alt="Acclarix LX3">
         <div class="image-item-content">
           <h2>Acclarix LX3</h2>
-          <h4>Integrated with compact appearance, cutting-edge technology and intelligent workflow, Acclarix LX3 is to
-            provide more valuable innovation.</h4>
+          <h4 class="expandable-text">Integrated with compact appearance, cutting-edge technology and intelligent
+            workflow, Acclarix LX3 is to provide more valuable innovation.</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
         <img src="assets/img/ult2.jpg" alt="Acclarix LX9">
         <div class="image-item-content">
           <h2>Acclarix LX9</h2>
-          <h4>When referring to performance, renovation and multiformity - there is one ultrasound system that delivers
-            more.</h4>
+          <h4 class="expandable-text">When referring to performance, renovation and multiformity - there is one
+            ultrasound system that delivers more.</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="300">
         <img src="assets/img/ult3.jpg" alt="Acclarix LX8">
         <div class="image-item-content">
           <h2>Acclarix LX8</h2>
-          <h4>The Acclarix LX8 Ultrasound System features a host of design breakthroughs that make day-to-day operation
-            easy, fast and intuitive.</h4>
+          <h4 class="expandable-text">The Acclarix LX8 Ultrasound System features a host of design breakthroughs that
+            make day-to-day operation easy, fast and intuitive.</h4>
         </div>
       </div>
     </div>
@@ -908,24 +1014,24 @@
         <img src="assets/img/ult5.jpg" alt="Acclarix AX9">
         <div class="image-item-content">
           <h2>Acclarix AX9</h2>
-          <h4>Powered by the latest SynSight zoon sonography platform, the Acclarix AX9 offers extraordinary
-            profitability in both imaging quality and automatic solutions.</h4>
+          <h4 class="expandable-text">Powered by the latest SynSight zoon sonography platform, the Acclarix AX9 offers
+            extraordinary profitability in both imaging quality and automatic solutions.</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
         <img src="assets/img/ult6.jpg" alt="Acclarix AX8">
         <div class="image-item-content">
           <h2>Acclarix AX8</h2>
-          <h4>The AX8 offers extraordinary profitability in both imaging quality and automatic solutions, combined with
-            its portable design and simplified workflow.</h4>
+          <h4 class="expandable-text">The AX8 offers extraordinary profitability in both imaging quality and automatic
+            solutions, combined with its portable design and simplified workflow.</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="300">
         <img src="assets/img/ult7.jpg" alt="Acclarix AX3">
         <div class="image-item-content">
           <h2>Acclarix AX3</h2>
-          <h4>The remarkable Acclarix AX3 Compact Ultrasound System delivers a surprising combination of features to
-            meet the demands of point-of-care imaging.</h4>
+          <h4 class="expandable-text">The remarkable Acclarix AX3 Compact Ultrasound System delivers a surprising
+            combination of features to meet the demands of point-of-care imaging.</h4>
         </div>
       </div>
     </div>
@@ -935,23 +1041,23 @@
         <img src="assets/img/ult8.jpg" alt="Acclarix AX2">
         <div class="image-item-content">
           <h2>Acclarix AX2</h2>
-          <h4>The Acclarix AX2 has been design from the relentless focus on delivering uncompromising performance at a
-            cost-effect price to each sonographer.</h4>
+          <h4 class="expandable-text">The Acclarix AX2 has been design from the relentless focus on delivering
+            uncompromising performance at a cost-effect price to each sonographer.</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
         <img src="assets/img/ult9.jpg" alt="U60">
         <div class="image-item-content">
           <h2>U60</h2>
-          <h4>The U60 is focused on providing clear imaging for confident diagnosis and procedure guidance, a compact,
-            user centered design, and a comprehensive set of applications.</h4>
+          <h4 class="expandable-text">The U60 is focused on providing clear imaging for confident diagnosis and
+            procedure guidance, a compact, user centered design, and a comprehensive set of applications.</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="300">
         <img src="assets/img/ult10.jpg" alt="U50">
         <div class="image-item-content">
           <h2>U50</h2>
-          <h4>The U50 PE is an economical color Doppler diagnostic ultrasound system.</h4>
+          <h4 class="expandable-text">The U50 PE is an economical color Doppler diagnostic ultrasound system.</h4>
         </div>
       </div>
     </div>
@@ -969,24 +1075,24 @@
         <img src="assets/img/HEM1.jpg" alt="H80">
         <div class="image-item-content">
           <h2>H80</h2>
-          <h4>Introducing our new hematology analyzer, designed to lighten the burden and streamline workflow, ensuring
-            efficient and accurate results for every blood sample.</h4>
+          <h4 class="expandable-text">Introducing our new hematology analyzer, designed to lighten the burden and
+            streamline workflow, ensuring efficient and accurate results for every blood sample.</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
         <img src="assets/img/HEM2jpg.jpg" alt="H80S">
         <div class="image-item-content">
           <h2>H80S</h2>
-          <h4>Designed with reliability efficiency and provide valuable solutions to meet the needs of robust
-            performance and simplified workload at the end-users.</h4>
+          <h4 class="expandable-text">Designed with reliability efficiency and provide valuable solutions to meet the
+            needs of robust performance and simplified workload at the end-users.</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="300">
         <img src="assets/img/HEM3.jpg" alt="H60">
         <div class="image-item-content">
           <h2>H60</h2>
-          <h4>Equipped with an integrated, intuitive operation system, it brings a reliable system with clinical values
-            and effective cost control. The H60 series is tailored to you.</h4>
+          <h4 class="expandable-text">Equipped with an integrated, intuitive operation system, it brings a reliable
+            system with clinical values and effective cost control. The H60 series is tailored to you.</h4>
         </div>
       </div>
     </div>
@@ -996,23 +1102,24 @@
         <img src="assets/img/HEM4.jpg" alt="H60S">
         <div class="image-item-content">
           <h2>H60S</h2>
-          <h4>The H60 Series is positioned in low to moderate volume laboratories, committed to lightening your work
-            with an enjoyable experience.</h4>
+          <h4 class="expandable-text">The H60 Series is positioned in low to moderate volume laboratories, committed to
+            lightening your work with an enjoyable experience.</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
         <img src="assets/img/HEM5.jpg" alt="H30 Pro">
         <div class="image-item-content">
           <h2>H30 Pro</h2>
-          <h4>H30 Pro is a robust 3-part hematology analyzer integrating a range of advanced features intended for a
-            cost-minded and quality-focused clinical laboratory.</h4>
+          <h4 class="expandable-text">H30 Pro is a robust 3-part hematology analyzer integrating a range of advanced
+            features intended for a cost-minded and quality-focused clinical laboratory.</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="300">
         <img src="assets/img/HEM6.jpg" alt="H30">
         <div class="image-item-content">
           <h2>H30</h2>
-          <h4>"Simple yet Reliable, Compact yet Powerful." This notion becomes the new trend of market.</h4>
+          <h4 class="expandable-text">"Simple yet Reliable, Compact yet Powerful." This notion becomes the new trend of
+            market.</h4>
         </div>
       </div>
     </div>
@@ -1026,20 +1133,20 @@
         <img src="assets/img/HEM7.jpg" alt="Hematology Control & Calibrator">
         <div class="image-item-content">
           <h2>Hematology Control & Calibrator</h2>
-          <h4>Combining up to 33 parameters in total, the Edan hematology control mainly covers the commonly tested full
-            blood profile in a single control.</h4>
-          <p>In order to ensure the highest possible standards in laboratory testing, calibrator is recommended to
-            perform.</p>
+          <h4 class="expandable-text">Combining up to 33 parameters in total, the Edan hematology control mainly covers
+            the commonly tested full blood profile in a single control.</h4>
+          <p class="expandable-text">In order to ensure the highest possible standards in laboratory testing, calibrator
+            is recommended to perform.</p>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
         <img src="assets/img/HEM9.jpg" alt="Hematology reagents">
         <div class="image-item-content">
           <h2>Hematology reagents</h2>
-          <h4>The proprietary reagents equipped with Edan hematology analyzer, ensure not only low reagent consumption,
-            but excellent performance.</h4>
-          <p>Dedicated hematology reagents are important components as complete hematology system to ensure reliable
-            results.</p>
+          <h4 class="expandable-text">The proprietary reagents equipped with Edan hematology analyzer, ensure not only
+            low reagent consumption, but excellent performance.</h4>
+          <p class="expandable-text">Dedicated hematology reagents are important components as complete hematology
+            system to ensure reliable results.</p>
         </div>
       </div>
     </div>
@@ -1057,21 +1164,21 @@
         <img src="assets/img/pacs-top-img01-photoroom.png-photoroom.png" alt="PACS Software">
         <div class="image-item-content">
           <h2>PACS Software</h2>
-          <h4>Picture Archiving and Communication System</h4>
+          <h4 class="expandable-text">Picture Archiving and Communication System</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
         <img src="assets/img/Screenshot 2024-09-16 110748.png" alt="RIS System">
         <div class="image-item-content">
           <h2>RIS System</h2>
-          <h4>Radiology Information System</h4>
+          <h4 class="expandable-text">Radiology Information System</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="300">
         <img src="assets/img/pacsct.jpg" alt="PACS Software">
         <div class="image-item-content">
           <h2>PACS Software</h2>
-          <h4>Picture Archiving and Communication System</h4>
+          <h4 class="expandable-text">Picture Archiving and Communication System</h4>
         </div>
       </div>
     </div>
@@ -1081,7 +1188,7 @@
         <img src="assets/img/nuffield_healthcare_blog_image-01.jpg" alt="HIMS System">
         <div class="image-item-content">
           <h2>HIMS System</h2>
-          <h4>Link all hospital departments and take control with a push of a button</h4>
+          <h4 class="expandable-text">Link all hospital departments and take control with a push of a button</h4>
         </div>
       </div>
     </div>
@@ -1099,7 +1206,7 @@
         <img src="assets/img/Screenshot 2024-08-03 015953.jpg" alt="PET/CT Services">
         <div class="image-item-content">
           <h2>PET/CT Services</h2>
-          <h4>Comprehensive maintenance and installation</h4>
+          <h4 class="expandable-text">Comprehensive maintenance and installation</h4>
         </div>
       </div>
       <div class="image-item" data-aos="fade-up" data-aos-delay="200">
@@ -1108,7 +1215,7 @@
         </video>
         <div class="image-item-content">
           <h2>X-ray Machine</h2>
-          <h4>Installation, repair, and modification services</h4>
+          <h4 class="expandable-text">Installation, repair, and modification services</h4>
         </div>
       </div>
     </div>
@@ -1231,6 +1338,60 @@
       if (!sidebar.contains(e.target) && !btnNav.contains(e.target)) {
         sidebar.classList.remove('active');
       }
+    });
+
+    // Sticky Sub-Nav Active State
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.sub-nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // See More Functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const expandableElements = document.querySelectorAll('.expandable-text');
+
+      expandableElements.forEach(el => {
+        // Check if content overflows (approximate check based on scrollHeight vs clientHeight)
+        // Since we set max-height in CSS, we can check if scrollHeight > clientHeight
+        if (el.scrollHeight > el.clientHeight) {
+          const btn = document.createElement('button');
+          btn.innerText = 'See More';
+          btn.className = 'see-more-btn';
+          btn.style.display = 'block'; // Show button
+
+          btn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent link click if inside anchor
+            e.stopPropagation();
+
+            el.classList.toggle('expanded');
+
+            if (el.classList.contains('expanded')) {
+              btn.innerText = 'See Less';
+            } else {
+              btn.innerText = 'See More';
+            }
+          });
+
+          // Insert button after the element
+          el.parentNode.insertBefore(btn, el.nextSibling);
+        }
+      });
     });
   </script>
 
