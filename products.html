@@ -274,6 +274,30 @@
 
     .image-row {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .image-item {
+      background-color: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .image-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .image-item img,
+    .image-item video {
+      width: 100%;
       height: 250px;
       object-fit: contain;
       background-color: #fff;
