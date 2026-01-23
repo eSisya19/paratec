@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Center | Legal info</title>
+    <style>
+        /* 
+           Microsoft Partner Center Replica 
+           Fonts: Segoe UI
+           Colors: Fabric UI / Fluent UI standard palette
+        */
+        @font-face {
+            font-family: 'Segoe UI Web (West European)';
+            src: local('Segoe UI'), url('//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2') format('woff2'), url('//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff') format('woff'), url('//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.ttf') format('truetype');
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: 'Segoe UI Web (West European)';
+            src: local('Segoe UI Semibold'), url('//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2') format('woff2'), url('//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff') format('woff'), url('//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.ttf') format('truetype');
+            font-weight: 600;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background-color: #faf9f8;
+            /* Neutral Lighter Alt */
+            color: #201f1e;
+            /* Neutral Primary */
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* SUITE BAR (Black Header) */
+        .suite-bar {
+            background-color: #000000;
+            color: #ffffff;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            justify-content: space-between;
+        }
+
+        .suite-bar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .waffle-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .waffle-icon:hover {
+            background-color: #333333;
+        }
+
+        .waffle-icon svg {
+            fill: #ffffff;
+            width: 16px;
+            height: 16px;
+        }
+
+        .suite-bar-title {
+            font-size: 16px;
+            font-weight: 600;
+            padding: 0 12px;
+            letter-spacing: -0.01em;
+            cursor: pointer;
+        }
+
+        .suite-bar-right {
+            display: flex;
+            align-items: center;
+            padding-right: 8px;
+        }
+
+        .suite-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .suite-icon:hover {
+            background-color: #333333;
+        }
+
+        .suite-icon svg {
+            fill: #ffffff;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* LAYOUT (Sidebar + Main) */
+        .layout-container {
+            display: flex;
+            height: calc(100vh - 48px);
+        }
+
+        /* Simulated Sidebar (Collapsed/Icon view for minimalism or fully mocked) */
+        .sidebar {
+            width: 48px;
+            background-color: #f3f2f1;
+            border-right: 1px solid #edebe9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        .nav-item {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-bottom: 4px;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            background-color: #edebe9;
+        }
+
+        .nav-item.active {
+            background-color: #ffffff;
+        }
+
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            bottom: 12px;
+            width: 3px;
+            background-color: #0078d4;
+            border-radius: 2px;
+        }
+
+        .nav-item svg {
+            fill: #605e5c;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* MAIN CANVAS */
+        .main-content {
+            flex: 1;
+            padding: 0 32px 32px 32px;
+            overflow-y: auto;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #605e5c;
+            padding: 16px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb-item {
+            cursor: pointer;
+        }
+
+        .breadcrumb-item:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            margin: 0 8px;
+            font-size: 10px;
+        }
+
+        .breadcrumb-current {
+            color: #201f1e;
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .breadcrumb-current:hover {
+            text-decoration: none;
+        }
+
+        /* Page Header */
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 0 0 24px 0;
+            color: #323130;
+        }
+
+        /* SECTION HEADER */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #edebe9;
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #201f1e;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            color: #605e5c;
+            margin-top: 4px;
+        }
+
+        /* PIVOT (Tabs) */
+        .pivot-container {
+            margin-bottom: 24px;
+        }
+
+        .pivot-link {
+            display: inline-block;
+            padding: 0 8px 10px 8px;
+            margin-right: 20px;
+            font-size: 14px;
+            color: #605e5c;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            font-weight: 400;
+        }
+
+        .pivot-link.selected {
+            color: #201f1e;
+            border-bottom-color: #0078d4;
+            font-weight: 600;
+        }
+
+        .pivot-link:hover {
+            color: #201f1e;
+        }
+
+        /* VERIFICATION CARD / CONTAINER */
+        .verification-container {
+            background-color: #ffffff;
+            box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
+            border-radius: 2px;
+            padding: 24px;
+            max-width: 900px;
+        }
+
+        /* AUTHENTIC DETAILS LIST TABLE */
+        .ms-Table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .ms-Table-row {
+            border-bottom: 1px solid #edebe9;
+        }
+
+        .ms-Table-row:hover {
+            background-color: #f3f2f1;
+        }
+
+        .ms-Table-row:first-child:hover {
+            background-color: transparent;
+        }
+
+        .ms-Table-head {
+            font-size: 12px;
+            font-weight: 600;
+            color: #201f1e;
+            text-align: left;
+            padding: 8px 12px;
+            border-bottom: 1px solid #edebe9;
+        }
+
+        .ms-Table-cell {
+            padding: 12px;
+            font-size: 14px;
+            color: #201f1e;
+            vertical-align: middle;
+        }
+
+        .cell-secondary {
+            color: #605e5c;
+        }
+
+        /* STATUS BADGE */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .status-icon-svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            fill: #107c10;
+        }
+
+        .status-text {
+            color: #107c10;
+            font-weight: 600;
+        }
+
+        /* Action Link */
+        a.action-link {
+            color: #0078d4;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        a.action-link:hover {
+            text-decoration: underline;
+        }
+
+        /* MPN ID Section styling */
+        .mpn-display {
+            font-size: 14px;
+            color: #605e5c;
+            margin-bottom: 24px;
+            margin-top: -16px;
+            /* Pull closer to H1 */
+        }
+
+        .mpn-value {
+            color: #201f1e;
+            font-weight: 600;
+        }
+
+        /* MODAL STYLES */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-dialog {
+            background-color: #ffffff;
+            width: 400px;
+            box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
+            border-radius: 2px;
+            padding: 0;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        .modal-header {
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 0 24px 24px 24px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .modal-footer {
+            padding: 16px 24px;
+            text-align: right;
+            background-color: #f3f2f1;
+        }
+
+        .btn-primary {
+            background-color: #0078d4;
+            color: #ffffff;
+            border: none;
+            padding: 6px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #106ebe;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SUITE BAR -->
+    <div class="suite-bar">
+        <div class="suite-bar-left">
+            <div class="waffle-icon" title="App launcher">
+                <svg viewBox="0 0 16 16">
+                    <path
+                        d="M1 1h4v4H1V1zm5.5 0h4v4h-4V1zM11 1h4v4h-4V1zM1 6.5h4v4H1v-4zm5.5 0h4v4h-4v-4zm4.5 0h4v4h-4v-4zM1 12h4v4H1v-4zm5.5 0h4v4h-4v-4zm4.5 0h4v4h-4v-4z" />
+                </svg>
+            </div>
+            <div class="suite-bar-title">Partner Center</div>
+        </div>
+        <div class="suite-bar-right">
+            <div class="suite-icon" title="Settings">
+                <svg viewBox="0 0 16 16">
+                    <path
+                        d="M8.7 1.1h-1.4l-.3 1.6c-.5.1-1 .4-1.4.7l-1.5-.7-.9 1.1 1 1.3c-.2.4-.2.9-.2 1.4 0 .5.1 1 .2 1.4l-1 1.3.9 1.1 1.5-.7c.4.3.9.5 1.4.7l.3 1.6h1.4l.3-1.6c.5-.1 1-.4 1.4-.7l1.5.7.9-1.1-1-1.3c.2-.4.2-.9.2-1.4 0-.5-.1-1-.2-1.4l1-1.3-.9-1.1-1.5.7c-.4-.3-.9-.5-1.4-.7l-.3-1.6zM8 9.5c-.8 0-1.5-.7-1.5-1.5S7.2 6.5 8 6.5s1.5.7 1.5 1.5S8.8 9.5 8 9.5z" />
+                </svg>
+            </div>
+            <div class="suite-icon" title="Help">
+                <svg viewBox="0 0 16 16">
+                    <path
+                        d="M8 1c3.9 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7zm0 1.4C4.9 2.4 2.4 4.9 2.4 8c0 3.1 2.5 5.6 5.6 5.6 3.1 0 5.6-2.5 5.6-5.6 0-3.1-2.5-5.6-5.6-5.6zm-.6 9h1.3v1.3H7.4v-1.3zm3.2-5.3c0 .8-.3 1.4-.9 1.9l-.6.5c-.4.3-.6.6-.6 1.1v.2H7.2V8c0-.6.4-1.2.9-1.5l.7-.5c.3-.3.4-.6.4-.9 0-.6-.5-1-1.1-1-.6 0-1 .3-1.1.9l-1.3-.3c.2-1.1 1.2-1.8 2.4-1.8 1.4 0 2.5 1.1 2.5 2.5z" />
+                </svg>
+            </div>
+            <div class="suite-icon" title="Account manager">
+                <div
+                    style="width: 28px; height: 28px; background-color: #eee; border-radius: 50%; color: #333; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600;">
+                    PT
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN LAYOUT -->
+    <div class="layout-container">
+        <!-- SIDEBAR (Icon Only Mode) -->
+        <div class="sidebar">
+            <div class="nav-item has-tooltip" title="Home">
+                <svg viewBox="0 0 16 16">
+                    <path d="M8 1.5l7 4.5v8H9V9H7v5H1V6l7-4.5z" />
+                </svg>
+            </div>
+            <div class="nav-item has-tooltip" title="Customers">
+                <svg viewBox="0 0 16 16">
+                    <path
+                        d="M11 6.5a2.5 2.5 0 10-5 0 2.5 2.5 0 005 0zm-2.5 3a3.5 3.5 0 013.5 3.5H4a3.5 3.5 0 013.5-3.5z" />
+                </svg>
+            </div>
+            <div class="nav-item has-tooltip" title="Commercial marketplace">
+                <svg viewBox="0 0 16 16">
+                    <path d="M1 3h6v4H1V3zm7 0h7v4H8V3zm0 5h7v5H8V8zM1 8h6v5H1V8z" />
+                </svg>
+            </div>
+            <div class="nav-item active has-tooltip" title="Account Settings">
+                <svg viewBox="0 0 16 16">
+                    <path d="M13.5 8a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-1 0a4.5 4.5 0 10-9 0 4.5 4.5 0 009 0z" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="main-content">
+            <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                <div class="breadcrumb-item">Partner Center</div>
+                <div class="breadcrumb-separator">></div>
+                <div class="breadcrumb-item">Account settings</div>
+                <div class="breadcrumb-separator">></div>
+                <div class="breadcrumb-current">Legal info</div>
+            </div>
+
+            <h1>Legal info</h1>
+
+            <div class="mpn-display">
+                Paras Technology Limited | MPN ID: <span class="mpn-value">7072542</span>
+            </div>
+
+            <div class="section-title" style="margin-bottom: 24px; font-size: 16px;">
+                <!-- Just text for this view -->
+                Manage your legal profile and verification status
+            </div>
+
+            <!-- TABS -->
+            <div class="pivot-container">
+                <div class="pivot-link selected">Partner</div>
+                <div class="pivot-link">Reseller</div>
+                <div class="pivot-link">Developer</div>
+            </div>
+
+            <!-- VERIFICATION CARD -->
+            <div class="verification-container">
+                <div class="section-header">
+                    <div class="section-title" style="display: flex; align-items: center;">
+                        <!-- Microsoft Color Logo Added Back Here -->
+                        <svg width="22" height="22" viewBox="0 0 23 23" style="margin-right: 12px;">
+                            <path fill="#F35325" d="M11.5 0H0v11.5h11.5V0z" />
+                            <path fill="#81BC06" d="M23 0H11.5v11.5H23V0z" />
+                            <path fill="#05A6F0" d="M11.5 11.5H0V23h11.5V11.5z" />
+                            <path fill="#FFBA08" d="M23 11.5H11.5V23H23V11.5z" />
+                        </svg>
+                        Legal business profile
+                    </div>
+                </div>
+
+                <table class="ms-Table">
+                    <thead>
+                        <tr class="ms-Table-row">
+                            <th class="ms-Table-head" style="width: 250px;">Verification status</th>
+                            <th class="ms-Table-head">Program</th>
+                            <th class="ms-Table-head">Source</th>
+                            <th class="ms-Table-head" style="width: 150px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="ms-Table-row">
+                            <td class="ms-Table-cell">
+                                <div class="status-pill">
+                                    <svg class="status-icon-svg" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm-1.8-4.9L3.4 8.3l1.1-1.1 1.7 1.7 4.7-4.7 1.1 1.1-5.8 5.8z" />
+                                    </svg>
+                                    <span class="status-text">Authorized</span>
+                                </div>
+                                <!-- Removed Date Text here -->
+                            </td>
+                            <td class="ms-Table-cell">
+                                Microsoft AI Cloud Partner Program
+                                <div class="cell-secondary">Global Partner</div>
+                            </td>
+                            <td class="ms-Table-cell">
+                                Microsoft Partner Center
+                            </td>
+                            <td class="ms-Table-cell">
+                                <a class="action-link">View details</a>
+                            </td>
+                        </tr>
+                        <!-- Additional simulated row for look-and-feel depth -->
+                        <tr class="ms-Table-row">
+                            <td class="ms-Table-cell">
+                                <div class="status-pill">
+                                    <svg class="status-icon-svg" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm-1.8-4.9L3.4 8.3l1.1-1.1 1.7 1.7 4.7-4.7 1.1 1.1-5.8 5.8z" />
+                                    </svg>
+                                    <span class="status-text">Authorized</span>
+                                </div>
+                            </td>
+                            <td class="ms-Table-cell">
+                                Commercial Marketplace
+                                <div class="cell-secondary">Publisher</div>
+                            </td>
+                            <td class="ms-Table-cell">
+                                Microsoft Partner Center
+                            </td>
+                            <td class="ms-Table-cell">
+                                <a class="action-link">View details</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid #edebe9;">
+                    <div style="font-weight: 600; margin-bottom: 8px;">Company details</div>
+                    <table class="ms-Table" style="width: 100%; max-width: 600px;">
+                        <tr class="ms-Table-row" style="border: none;">
+                            <td class="ms-Table-cell" style="width: 150px; color: #605e5c; padding-left: 0;">Company
+                                name</td>
+                            <td class="ms-Table-cell">Paras Technology Limited</td>
+                        </tr>
+                        <tr class="ms-Table-row" style="border: none;">
+                            <td class="ms-Table-cell" style="width: 150px; color: #605e5c; padding-left: 0;">Address
+                            </td>
+                            <td class="ms-Table-cell">Protected Address<br>Zambia</td>
+                        </tr>
+                        <tr class="ms-Table-row" style="border: none;">
+                            <td class="ms-Table-cell" style="width: 150px; color: #605e5c; padding-left: 0;">Primary
+                                contact</td>
+                            <td class="ms-Table-cell">Edwin Sisya(eddie@parastechnology.com)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER (Bottom of page, not sticky) -->
+    <div style="padding: 24px 32px; color: #605e5c; font-size: 12px; display: flex; justify-content: space-between;">
+
+        <div style="display: flex; gap: 20px;">
+            <a class="action-link" style="color: #605e5c;">Contact support</a>
+            <a class="action-link" style="color: #605e5c;">Service health</a>
+        </div>
+    </div>
+
+    <!-- VIEW ONLY MODAL -->
+    <div class="modal-overlay" id="viewOnlyModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div class="modal-title">Access Denied</div>
+                <div style="cursor: pointer;" onclick="closeModal()">
+                    <svg width="14" height="14" viewBox="0 0 14 14">
+                        <path class="close-icon-path"
+                            d="M14 1.41L12.59 0 7 5.59 1.41 0 0 1.41 5.59 7 0 12.59 1.41 14 7 8.41 12.59 14 14 12.59 8.41 7z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="modal-body">
+                You are not authorized to perform this action because this page is in view-only mode.
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearField = document.getElementById('yearField');
+            if (yearField) {
+                const now = new Date();
+                yearField.textContent = now.getFullYear();
+            }
+
+            // ROBUST INTERCEPT CLICKS
+            // Use capture phase (true) to catch events before they reach elements
+            document.addEventListener('click', (e) => {
+                // Allow clicks inside the modal (e.g. Close button)
+                if (e.target.closest('.modal-dialog')) {
+                    return;
+                }
+
+                // Identify interactive elements
+                const interactive = e.target.closest('a, button, .nav-item, .waffle-icon, .suite-icon, .breadcrumb-item, .pivot-link, .ms-Table-row');
+
+                if (interactive) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showModal();
+                }
+            }, true);
+        });
+
+        function showModal() {
+            const modal = document.getElementById('viewOnlyModal');
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('viewOnlyModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
