@@ -408,6 +408,88 @@
         .btn-primary:hover {
             background-color: #106ebe;
         }
+
+        /* Modal Close Icon Color */
+        .close-icon-path {
+            fill: var(--icon-fill);
+        }
+
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 768px) {
+            .layout-container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: 48px;
+                flex-direction: row;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding-top: 0;
+                justify-content: space-around;
+                order: -1;
+            }
+
+            .nav-item {
+                width: auto;
+                flex: 1;
+                margin-bottom: 0;
+                height: 48px;
+            }
+
+            .nav-item.active::before {
+                left: 0;
+                right: 0;
+                width: auto;
+                height: 3px;
+                top: auto;
+                bottom: 0;
+            }
+
+            .main-content {
+                padding: 16px;
+                /* Adjust for sidebar taking space if not fixed */
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 16px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .verification-container {
+                padding: 16px;
+                /* Make table scrollable */
+                overflow-x: auto;
+            }
+
+            .ms-Table {
+                min-width: 600px;
+                /* Force scroll on small screens */
+            }
+
+            /* Stack footer content */
+            .footer-container {
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+                text-align: center;
+            }
+
+            /* Hide suite bar title on very small screens to save space */
+            @media (max-width: 360px) {
+                .suite-bar-title {
+                    display: none;
+                }
+            }
+        }
     </style>
 </head>
 
@@ -599,7 +681,8 @@
     </div>
 
     <!-- FOOTER (Bottom of page, not sticky) -->
-    <div style="padding: 24px 32px; color: #605e5c; font-size: 12px; display: flex; justify-content: space-between;">
+    <div class="footer-container"
+        style="padding: 24px 32px; color: #605e5c; font-size: 12px; display: flex; justify-content: space-between;">
 
         <div style="display: flex; gap: 20px;">
             <a class="action-link" style="color: #605e5c;">Contact support</a>
