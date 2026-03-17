@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_windows/webview_windows.dart' as win;
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:io';
 
 void main() {
@@ -144,7 +145,42 @@ class _ShellWebViewState extends State<ShellWebView> {
   Future<void> _initMobile() async {
     _mobileController = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onNavigationRequest: (NavigationRequest request) {
+            if (_isDownloadLink(request.url)) {
+              _launchInExternalBrowser(request.url);
+              return NavigationDecision.prevent;
+            }
+            return NavigationDecision.navigate;
+          },
+        ),
+      )
       ..loadRequest(Uri.parse(widget.url));
+  }
+
+  bool _isDownloadLink(String url) {
+    final downloadExtensions = [
+      '.apk',
+      '.pdf',
+      '.zip',
+      '.rar',
+      '.exe',
+      '.dmg',
+      '.bin',
+      '.pkg',
+      '.deb',
+    ];
+    return downloadExtensions.any((ext) => url.toLowerCase().contains(ext));
+  }
+
+  Future<void> _launchInExternalBrowser(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      debugPrint('Could not launch $url');
+    }
   }
 
   Future<void> _initWindows() async {
