@@ -147,7 +147,16 @@ class _ShellWebViewState extends State<ShellWebView> {
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setNavigationDelegate(
         NavigationDelegate(
+          onProgress: (int progress) {
+            // Update loading bar.
+          },
+          onPageStarted: (String url) {},
+          onPageFinished: (String url) {},
+          onWebResourceError: (WebResourceError error) {},
           onNavigationRequest: (NavigationRequest request) {
+            debugPrint('Navigation request to: ${request.url}');
+            // For Android, if it looks like a download or common external link,
+            // we force it to open in the system browser.
             if (_isDownloadLink(request.url)) {
               _launchInExternalBrowser(request.url);
               return NavigationDecision.prevent;
@@ -176,10 +185,14 @@ class _ShellWebViewState extends State<ShellWebView> {
 
   Future<void> _launchInExternalBrowser(String url) async {
     final uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } else {
-      debugPrint('Could not launch $url');
+    try {
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      } else {
+        debugPrint('Could not launch $url');
+      }
+    } catch (e) {
+      debugPrint('Error launching URL: $e');
     }
   }
 
