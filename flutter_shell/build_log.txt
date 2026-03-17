@@ -1,0 +1,300 @@
+[  +35 ms] executing: sysctl hw.optional.arm64
+[   +3 ms] Exit code 0 from: sysctl hw.optional.arm64
+[        ] hw.optional.arm64: 1
+[   +4 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[        ] executing: [/Users/lbs/flutter/] git -c log.showSignature=false log HEAD -n 1 --pretty=format:%ad --date=iso
+[  +19 ms] Exit code 0 from: git -c log.showSignature=false log HEAD -n 1 --pretty=format:%ad --date=iso
+[        ] 2026-02-27 17:09:06 -0500
+[   +7 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterEngineStamp' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[  +19 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterEngineStamp' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[  +10 ms] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[  +11 ms] Skipping pub get: version match.
+[  +57 ms] Found plugin webview_windows at /Users/lbs/.pub-cache/hosted/pub.dev/webview_windows-0.4.0/
+[   +3 ms] Found plugin webview_flutter at /Users/lbs/.pub-cache/hosted/pub.dev/webview_flutter-4.13.1/
+[   +1 ms] Found plugin webview_flutter_wkwebview at /Users/lbs/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.24.0/
+[   +2 ms] Found plugin webview_flutter_android at /Users/lbs/.pub-cache/hosted/pub.dev/webview_flutter_android-4.10.13/
+[  +26 ms] Found plugin webview_windows at /Users/lbs/.pub-cache/hosted/pub.dev/webview_windows-0.4.0/
+[        ] Found plugin webview_flutter at /Users/lbs/.pub-cache/hosted/pub.dev/webview_flutter-4.13.1/
+[        ] Found plugin webview_flutter_wkwebview at /Users/lbs/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.24.0/
+[   +1 ms] Found plugin webview_flutter_android at /Users/lbs/.pub-cache/hosted/pub.dev/webview_flutter_android-4.10.13/
+[   +5 ms] Generating /Users/lbs/Coding_Projects/app maker/flutter_shell/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+[   +6 ms] Skipping generating GeneratedPluginRegistrant.java because it is up-to-date.
+[   +7 ms] Skipping generating generated_plugin_registrant.h because it is up-to-date.
+[   +1 ms] Skipping generating generated_plugin_registrant.cc because it is up-to-date.
+[   +1 ms] Skipping generating generated_plugins.cmake because it is up-to-date.
+[   +1 ms] Skipping generating GeneratedPluginRegistrant.swift because it is up-to-date.
+[   +9 ms] executing: sysctl hw.optional.arm64
+[   +5 ms] Exit code 0 from: sysctl hw.optional.arm64
+[        ] hw.optional.arm64: 1
+[        ] executing: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[  +14 ms] Exit code 72 from: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[        ] xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH
+[  +28 ms] Podfile not found, skipping global platform macOS version migration.
+[   +9 ms] executing: /usr/bin/plutil -convert xml1 -o - /Users/lbs/Coding_Projects/app maker/flutter_shell/macos/Runner/Info.plist
+[   +5 ms] Exit code 0 from: /usr/bin/plutil -convert xml1 -o - /Users/lbs/Coding_Projects/app maker/flutter_shell/macos/Runner/Info.plist
+[        ] <?xml version="1.0" encoding="UTF-8"?>
+           <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+           <plist version="1.0">
+           <dict>
+           	<key>CFBundleDevelopmentRegion</key>
+           	<string>$(DEVELOPMENT_LANGUAGE)</string>
+           	<key>CFBundleExecutable</key>
+           	<string>$(EXECUTABLE_NAME)</string>
+           	<key>CFBundleIconFile</key>
+           	<string></string>
+           	<key>CFBundleIdentifier</key>
+           	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+           	<key>CFBundleInfoDictionaryVersion</key>
+           	<string>6.0</string>
+           	<key>CFBundleName</key>
+           	<string>$(PRODUCT_NAME)</string>
+           	<key>CFBundlePackageType</key>
+           	<string>APPL</string>
+           	<key>CFBundleShortVersionString</key>
+           	<string>$(FLUTTER_BUILD_NAME)</string>
+           	<key>CFBundleVersion</key>
+           	<string>$(FLUTTER_BUILD_NUMBER)</string>
+           	<key>LSMinimumSystemVersion</key>
+           	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+           	<key>NSHumanReadableCopyright</key>
+           	<string>$(PRODUCT_COPYRIGHT)</string>
+           	<key>NSMainNibFile</key>
+           	<string>MainMenu</string>
+           	<key>NSPrincipalClass</key>
+           	<string>NSApplication</string>
+           </dict>
+           </plist>
+[  +31 ms] The Swift Package Manager feature is off. Skipping the migration that adds Swift Package Manager integration...
+[        ] executing: [/Users/lbs/Coding_Projects/app maker/flutter_shell/macos/] /usr/bin/arch -arm64e xcrun xcodebuild -list -project Runner.xcodeproj
+[  +11 ms] xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH
+[   +1 ms] "flutter macos" took 285ms.
+[   +3 ms] executing: sw_vers -productName
+[   +9 ms] Exit code 0 from: sw_vers -productName
+[        ] macOS
+[        ] executing: sw_vers -productVersion
+[   +8 ms] Exit code 0 from: sw_vers -productVersion
+[        ] 26.3.1
+[        ] executing: sw_vers -buildVersion
+[   +8 ms] Exit code 0 from: sw_vers -buildVersion
+[        ] 25D2128
+[        ] executing: uname -m
+[   +3 ms] Exit code 0 from: uname -m
+[        ] arm64
+
+[   +9 ms] Sending crash report to Google.
+[+2171 ms] Crash report sent (report ID: cfff4ac0fa8ef259)
+[   +1 ms] Oops; flutter has exited unexpectedly: "ProcessException: Process exited abnormally with exit code 72:
+           xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH
+             Command: /usr/bin/arch -arm64e xcrun xcodebuild -list -project Runner.xcodeproj".
+[  +80 ms] executing: /usr/bin/plutil -convert xml1 -o - /Applications/Android Studio.app/Contents/Info.plist
+[   +5 ms] Exit code 0 from: /usr/bin/plutil -convert xml1 -o - /Applications/Android Studio.app/Contents/Info.plist
+[        ] <?xml version="1.0" encoding="UTF-8"?>
+           <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+           <plist version="1.0">
+           <dict>
+           	<key>CFBundleDevelopmentRegion</key>
+           	<string>English</string>
+           	<key>CFBundleDocumentTypes</key>
+           	<array>
+           		<dict>
+           			<key>CFBundleTypeExtensions</key>
+           			<array>
+           				<string>ipr</string>
+           			</array>
+           			<key>CFBundleTypeIconFile</key>
+           			<string>studio.icns</string>
+           			<key>CFBundleTypeName</key>
+           			<string>Android Studio Project File</string>
+           			<key>CFBundleTypeRole</key>
+           			<string>Editor</string>
+           		</dict>
+           		<dict>
+           			<key>CFBundleTypeExtensions</key>
+           			<array>
+           				<string>*</string>
+           			</array>
+           			<key>CFBundleTypeName</key>
+           			<string>All documents</string>
+           			<key>CFBundleTypeOSTypes</key>
+           			<array>
+           				<string>****</string>
+           			</array>
+           			<key>CFBundleTypeRole</key>
+           			<string>Editor</string>
+           			<key>LSTypeIsPackage</key>
+           			<false/>
+           		</dict>
+           	</array>
+           	<key>CFBundleExecutable</key>
+           	<string>studio</string>
+           	<key>CFBundleGetInfoString</key>
+           	<string>Android Studio 2025.3, build AI-253.30387.90.2532.14935130. Copyright JetBrains s.r.o., (c) 2000-2026</string>
+           	<key>CFBundleIconFile</key>
+           	<string>studio.icns</string>
+           	<key>CFBundleIdentifier</key>
+           	<string>com.google.android.studio</string>
+           	<key>CFBundleInfoDictionaryVersion</key>
+           	<string>6.0</string>
+           	<key>CFBundleName</key>
+           	<string>Android Studio</string>
+           	<key>CFBundlePackageType</key>
+           	<string>APPL</string>
+           	<key>CFBundleShortVersionString</key>
+           	<string>2025.3</string>
+           	<key>CFBundleURLTypes</key>
+           	<array>
+           		<dict>
+           			<key>CFBundleTypeRole</key>
+           			<string>Editor</string>
+           			<key>CFBundleURLName</key>
+           			<string>Stacktrace</string>
+           			<key>CFBundleURLSchemes</key>
+           			<array>
+           				<string>idea</string>
+           			</array>
+           		</dict>
+           	</array>
+           	<key>CFBundleVersion</key>
+           	<string>AI-253.30387.90.2532.14935130</string>
+           	<key>LSApplicationCategoryType</key>
+           	<string>public.app-category.developer-tools</string>
+           	<key>LSArchitecturePriority</key>
+           	<array>
+           		<string>arm64</string>
+           	</array>
+           	<key>LSMinimumSystemVersion</key>
+           	<string>10.13</string>
+           	<key>LSRequiresNativeExecution</key>
+           	<string>YES</string>
+           	<key>NSAppleEventsUsageDescription</key>
+           	<string>An application in Android Studio requests the ability to send Apple events.</string>
+           	<key>NSBluetoothAlwaysUsageDescription</key>
+           	<string>An application in Android Studio requests access to Bluetooth.</string>
+           	<key>NSCameraUsageDescription</key>
+           	<string>An application in Android Studio requests access to the device's camera.</string>
+           	<key>NSDesktopFolderUsageDescription</key>
+           	<string>An application in Android Studio requests access to the user's Desktop folder.</string>
+           	<key>NSDocumentsFolderUsageDescription</key>
+           	<string>An application in Android Studio requests access to the user's Documents folder.</string>
+           	<key>NSDownloadsFolderUsageDescription</key>
+           	<string>An application in Android Studio requests access to the user's Downloads folder.</string>
+           	<key>NSHighResolutionCapable</key>
+           	<true/>
+           	<key>NSLocalNetworkUsageDescription</key>
+           	<string>Android Studio's features, such as SSH and database connectivity, require permissions for accessing the local network and sending broadcast requests.</string>
+           	<key>NSLocationUsageDescription</key>
+           	<string>An application in Android Studio requests access to the user's location information.</string>
+           	<key>NSMicrophoneUsageDescription</key>
+           	<string>An application in Android Studio requests access to the device's microphone.</string>
+           	<key>NSNetworkVolumesUsageDescription</key>
+           	<string>An application in Android Studio requests access to files on a network volume.</string>
+           	<key>NSRemovableVolumesUsageDescription</key>
+           	<string>An application in Android Studio requests access to files on a removable volume.</string>
+           	<key>NSSupportsAutomaticGraphicsSwitching</key>
+           	<true/>
+           </dict>
+           </plist>
+[   +3 ms] executing: /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java -version
+[  +51 ms] Exit code 0 from: /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java -version
+[        ] openjdk version "21.0.9" 2025-10-21
+           OpenJDK Runtime Environment (build 21.0.9+-14787801-b1163.94)
+           OpenJDK 64-Bit Server VM (build 21.0.9+-14787801-b1163.94, mixed mode)
+[  +15 ms] executing: [/Users/lbs/flutter/] git -c log.showSignature=false log -n 1 --pretty=format:%ar
+[  +14 ms] Exit code 0 from: git -c log.showSignature=false log -n 1 --pretty=format:%ar
+[        ] 3 weeks ago
+[  +15 ms] executing: /usr/bin/xcode-select --print-path
+[   +5 ms] Exit code 0 from: /usr/bin/xcode-select --print-path
+[        ] /Library/Developer/CommandLineTools
+[        ] executing: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[   +8 ms] Exit code 72 from: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[        ] xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH
+[        ] executing: which pod
+[   +1 ms] executing: /Users/lbs/Library/Android/sdk/platform-tools/adb devices -l
+[        ] executing: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[   +8 ms] Exit code 72 from: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[        ] xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH
+[        ] Xcode not found. Run 'flutter doctor' for more information.
+[        ] executing: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[   +8 ms] Exit code 72 from: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[        ] xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH
+[   +1 ms] executing: /usr/bin/arch -arm64e xcrun simctl list devices booted
+[  +40 ms] List of devices attached
+[  +36 ms] executing: /Users/lbs/Library/Android/sdk/platform-tools/adb devices -l
+[  +15 ms] List of devices attached
+[        ] executing: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[   +9 ms] Exit code 72 from: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[        ] xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH
+[        ] Xcode not found. Run 'flutter doctor' for more information.
+[ +187 ms] executing: /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java --version
+[  +60 ms] Exit code 0 from: /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java --version
+[        ] openjdk 21.0.9 2025-10-21
+           OpenJDK Runtime Environment (build 21.0.9+-14787801-b1163.94)
+           OpenJDK 64-Bit Server VM (build 21.0.9+-14787801-b1163.94, mixed mode)
+[ +582 ms] A crash report has been written to /Users/lbs/Coding_Projects/app maker/flutter_shell/flutter_04.log
+[        ] This crash may already be reported. Check GitHub for similar crashes.
+[        ] https://github.com/flutter/flutter/issues?q=is%3Aissue+ProcessException%3A+Process+exited+abnormally+with+exit+code+72%3A%0Axcrun%3A+error%3A+unable+to+find+utility+%22xcodebuild%22%2C+not+a+developer+tool+or+in+PATH%0A++Command%3A+%2Fusr%2Fbin%2Farch+-arm64e+xcrun+xcodebuild+-list+-project+Runner.xcodeproj
+
+[        ] To report your crash to the Flutter team, first read the guide to filing a bug.
+[        ] https://flutter.dev/to/report-bugs
+
+[        ] Create a new GitHub issue by pasting this link into your browser and completing the issue template. Thank you!
+[   +6 ms] https://github.com/flutter/flutter/issues/new?title=%5Btool_crash%5D+ProcessException%3A+Process+exited+abnormally+with+exit+code+72%3A%0Axcrun%3A+error%3A+unable+to+find+utility+%22xcodebuild%22%2C+not+a+developer+tool+or+in+PATH+Command%3A+%2Fusr%2Fbin%2Farch%2C+OS+error+code%3A+72&body=%23%23+Command%0A%60%60%60sh%0Aflutter+build+macos+--release+-v%0A%60%60%60%0A%0A%23%23+Steps+to+Reproduce%0A1.+...%0A2.+...%0A3.+...%0A%0A%23%23+Logs%0AProcessException%3A+Process+exited+abnormally+with+exit+code+72%3A%0Axcrun%3A+error%3A+unable+to+find+utility+%22xcodebuild%22%2C+not+a+developer+tool+or+in+PATH+Command%3A+%2Fusr%2Fbin%2Farch%2C+OS+error+code%3A+72%0A%60%60%60console%0A%230++++++RunResult.throwException+%28package%3Aflutter_tools%2Fsrc%2Fbase%2Fprocess.dart%3A153%3A5%29%0A%231++++++_DefaultProcessUtils.run+%28package%3Aflutter_tools%2Fsrc%2Fbase%2Fprocess.dart%3A379%3A19%29%0A%3Casynchronous+suspension%3E%0A%232++++++XcodeProjectInterpreter.getInfo+%28package%3Aflutter_tools%2Fsrc%2Fios%2Fxcodeproj.dart%3A328%3A30%29%0A%3Casynchronous+suspension%3E%0A%233++++++buildMacOS+%28package%3Aflutter_tools%2Fsrc%2Fmacos%2Fbuild_macos.dart%3A127%3A41%29%0A%3Casynchronous+suspension%3E%0A%234++++++BuildMacosCommand.runCommand+%28package%3Aflutter_tools%2Fsrc%2Fcommands%2Fbuild_macos.dart%3A61%3A5%29%0A%3Casynchronous+suspension%3E%0A%235++++++FlutterCommand.run.%3Canonymous+closure%3E+%28package%3Aflutter_tools%2Fsrc%2Frunner%2Fflutter_command.dart%3A1590%3A27%29%0A%3Casynchronous+suspension%3E%0A%236++++++AppContext.run.%3Canonymous+closure%3E+%28package%3Aflutter_tools%2Fsrc%2Fbase%2Fcontext.dart%3A154%3A19%29%0A%3Casynchronous+suspension%3E%0A%237++++++CommandRunner.runCommand+%28package%3Aargs%2Fcommand_runner.dart%3A212%3A13%29%0A%3Casynchronous+suspension%3E%0A%238++++++FlutterCommandRunner.runCommand.%3Canonymous+closure%3E+%28package%3Aflutter_tools%2Fsrc%2Frunner%2Fflutter_command_runner.dart%3A496%3A9%29%0A%3Casynchronous+suspension%3E%0A%239++++++AppContext.run.%3Canonymous+closure%3E+%28package%3Aflutter_tools%2Fsrc%2Fbase%2Fcontext.dart%3A154%3A19%29%0A%3Casynchronous+suspension%3E%0A%2310+++++FlutterCommandRunner.runCommand+%28package%3Aflutter_tools%2Fsrc%2Frunner%2Fflutter_command_runner.dart%3A431%3A5%29%0A%3Casynchronous+suspension%3E%0A%2311+++++FlutterCommandRunner.run.%3Canonymous+closure%3E+%28package%3Aflutter_tools%2Fsrc%2Frunner%2Fflutter_command_runner.dart%3A307%3A33%29%0A%3Casynchronous+suspension%3E%0A%2312+++++run.%3Canonymous+closure%3E.%3Canonymous+closure%3E+%28package%3Aflutter_tools%2Frunner.dart%3A104%3A11%29%0A%3Casynchronous+suspension%3E%0A%60%60%60%0A%60%60%60console%0A%5B%E2%9C%93%5D+Flutter+%28Channel+stable%2C+3.41.3%2C+on+macOS+26.3.1+25D2128+darwin-arm64%2C+locale+en-US%29+%5B91ms%5D%0A++++%E2%80%A2+Flutter+version+3.41.3+on+channel+stable+at+%2FUsers%2Flbs%2Fflutter%0A++++%E2%80%A2+Upstream+repository+https%3A%2F%2Fgithub.com%2Fflutter%2Fflutter.git%0A++++%E2%80%A2+Framework+revision+48c32af034+%283+weeks+ago%29%2C+2026-02-27+17%3A09%3A06+-0500%0A++++%E2%80%A2+Engine+revision+327ed81450%0A++++%E2%80%A2+Dart+version+3.11.1%0A++++%E2%80%A2+DevTools+version+2.54.1%0A++++%E2%80%A2+Feature+flags%3A+enable-web%2C+enable-linux-desktop%2C+enable-macos-desktop%2C+enable-windows-desktop%2C+enable-android%2C+enable-ios%2C+cli-animations%2C+enable-native-assets%2C+omit-legacy-version-file%2C+enable-lldb-debugging%2C+enable-uiscene-migration%0A%0A%5B%E2%9C%93%5D+Android+toolchain+-+develop+for+Android+devices+%28Android+SDK+version+36.1.0%29+%5B964ms%5D%0A++++%E2%80%A2+Android+SDK+at+%2FUsers%2Flbs%2FLibrary%2FAndroid%2Fsdk%0A++++%E2%80%A2+Emulator+version+36.4.9.0+%28build_id+14788078%29+%28CL%3AN%2FA%29%0A++++%E2%80%A2+Platform+android-36.1%2C+build-tools+36.1.0%0A++++%E2%80%A2+Java+binary+at%3A+%2FApplications%2FAndroid+Studio.app%2FContents%2Fjbr%2FContents%2FHome%2Fbin%2Fjava%0A++++++This+is+the+JDK+bundled+with+the+latest+Android+Studio+installation+on+this+machine.%0A++++++To+manually+set+the+JDK+path%2C+use%3A+%60flutter+config+--jdk-dir%3D%22path%2Fto%2Fjdk%22%60.%0A++++%E2%80%A2+Java+version+OpenJDK+Runtime+Environment+%28build+21.0.9%2B-14787801-b1163.94%29%0A++++%E2%80%A2+All+Android+licenses+accepted.%0A%0A%5B%E2%9C%97%5D+Xcode+-+develop+for+iOS+and+macOS+%5B67ms%5D%0A++++%E2%9C%97+Xcode+installation+is+incomplete%3B+a+full+installation+is+necessary+for+iOS+and+macOS+development.%0A++++++Download+at%3A+https%3A%2F%2Fdeveloper.apple.com%2Fxcode%2F%0A++++++Or+install+Xcode+via+the+App+Store.%0A++++++Once+installed%2C+run%3A%0A++++++++sudo+xcode-select+--switch+%2FApplications%2FXcode.app%2FContents%2FDeveloper%0A++++++++sudo+xcodebuild+-runFirstLaunch%0A++++%E2%9C%97+CocoaPods+not+installed.%0A++++++++CocoaPods+is+a+package+manager+for+iOS+or+macOS+platform+code.%0A++++++++Without+CocoaPods%2C+plugins+will+not+work+on+iOS+or+macOS.%0A++++++++For+more+info%2C+see+https%3A%2F%2Fflutter.dev%2Fto%2Fplatform-plugins%0A++++++For+installation+instructions%2C+see+https%3A%2F%2Fguides.cocoapods.org%2Fusing%2Fgetting-started.html%23installation%0A%0A%5B%E2%9C%93%5D+Chrome+-+develop+for+the+web+%5B36ms%5D%0A++++%E2%80%A2+Chrome+at+%2FApplications%2FGoogle+Chrome.app%2FContents%2FMacOS%2FGoogle+Chrome%0A%0A%5B%E2%9C%93%5D+Connected+device+%282+available%29+%5B124ms%5D%0A++++%E2%80%A2+macOS+%28desktop%29+%E2%80%A2+macos++%E2%80%A2+darwin-arm64+++%E2%80%A2+macOS+26.3.1+25D2128+darwin-arm64%0A++++%E2%80%A2+Chrome+%28web%29++++%E2%80%A2+chrome+%E2%80%A2+web-javascript+%E2%80%A2+Google+Chrome+145.0.7632.160%0A%0A%5B%E2%9C%93%5D+Network+resources+%5B809ms%5D%0A++++%E2%80%A2+All+expected+network+resources+are+available.%0A%0A%21+Doctor+found+issues+in+1+category.%0A%0A%60%60%60%0A%0A%23%23+Flutter+Application+Metadata%0A%2A%2AType%2A%2A%3A+app%0A%2A%2AVersion%2A%2A%3A+1.0.0%2B1%0A%2A%2AMaterial%2A%2A%3A+true%0A%2A%2AAndroid+X%2A%2A%3A+false%0A%2A%2AModule%2A%2A%3A+false%0A%2A%2APlugin%2A%2A%3A+false%0A%2A%2AAndroid+package%2A%2A%3A+null%0A%2A%2AiOS+bundle+identifier%2A%2A%3A+null%0A%2A%2ACreation+channel%2A%2A%3A+stable%0A%2A%2ACreation+framework+version%2A%2A%3A+48c32af0345e9ad5747f78ddce828c7f795f7159%0A%23%23%23+Plugins%0Awebview_flutter_wkwebview-3.24.0%0Awebview_flutter_android-4.10.13%0Awebview_windows-0.4.0%0A%0A&labels=tool%2Csevere%3A+crash
+
+[        ] Running 2 shutdown hooks
+[        ] Shutdown hooks complete
+[ +258 ms] exiting with code 1
