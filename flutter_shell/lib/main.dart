@@ -169,18 +169,30 @@ class _ShellWebViewState extends State<ShellWebView> {
   }
 
   bool _isDownloadLink(String url) {
+    final lowerUrl = url.toLowerCase();
+    
+    // Comprehensive list of download extensions
     final downloadExtensions = [
-      '.apk',
-      '.pdf',
-      '.zip',
-      '.rar',
-      '.exe',
-      '.dmg',
-      '.bin',
-      '.pkg',
-      '.deb',
+      '.apk', '.pdf', '.zip', '.rar', '.exe', '.dmg', '.bin', '.pkg', '.deb',
+      '.xlsx', '.xls', '.csv', '.docx', '.doc', '.pptx', '.ppt', '.txt',
+      '.msi', '.7z', '.tar', '.gz',
     ];
-    return downloadExtensions.any((ext) => url.toLowerCase().contains(ext));
+    
+    bool hasExtension = downloadExtensions.any((ext) => lowerUrl.contains(ext));
+    
+    // Keyword detection for dynamic buttons/links that don't have extensions in the URL
+    final downloadKeywords = [
+      'download',
+      'export',
+      'attachment',
+      'file_id=',
+      'get_file',
+      'download_true',
+    ];
+    
+    bool hasKeyword = downloadKeywords.any((keyword) => lowerUrl.contains(keyword));
+    
+    return hasExtension || hasKeyword;
   }
 
   Future<void> _launchInExternalBrowser(String url) async {
