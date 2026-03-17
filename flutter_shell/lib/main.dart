@@ -152,11 +152,18 @@ class _ShellWebViewState extends State<ShellWebView> {
           },
           onPageStarted: (String url) {},
           onPageFinished: (String url) {},
-          onWebResourceError: (WebResourceError error) {},
+          onWebResourceError: (WebResourceError error) {
+            if (error.description.contains('ERR_FILE_NOT_FOUND')) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Preparing file for download...')),
+              );
+            }
+          },
           onNavigationRequest: (NavigationRequest request) {
             debugPrint('Navigation request to: ${request.url}');
-            // For Android, if it looks like a download or common external link,
-            // we force it to open in the system browser.
+            if (request.url.startsWith('blob:')) {
+              return NavigationDecision.prevent;
+            }
             if (_isDownloadLink(request.url)) {
               _launchInExternalBrowser(request.url);
               return NavigationDecision.prevent;
