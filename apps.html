@@ -136,21 +136,24 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white;
+            background: linear-gradient(135deg, var(--accent-primary), #3a67a5);
+            color: white !important;
             text-decoration: none;
-            padding: 12px 24px;
+            padding: 14px 24px;
             border-radius: 12px;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1rem;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+            box-shadow: 0 8px 16px rgba(43, 76, 126, 0.15);
             width: 100%;
+            border: none;
+            cursor: pointer;
         }
 
         .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(188, 0, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(43, 76, 126, 0.25);
+            filter: brightness(1.1);
         }
 
         .btn-secondary {
