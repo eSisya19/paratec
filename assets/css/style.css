@@ -217,17 +217,14 @@ body {
 --------------------------------------------------------------*/
 @media (max-width: 768px) {
     .read-more-text {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
+        max-height: 4.8em;   /* ~3 lines at line-height 1.6 */
         overflow: hidden;
-        transition: max-height 0.35s ease;
+        line-height: 1.6;
+        transition: max-height 0.4s ease;
     }
 
     .read-more-text.expanded {
-        display: block;
-        overflow: visible;
-        -webkit-line-clamp: unset;
+        max-height: 2000px;  /* large enough for any paragraph */
     }
 
     .read-more-btn {
