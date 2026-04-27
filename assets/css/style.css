@@ -213,8 +213,54 @@ body {
 
 
 /*--------------------------------------------------------------
+# Read-More Utility (mobile only)
+--------------------------------------------------------------*/
+@media (max-width: 768px) {
+    .read-more-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+
+    .read-more-text.expanded {
+        display: block;
+        overflow: visible;
+        -webkit-line-clamp: unset;
+    }
+
+    .read-more-btn {
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--sky);
+        cursor: pointer;
+        border: none;
+        background: none;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: 0.2px;
+        transition: color 0.2s ease;
+    }
+
+    .read-more-btn:hover {
+        color: var(--sky-dark);
+    }
+}
+
+/* Hide toggle buttons on desktop */
+@media (min-width: 769px) {
+    .read-more-btn {
+        display: none;
+    }
+}
+
+/*--------------------------------------------------------------
 # Modern Shared Navbar (Glassmorphic)
 --------------------------------------------------------------*/
+
 .header-container {
     position: fixed;
     top: 20px;

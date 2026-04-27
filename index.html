@@ -1061,14 +1061,14 @@ End of Tawk.to Script-->
   <div class="tentang container" id="tentang">
     <div class="area-tentang" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
       <h2 class="judul">About Paras Technology</h2>
-      <p>
+      <p class="read-more-text">
         Founded in November 2018, Paras Technology has built a strong reputation through refurbishing abandoned hospital equipment from Japanese, Chinese, and European manufacturers. This success has fostered excellent relationships with the Ministry of Health, public hospitals, and private healthcare facilities across the region.
       </p>
-      <p>
+      <p class="read-more-text">
         Our company is managed by highly experienced engineers specializing in various fields including PACS/DICOM systems, electrical and electronic systems, maintenance, and modern digital medical equipment such as CT, MRI, Mammography, Ultrasound, Theatre Operating Lamps, Anesthesia Machines, Dental Chairs, and many other critical healthcare technologies.
       </p>
       <h2 class="judul">What We Do</h2>
-      <p>
+      <p class="read-more-text">
         We supply, maintain, and service a wide range of electrical/electronic medical instruments and devices. Our expertise extends to radiation protection consultancy, and we provide comprehensive installation services for all types of medical equipment. Our goal is to ensure healthcare facilities have reliable, well-maintained technology to deliver the best patient care possible.
       </p>
       <a href="products.html" class="modern-btn" data-aos="fade-up" data-aos-duration="800">Take a look</a>
@@ -1088,7 +1088,7 @@ End of Tawk.to Script-->
       </div>
       <div class="card-content">
         <h2>PATIENT-CENTERED EXCELLENCE</h2>
-        <p>We go beyond expectations to deliver solutions that empower healthcare providers, enhance patient experiences, and build enduring partnerships based on trust and results.</p>
+        <p class="read-more-text">We go beyond expectations to deliver solutions that empower healthcare providers, enhance patient experiences, and build enduring partnerships based on trust and results.</p>
       </div>
     </div>
     
@@ -1098,7 +1098,7 @@ End of Tawk.to Script-->
       </div>
       <div class="card-content">
         <h2>INTEGRATED HEALTHCARE TECHNOLOGY</h2>
-        <p>Our state-of-the-art medical hardware and software solutions seamlessly integrate PACS, RIS, and HIS systems to streamline workflows and optimize diagnostic capabilities across healthcare facilities.</p>
+        <p class="read-more-text">Our state-of-the-art medical hardware and software solutions seamlessly integrate PACS, RIS, and HIS systems to streamline workflows and optimize diagnostic capabilities across healthcare facilities.</p>
       </div>
     </div>
     
@@ -1108,7 +1108,7 @@ End of Tawk.to Script-->
       </div>
       <div class="card-content">
         <h2>SECURE MEDICAL CONNECTIVITY</h2>
-        <p>Engineered by certified network professionals, our custom connectivity solutions ensure robust, secure, and compliant healthcare networking that adapts to your organization's evolving needs.</p>
+        <p class="read-more-text">Engineered by certified network professionals, our custom connectivity solutions ensure robust, secure, and compliant healthcare networking that adapts to your organization's evolving needs.</p>
       </div>
     </div>
   </div>
@@ -1652,6 +1652,29 @@ End of Tawk.to Script-->
         // Chatbase Integration
         (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="QNWnYQuevQEb9GMucM0KU";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
     </script>
+
+    <script>
+        // ── Read-More toggle (mobile only) ──────────────────────────
+        (function () {
+            if (window.innerWidth > 768) return; // desktop: do nothing
+
+            document.querySelectorAll('.read-more-text').forEach(function (el) {
+                var btn = document.createElement('button');
+                btn.className = 'read-more-btn';
+                btn.textContent = 'See more';
+                btn.setAttribute('aria-expanded', 'false');
+
+                btn.addEventListener('click', function () {
+                    var expanded = el.classList.toggle('expanded');
+                    btn.textContent = expanded ? 'See less' : 'See more';
+                    btn.setAttribute('aria-expanded', expanded);
+                });
+
+                el.insertAdjacentElement('afterend', btn);
+            });
+        })();
+    </script>
 </body>
 </html>
+
 
