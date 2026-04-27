@@ -61,15 +61,17 @@
         /* Sub-Navigation */
         .sub-nav {
             position: sticky;
-            top: 80px;
-            background-color: white;
-            z-index: 999;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            top: 80px; /* sits just below the floating navbar */
+            background: var(--white);
+            z-index: 500;
+            box-shadow: 0 2px 10px rgba(30,58,95,0.07);
             padding: 10px 0;
             overflow-x: auto;
             white-space: nowrap;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid rgba(30,58,95,0.08);
+            scrollbar-width: none; /* hide scrollbar on Firefox */
         }
+        .sub-nav::-webkit-scrollbar { display: none; }
 
         .sub-nav-container {
             max-width: 1200px;
@@ -512,6 +514,20 @@
             <p>State-of-the-art tools for medical professionals</p>
         </div>
     </div>
+
+    <!-- ======= Section Sub-Navigation ======= -->
+    <nav class="sub-nav" id="sub-nav">
+        <div class="sub-nav-container">
+            <a href="#equipment" class="active">General</a>
+            <a href="#ecg">ECG</a>
+            <a href="#pm">Patient Monitoring</a>
+            <a href="#ult">Ultrasound</a>
+            <a href="#hem">Hematology</a>
+            <a href="#ms">Software</a>
+            <a href="#ser">Services</a>
+            <a href="#mc">Consumables</a>
+        </div>
+    </nav>
 
     <!-- ======= General Equipment Section ======= -->
     <section class="product-section" id="equipment">
