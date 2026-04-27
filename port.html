@@ -14,17 +14,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - Paras Technology</title>
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: cyan;
-            --secondary-color: #09050e;
-            --accent-color: #9370db;
-            --text-color: #333;
-            --light-gray: #f5f5f5;
-            --medium-gray: #e0e0e0;
+            --primary-color: var(--navy);
+            --secondary-color: var(--navy-light);
+            --accent-color: var(--sky);
+            --text-color: var(--text-main);
+            --light-gray: var(--surface);
+            --medium-gray: #e2e8f0;
             --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow: var(--shadow-sm);
             --transition: all 0.3s ease;
         }
 
@@ -32,128 +33,16 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--light-gray);
-            color: var(--text-color);
+            background-color: var(--surface);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Header Styles */
-        header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 15px 0;
-        }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--primary-color);
-        }
-
-        .logo img {
-            height: 50px;
-            margin-right: 10px;
-        }
-
-        .logo h1 {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: var(--transition);
-            padding: 8px 12px;
-            border-radius: 4px;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-            background-color: rgba(101, 11, 173, 0.1);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            cursor: pointer;
-        }
-
-        /* Sidebar Styles */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: -280px;
-            height: 100vh;
-            width: 280px;
-            background-color: var(--white);
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            z-index: 1000;
-            padding-top: 80px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .sidebar.active {
-            right: 0;
-        }
-
-        .sidebar a {
-            padding: 15px 25px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 1.1rem;
-            transition: var(--transition);
-            border-bottom: 1px solid var(--medium-gray);
-        }
-
-        .sidebar a:hover {
-            background-color: rgba(101, 11, 173, 0.1);
-            color: var(--primary-color);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-color);
-        }
 
         /* Hero Section */
         .hero {
@@ -203,17 +92,19 @@
         .section-title {
             text-align: center;
             margin-bottom: 40px;
-            color: var(--primary-color);
+            color: var(--navy);
             position: relative;
+            font-size: 2rem;
+            font-weight: 700;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-color);
-            margin: 15px auto 0;
+            width: 60px;
+            height: 3px;
+            background: var(--sky);
+            margin: 12px auto 0;
             border-radius: 2px;
         }
 
@@ -226,17 +117,19 @@
 
         .service-card {
             background-color: var(--white);
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
+            border-left: 3px solid transparent;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-left-color: var(--sky);
         }
 
         .service-img {
@@ -263,17 +156,17 @@
         }
 
         .service-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
         }
 
         .service-subtitle {
-            font-size: 1rem;
+            font-size: 0.92rem;
             font-weight: 500;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
+            margin-bottom: 12px;
+            color: var(--sky);
         }
 
         .service-description {
@@ -282,129 +175,7 @@
             flex-grow: 1;
         }
 
-        /* Footer */
-        .footer {
-            background-color: #2a2a2a;
-            color: var(--white);
-            padding: 60px 0 30px;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .footer-col {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .footer-logo img {
-            height: 60px;
-            margin-right: 15px;
-        }
-
-        .footer-logo h2 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--white);
-        }
-
-        .footer-tagline {
-            margin-bottom: 20px;
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-
-        .social-media {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .social-icon:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-5px);
-        }
-
-        .social-icon i {
-            color: var(--white);
-            font-size: 1.2rem;
-        }
-
-        .footer-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-color);
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-link {
-            text-decoration: none;
-            color: #ddd;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-link i {
-            margin-right: 10px;
-            color: var(--primary-color);
-        }
-
-        .footer-link:hover {
-            color: var(--primary-color);
-            transform: translateX(5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        .copyright a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
+        /* Remove old footer styles — using site-footer from style.css */
 
         /* Media Queries */
         @media screen and (max-width: 992px) {
@@ -476,41 +247,69 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="nav">
-                <a href="index.html" class="logo">
-                    <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo">
-                    <h1>Paras Technology</h1>
-                </a>
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="contact.html">Contact Us</a>
-                </div>
-                <button class="menu-toggle" onclick="toggleSidebar()">
-                    <i class="fas fa-bars"></i>
-                </button>
+    <!-- ======= Header & Navbar ======= -->
+    <div class="header-container" id="header-container">
+        <nav class="modern-nav">
+            <div class="nav-links left-links">
+                <a data-scroll data-easing="easeInQuint" href="index.html">Home</a>
+                <a data-scroll data-easing="easeInQuint" href="port.html" class="active">Portfolio</a>
             </div>
-        </div>
-    </header>
-
-    <!-- Mobile Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <button class="close-btn" onclick="toggleSidebar()">
-            <i class="fas fa-times"></i>
-        </button>
-        <a href="index.html">Home</a>
-        <a href="contact.html">Contact Us</a>
+            
+            <a data-scroll data-easing="easeInQuint" href="index.html" class="nav-logo">
+                <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo">
+            </a>
+            
+            <div class="nav-links right-links">
+                <a data-scroll data-easing="easeInQuint" href="products.html">Products</a>
+                <a data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-toggle" onclick="toggleModernSidebar()">
+                <img src="assets/img/menu.png" alt="Menu">
+            </div>
+        </nav>
     </div>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="animate">Medical Technology Solutions</h1>
-                <p class="animate delay-1">Providing cutting-edge medical technology and services to improve healthcare delivery and patient outcomes</p>
-            </div>
+    <!-- ======= Modern Sidebar ======= -->
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleModernSidebar()"></div>
+    <div class="modern-sidebar" id="modern-sidebar">
+        <div class="close-btn" onclick="toggleModernSidebar()">&times;</div>
+        <a data-scroll data-easing="easeInQuint" href="index.html" onclick="toggleModernSidebar()">Home</a>
+        <a data-scroll data-easing="easeInQuint" href="products.html" onclick="toggleModernSidebar()">Products</a>
+        <a data-scroll data-easing="easeInQuint" href="port.html" onclick="toggleModernSidebar()">Portfolio</a>
+        <a data-scroll data-easing="easeInQuint" href="index.html#review" onclick="toggleModernSidebar()">Executive</a>
+        <a data-scroll data-easing="easeInQuint" href="index.html#tentang" onclick="toggleModernSidebar()">About Us</a>
+        <a data-scroll data-easing="easeInQuint" href="contact.html" onclick="toggleModernSidebar()">Contact Us</a>
+    </div>
+
+    <script>
+        function toggleModernSidebar() {
+            const sidebar = document.getElementById('modern-sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // Scroll shrink effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header-container');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <!-- ======= End Header ======= -->
+
+    <!-- ======= Page Hero ======= -->
+    <div class="page-hero">
+        <div class="page-hero-content">
+            <h1>Medical Technology Services</h1>
+            <p>Providing cutting-edge medical technology and services to improve healthcare delivery and patient outcomes</p>
         </div>
-    </section>
+    </div>
 
     <section class="services">
         <div class="container">
@@ -591,63 +390,44 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo">
-                        <h2>Paras Technology</h2>
-                    </div>
-                    <p class="footer-tagline">Provide The Best Service. Let's make the world a better place through advanced medical technology.</p>
-                    <div class="social-media">
-                        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://x.com/eSisya19" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://wa.link/13e0nj" class="social-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Paras Technology</h2>
+                    <p>Provide The Best Service. Let's make the world a better place through advanced medical technology.</p>
+                    <div class="social-row">
+                        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/eSisya19" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.link/13e0nj" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-
                 <div class="footer-col">
-                    <h3 class="footer-title">Quick Links</h3>
+                    <h3>Quick Links</h3>
                     <div class="footer-links">
-                        <a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a>
-                        <a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact Us</a>
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="port.html" class="footer-link">Services</a>
+                        <a href="products.html" class="footer-link">Products</a>
+                        <a href="contact.html" class="footer-link">Contact Us</a>
                     </div>
                 </div>
-
                 <div class="footer-col">
-                    <h3 class="footer-title">Contact Information</h3>
+                    <h3>Contact</h3>
                     <div class="footer-links">
-                        <a href="tel:+260978900232" class="footer-link">
-                            <i class="fas fa-phone"></i> +260 97 8900232
-                        </a>
-                        <a href="https://wa.link/13e0nj" class="footer-link">
-                            <i class="fab fa-whatsapp"></i> +260 974 687 558
-                        </a>
-                        <a href="mailto:admin@Paras-Technology.com" class="footer-link">
-                            <i class="fas fa-envelope"></i> admin@Paras-Technology.com
-                        </a>
+                        <a href="tel:+260978900232" class="footer-link"><i class="fas fa-phone"></i> +260 97 8900232</a>
+                        <a href="mailto:admin@Paras-Technology.com" class="footer-link"><i class="fas fa-envelope"></i> admin@Paras-Technology.com</a>
+                        <span class="footer-link"><i class="fas fa-map-marker-alt"></i> Plot 644 Peri Peri St, Lusaka</span>
                     </div>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; Copyright 2026, <a href="index.html">PARAS-TECHNOLOGY LIMITED</a>. All Rights Reserved
+            <div class="footer-bottom">
+                &copy; 2026 <a href="index.html">PARAS TECHNOLOGY LIMITED</a>. All Rights Reserved.
             </div>
         </div>
     </footer>
 
     <script>
-        // Sidebar toggle
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('active');
-        }
+
 
         // Animation on scroll
         document.addEventListener('DOMContentLoaded', function() {

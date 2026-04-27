@@ -1,153 +1,364 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J20J4RWT8G"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J20J4RWT8G');
+    </script>
     <meta charset="UTF-8" />
-    <title>ContactUS</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — Paras Technology</title>
+    <meta name="description" content="Get in touch with Paras Technology — medical equipment specialists in Lusaka, Zambia.">
+    <link rel="shortcut icon" href="assets/img/LOGO_(Transparent bckgrnd).png" type="image/x-icon" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/flickity.css/flickity.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <style>
-    /* Sidebar Styles */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: 250px;
-      z-index: 999;
-      background-color: rgba(245, 245, 245, 0.37);
-      backdrop-filter: blur(10px);
-      box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-      display: none;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-    }
+        /* ===== Contact Page Styles ===== */
+        .contact-section {
+            padding: 80px 24px;
+            background: var(--surface);
+        }
 
-    /* Button menu styling */
-    .btn-menu {
-      width: 100%;
-      padding: 10px;
-      text-align: right;
-    }
+        .contact-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 50px;
+            align-items: start;
+        }
 
-    .btn-menu img {
-      cursor: pointer;
-      width: 20px;
-      height: 20px;
-    }
+        /* Info cards */
+        .contact-info-side h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
 
-    /* Navigation links */
-    .sidebar a {
-      padding: 10px 20px;
-      text-decoration: none;
-      color: black;
-      font-size: 16px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+        .contact-info-side .tagline {
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            line-height: 1.6;
+        }
 
-    .sidebar a:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-      color: #650bad;
-    }
-  </style>
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .info-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .info-card-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--navy);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .info-card-text h4 {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .info-card-text a,
+        .info-card-text p {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            display: block;
+        }
+
+        .info-card-text a:hover {
+            color: var(--sky);
+        }
+
+        /* Form */
+        .contact-form-side {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 44px 40px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-form-side h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .contact-form-side .form-tagline {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #f8fafc;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--sky);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(10,163,240,0.12);
+        }
+
+        .form-group textarea {
+            height: 140px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background: var(--sky);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(10,163,240,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .contact-form-side {
+                padding: 28px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- ======= Header ======= -->
-  <div class="nav">
-    <a data-scroll data-easing="easeInQuint" href="index.html" data-aos="fade-down" data-aos-duration="400"
-      data-aos-delay="50">Home</a>
-    <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="" data-aos="fade-down" data-aos-duration="1500">
-    <img onclick=showSidebar() src="assets/img/menu.png" alt="" id="btn-nav" data-aos="fade-down" data-aos-duration="700" data-aos-delay="50">
-    <a data-scroll data-easing="easeInQuint" href="products.html" data-aos="fade-down" data-aos-duration="400"
-      data-aos-delay="50">Products</a>
-  </div>
-  <!-- ======= Navbar ======= -->
-  <div class="sidebar">
-    <div class="btn-menu">
-      <img  onclick=hideSidebar() src="assets/img/close.png" alt="" id="btn-menu">
-    </div>
-    <a id="nav-link" data-scroll data-easing="easeInQuint" href="index.html">Home</a>
-    <a id="nav-link1" data-scroll data-easing="easeInQuint" href="products.html">Products</a>
-    <a id="nav-link5" data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
-  </div> 
-  <script>
-    function showSidebar(){
-      const sidebar = document.querySelector('.sidebar')
-      sidebar.style.display = 'flex'
-    }
-    function hideSidebar(){
-      const sidebar = document.querySelector('.sidebar')
-      sidebar.style.display = 'none'
-    }
-  </script>
-    <div class="contact-container">
-        <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
-            <div class="contact-left-title">
-                <h2>Get in touch</h2>
-                <hr>
+    <!-- ======= Header & Navbar ======= -->
+    <div class="header-container" id="header-container">
+        <nav class="modern-nav">
+            <div class="nav-links left-links">
+                <a href="index.html">Home</a>
+                <a href="port.html">Portfolio</a>
             </div>
-            <input type="hidden" name="access_key" value="4f6d8266-9e20-41f6-9408-f115b527f657">
-            <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
-            <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
-            <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
-            <button type="submit">Submit <img src="" alt=""></button>
-        </form>
-        <div class="contact-right">
-            <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo">
+            </a>
+            <div class="nav-links right-links">
+                <a href="products.html">Products</a>
+                <a href="contact.html" class="active">Contact Us</a>
+            </div>
+            <div class="mobile-toggle" onclick="toggleModernSidebar()">
+                <img src="assets/img/menu.png" alt="Menu">
+            </div>
+        </nav>
+    </div>
+
+    <!-- ======= Modern Sidebar ======= -->
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleModernSidebar()"></div>
+    <div class="modern-sidebar" id="modern-sidebar">
+        <div class="close-btn" onclick="toggleModernSidebar()">&times;</div>
+        <a href="index.html" onclick="toggleModernSidebar()">Home</a>
+        <a href="products.html" onclick="toggleModernSidebar()">Products</a>
+        <a href="port.html" onclick="toggleModernSidebar()">Portfolio</a>
+        <a href="index.html#review" onclick="toggleModernSidebar()">Executive</a>
+        <a href="index.html#tentang" onclick="toggleModernSidebar()">About Us</a>
+        <a href="contact.html" onclick="toggleModernSidebar()">Contact Us</a>
+    </div>
+
+    <script>
+        function toggleModernSidebar() {
+            const sidebar = document.getElementById('modern-sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header-container');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+    <!-- ======= End Header ======= -->
+
+    <!-- ======= Page Hero ======= -->
+    <div class="page-hero">
+        <div class="page-hero-content">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you. Reach out to our team in Lusaka, Zambia.</p>
         </div>
     </div>
-    <!-- ======= Footer Start ======= -->
-  <div class="footer">
-    <div class="footer-1">
-      <div class="footer-logo" data-aos="fade-down" data-aos-duration="800">
-        <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="">
-        <h1>Paras TechnologyLTD</h1>
-      </div>
-      <p data-aos="fade-up" data-aos-duration="800">Provide The Best Service <br> Lets make the world a better place</p>
-      <div class="sosial-media">
-        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL">
-          <img src="assets/img/facebook.png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="200">
-        </a>
-        <a href="https://x.com/eSisya19">
-          <img src="assets/img/twitter.png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="300">
-        </a>
-        <a href="https://wa.link/13e0nj">
-          <img src="assets/img/whatsapp (1).png" alt="" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="300">
-        </a>
-      </div>
-    </div>
 
-    <div class="footer-2">
-      <h1 data-aos="fade-down" data-aos-duration="800" data-aos-delay="200">Contact</h1>
-      <a href="" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">Tel:+260 97 8900232</a>
-      <a href="https://wa.link/13e0nj" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">Whatsapp:+260 974 687 558</a>
-      <a href="gmail.com" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">Email:admin@Paras-Technology.com</a>
-    </div>
+    <!-- ======= Contact Section ======= -->
+    <section class="contact-section">
+        <div class="contact-grid">
+            <!-- Left: Info -->
+            <div class="contact-info-side">
+                <h2>Get In Touch</h2>
+                <p class="tagline">Our team is available Monday–Friday, 08:00–17:00 CAT. We usually respond within a few hours.</p>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-card-icon"><i class="fas fa-phone"></i></div>
+                        <div class="info-card-text">
+                            <h4>Phone</h4>
+                            <a href="tel:+260978900232">+260 97 8900232</a>
+                            <a href="tel:+260968740238">+260 96 8740238</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="info-card-text">
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.link/13e0nj" target="_blank">+260 974 687 558</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-card-text">
+                            <h4>Email</h4>
+                            <a href="mailto:admin@Paras-Technology.com">admin@Paras-Technology.com</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-card-text">
+                            <h4>Office</h4>
+                            <p>Plot 644 Peri Peri Street<br>Salama Park, Lusaka, Zambia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    
+            <!-- Right: Form -->
+            <div class="contact-form-side">
+                <h2>Send a Message</h2>
+                <p class="form-tagline">Fill out the form below and we'll get back to you as soon as possible.</p>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="4f6d8266-9e20-41f6-9408-f115b527f657">
+                    <div class="form-group">
+                        <label for="contact-name">Your Name</label>
+                        <input id="contact-name" type="text" name="name" placeholder="e.g. John Banda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email Address</label>
+                        <input id="contact-email" type="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" placeholder="How can we help you?" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-    <div class="footer-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-      <h1>Nav</h1>
-      <a data-scroll data-easing="easeInQuint" href="index.html">Home</a>
-      <a data-scroll data-easing="easeInQuint" href="products.html">Products</a>
-      <a data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
-      <!--<a data-scroll data-easing="easeInQuint" href="port.html">Porfolio</a>-->
-    </div>
-  </div>
-  <footer>
-    <h1>&copy; Copyright 2026, <a href=""> PARAS TECHNOLOGY LIMITED</a> All Rights Reserved</h1>
-  </footer>
-  <!-- ======= Footer End ======= -->
+    <!-- ======= Footer ======= -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Paras Technology</h2>
+                    <p>Provide The Best Service. Let's make the world a better place through advanced medical technology.</p>
+                    <div class="social-row">
+                        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/eSisya19" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.link/13e0nj" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="port.html" class="footer-link">Services</a>
+                        <a href="products.html" class="footer-link">Products</a>
+                        <a href="contact.html" class="footer-link">Contact Us</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <div class="footer-links">
+                        <a href="tel:+260978900232" class="footer-link"><i class="fas fa-phone"></i> +260 97 8900232</a>
+                        <a href="mailto:admin@Paras-Technology.com" class="footer-link"><i class="fas fa-envelope"></i> admin@Paras-Technology.com</a>
+                        <span class="footer-link"><i class="fas fa-map-marker-alt"></i> Plot 644 Peri Peri St, Lusaka</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 <a href="index.html">PARAS TECHNOLOGY LIMITED</a>. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery.js/jquery.js"></script>
-  <script src="assets/vendor/type.js/type.js"></script>
-  <script src="assets/vendor/aos.js/aos.js"></script>
-  <script src="assets/vendor/flickity.js/flickity.pkgd.min.js"></script>
-  <script src="assets/vendor/smoth-scroll.js/smoth-scroll.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+    <script src="assets/vendor/jquery.js/jquery.js"></script>
+    <script src="assets/vendor/aos.js/aos.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
-

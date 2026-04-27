@@ -3,7 +3,6 @@
 
 <head>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J20J4RWT8G"></script>
@@ -26,10 +25,9 @@
   <link rel="shortcut icon" href="assets/img/LOGO_(Transparent bckgrnd).png" type="image/x-icon" />
 
   <!-- Vendor CSS Files -->
-  <link rel="stylesheet" href="assets/vendor/aos.css/aos.css" />
   <link rel="stylesheet" href="assets/vendor/flickity.css/flickity.css" />
 
-  <!-- Template Main CSS File -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
     /* General Improvements */
@@ -456,41 +454,174 @@
 
     /* Google Maps */
     .lokasi {
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
+      background: #f8fbff;
+    }
+
+    .lokasi .judul {
+      margin-bottom: 10px;
+    }
+
+    .lokasi-subtitle {
+      color: #64748b;
+      font-size: 1rem;
+      margin-bottom: 40px;
+      letter-spacing: 0.5px;
+    }
+
+    .map-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow:
+        0 20px 60px rgba(43, 76, 126, 0.12),
+        0 4px 16px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.8);
     }
 
     .lokasi iframe {
       width: 100%;
-      max-width: 1000px;
-      height: 450px;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-top: 30px;
+      height: 480px;
+      display: block;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .lokasi {
+        padding: 60px 15px;
+      }
+      .lokasi iframe {
+        height: 320px;
+      }
     }
 
     /* Partner Section */
+    /* ======= Our Partners Section ======= */
     .partner {
-      padding: 60px 20px;
+      padding: 80px 0;
       text-align: center;
-      background-color: var(--light-bg);
+      background: linear-gradient(135deg, #f0f4ff 0%, #f8fbff 50%, #f0f7ff 100%);
+      overflow: hidden;
+      position: relative;
     }
 
-    .main-carousel {
-      margin-top: 30px;
+    .partner .judul {
+      margin-bottom: 15px;
     }
 
-    .carousel-cell img {
-      height: 100px;
+    .partner-subtitle {
+      color: #64748b;
+      font-size: 1rem;
+      margin-bottom: 50px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Glassmorphic track wrapper */
+    .logo-track-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow:
+        0 4px 24px rgba(43, 76, 126, 0.06),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+      padding: 30px 0;
+    }
+
+    /* Fade masks on left and right edges */
+    .logo-track-wrapper::before,
+    .logo-track-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 180px;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .logo-track-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, #f4f7ff 0%, transparent 100%);
+    }
+
+    .logo-track-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, #f4f7ff 0%, transparent 100%);
+    }
+
+    /* The scrolling track — contains two identical sets for seamless loop */
+    .logo-track {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      width: max-content;
+      animation: logo-scroll 30s linear infinite;
+    }
+
+    .logo-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes logo-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .logo-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 50px;
+      flex-shrink: 0;
+    }
+
+    .logo-item img {
+      height: 60px;
+      max-width: 160px;
+      width: auto;
       object-fit: contain;
-      margin: 10px;
-      filter: grayscale(0.5);
-      transition: var(--transition);
+      filter: grayscale(1) opacity(0.55);
+      transition: filter 0.4s ease, transform 0.4s ease;
+      display: block;
     }
 
-    .carousel-cell img:hover {
-      filter: grayscale(0);
-      transform: scale(1.05);
+    .logo-item img:hover {
+      filter: grayscale(0) opacity(1);
+      transform: scale(1.15);
+    }
+
+    /* Vertical divider between logos */
+    .logo-item + .logo-item {
+      border-left: 1px solid rgba(43, 76, 126, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      .partner {
+        padding: 60px 0;
+      }
+      .logo-track {
+        animation-duration: 20s;
+      }
+      .logo-item {
+        padding: 0 30px;
+      }
+      .logo-item img {
+        height: 45px;
+        max-width: 110px;
+      }
+      .logo-track-wrapper::before,
+      .logo-track-wrapper::after {
+        width: 80px;
+      }
     }
     /* Vision & Mission Section Styling */
 .vision-mission {
@@ -786,37 +917,61 @@ End of Tawk.to Script-->
 </head>
 
 <body>
-  <!-- ======= Header ======= -->
-  <div class="nav">
-    <a data-scroll data-easing="easeInQuint" href="port.html" data-aos="fade-down" data-aos-duration="400"
-      data-aos-delay="100">Portfolio</a>
-    <a data-scroll data-easing="easeInQuint" href="#review" data-aos="fade-down" data-aos-duration="400"
-      data-aos-delay="150">Executive</a>
-    <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo" data-aos="fade-down" data-aos-duration="1500">
-    <a data-scroll data-easing="easeInQuint" href="products.html" data-aos="fade-down" data-aos-duration="400"
-      data-aos-delay="50">Products</a>
-    <img onclick="toggleSidebar()" src="assets/img/menu.png" alt="Menu" id="btn-nav" data-aos="fade-down" data-aos-duration="700" data-aos-delay="50">
-    <a data-scroll data-easing="easeInQuint" href="contact.html" data-aos="fade-down" data-aos-duration="400"
-      data-aos-delay="50">Contact Us</a>
+  <!-- ======= Header & Navbar ======= -->
+  <div class="header-container" id="header-container">
+    <nav class="modern-nav">
+      <div class="nav-links left-links">
+        <a data-scroll data-easing="easeInQuint" href="index.html" class="active">Home</a>
+        <a data-scroll data-easing="easeInQuint" href="port.html">Portfolio</a>
+      </div>
+      
+      <a data-scroll data-easing="easeInQuint" href="index.html" class="nav-logo">
+        <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo">
+      </a>
+      
+      <div class="nav-links right-links">
+        <a data-scroll data-easing="easeInQuint" href="products.html">Products</a>
+        <a data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
+      </div>
+      
+      <!-- Mobile Menu Toggle -->
+      <div class="mobile-toggle" onclick="toggleModernSidebar()">
+        <img src="assets/img/menu.png" alt="Menu">
+      </div>
+    </nav>
   </div>
-  <!-- ======= Navbar ======= -->
-  <div class="sidebar" id="sidebar">
-    <div class="btn-menu">
-      <img onclick="toggleSidebar()" src="assets/img/close.png" alt="Close" id="btn-menu">
-    </div>
-    <a id="nav-link" data-scroll data-easing="easeInQuint" href="index.html">Home</a>
-    <a id="nav-link1" data-scroll data-easing="easeInQuint" href="products.html">Products</a>
-    <a id="nav-link2" data-scroll data-easing="easeInQuint" href="port.html">Portfolio</a>
-    <a id="nav-link3" data-scroll data-easing="easeInQuint" href="#review">Executive</a>
-    <a id="nav-link4" data-scroll data-easing="easeInQuint" href="#tentang">About Us</a>
-    <a id="nav-link5" data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
-  </div> <!-- End Header -->
+
+  <!-- ======= Modern Sidebar ======= -->
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleModernSidebar()"></div>
+  <div class="modern-sidebar" id="modern-sidebar">
+    <div class="close-btn" onclick="toggleModernSidebar()">&times;</div>
+    <a data-scroll data-easing="easeInQuint" href="index.html" onclick="toggleModernSidebar()">Home</a>
+    <a data-scroll data-easing="easeInQuint" href="products.html" onclick="toggleModernSidebar()">Products</a>
+    <a data-scroll data-easing="easeInQuint" href="port.html" onclick="toggleModernSidebar()">Portfolio</a>
+    <a data-scroll data-easing="easeInQuint" href="#review" onclick="toggleModernSidebar()">Executive</a>
+    <a data-scroll data-easing="easeInQuint" href="#tentang" onclick="toggleModernSidebar()">About Us</a>
+    <a data-scroll data-easing="easeInQuint" href="contact.html" onclick="toggleModernSidebar()">Contact Us</a>
+  </div>
+
   <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
+    function toggleModernSidebar() {
+      const sidebar = document.getElementById('modern-sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
       sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
     }
+
+    // Scroll shrink effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header-container');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
   </script>
+  <!-- ======= End Header ======= -->
 
   <!-- ======= Home Start ======= -->
   <div class="beranda" id="beranda">
@@ -904,17 +1059,15 @@ End of Tawk.to Script-->
 
   <!-- ======= About Start ======= -->
   <div class="tentang container" id="tentang">
-    <!-- <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="200"> -->
     <div class="area-tentang" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
-      <h1 class="judul">Welcome to Paras Technology</h1>
-      <h1 class="judul">About Us</h1>
+      <h2 class="judul">About Paras Technology</h2>
       <p>
         Founded in November 2018, Paras Technology has built a strong reputation through refurbishing abandoned hospital equipment from Japanese, Chinese, and European manufacturers. This success has fostered excellent relationships with the Ministry of Health, public hospitals, and private healthcare facilities across the region.
       </p>
       <p>
         Our company is managed by highly experienced engineers specializing in various fields including PACS/DICOM systems, electrical and electronic systems, maintenance, and modern digital medical equipment such as CT, MRI, Mammography, Ultrasound, Theatre Operating Lamps, Anesthesia Machines, Dental Chairs, and many other critical healthcare technologies.
       </p>
-      <h1 class="judul">What We Do</h1>
+      <h2 class="judul">What We Do</h2>
       <p>
         We supply, maintain, and service a wide range of electrical/electronic medical instruments and devices. Our expertise extends to radiation protection consultancy, and we provide comprehensive installation services for all types of medical equipment. Our goal is to ensure healthcare facilities have reliable, well-maintained technology to deliver the best patient care possible.
       </p>
@@ -963,15 +1116,15 @@ End of Tawk.to Script-->
   <div class="stats-showcase">
     <div class="stats-container">
       <div class="stat-item" data-aos="fade-up" data-aos-duration="400">
-        <div class="stat-number">7+ <span>Years</span></div>
+        <div class="stat-number" data-count="7" data-suffix="+">0 <span>Years</span></div>
         <div class="stat-title">Industry Excellence</div>
       </div>
       <div class="stat-item" data-aos="fade-up" data-aos-duration="600">
-        <div class="stat-number">500+ <span>Services</span></div>
+        <div class="stat-number" data-count="500" data-suffix="+">0 <span>Services</span></div>
         <div class="stat-title">Successfully Provided</div>
       </div>
       <div class="stat-item" data-aos="fade-up" data-aos-duration="800">
-        <div class="stat-number">97.8% <span>Rate</span></div>
+        <div class="stat-number" data-count="97.8" data-suffix="%" data-decimals="1">0 <span>Rate</span></div>
         <div class="stat-title">Client Satisfaction</div>
       </div>
     </div>
@@ -986,326 +1139,278 @@ End of Tawk.to Script-->
   <!-- ======= Executive Start ======= -->
    <style>
   .review.container {
-            padding: 120px 20px;
-            position: relative;
-        }
+      padding: 120px 20px;
+      position: relative;
+      overflow: hidden;
+      background: #f8fbff; /* Neutral background to let cards pop */
+    }
 
-        .review.container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(13, 71, 161, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(25, 118, 210, 0.2) 0%, transparent 50%);
-            pointer-events: none;
-        }
+    .review.container::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 40%;
+      height: 40%;
+      background: radial-gradient(circle, rgba(13, 110, 253, 0.2) 0%, transparent 70%);
+      filter: blur(80px);
+      z-index: 1;
+    }
 
-        
+    .review.container::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      right: -10%;
+      width: 50%;
+      height: 50%;
+      background: radial-gradient(circle, rgba(24, 183, 211, 0.15) 0%, transparent 70%);
+      filter: blur(100px);
+      z-index: 1;
+    }
 
-        .area-review {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    .area-review {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
+      max-width: 1400px;
+      margin: 40px auto 0;
+      position: relative;
+      z-index: 2;
+    }
 
-        .box-review {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
+    .box-review {
+      background: rgba(255, 255, 255, 0.45); /* Increased contrast for readability */
+      backdrop-filter: blur(16px) saturate(200%);
+      -webkit-backdrop-filter: blur(16px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 30px;
+      padding: 50px 35px;
+      text-align: center;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.03),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 480px;
+      overflow: hidden;
+    }
 
-        .box-review::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.8s;
-        }
+    .box-review:hover {
+      transform: translateY(-15px) scale(1.03);
+      background: rgba(255, 255, 255, 0.6);
+      border-color: rgba(43, 76, 126, 0.3);
+      box-shadow: 0 25px 50px rgba(43, 76, 126, 0.15);
+    }
 
-        .box-review:hover::before {
-            left: 100%;
-        }
+    .box-review img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 35px;
+      border: 5px solid white;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      transition: all 0.5s ease;
+      position: relative;
+      z-index: 2;
+    }
 
-        .box-review:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.2),
-                0 10px 30px rgba(255, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
+    .box-review:hover img {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 15px 30px rgba(43, 76, 126, 0.25);
+      border-color: rgba(255, 255, 255, 1);
+    }
 
-        .box-review img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 25px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.2),
-                inset 0 2px 10px rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
-            position: relative;
-        }
+    .box-review h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1a365d;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
 
-        .box-review:hover img {
-            transform: scale(1.1) rotate(5deg);
-            border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 
-                0 15px 40px rgba(0, 0, 0, 0.3),
-                inset 0 2px 10px rgba(255, 255, 255, 0.2);
-        }
+    .box-review .role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.8;
+    }
 
-        
+    .box-review .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: rgba(43, 76, 126, 0.08); /* Sophisticated button background */
+      color: #2b4c7e;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.4s ease;
+      margin-top: auto;
+      border: 1px solid rgba(43, 76, 126, 0.15);
+      width: 100%;
+    }
 
-     
-        
+    .box-review:hover .contact-link {
+      background: #2b4c7e;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(43, 76, 126, 0.3);
+      border-color: #2b4c7e;
+    }
 
-        .box-review p:first-of-type {
-            font-weight: 500;
-            
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
+    .box-review .contact-link i {
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
+    }
 
-        .box-review p:last-of-type {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 12px 20px;
-            border-radius: 25px;
-            margin-top: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
+    .box-review:hover .contact-link i {
+      transform: rotate(15deg) scale(1.2);
+    }
 
-        .box-review p:last-of-type::before {
-            content: '\f095';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: #4ecdc4;
-        }
+    /* Subtle shimmer effect */
+    .box-review::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: skewX(-25deg);
+      transition: 0.75s;
+      z-index: 1;
+    }
 
-        .box-review:hover p:last-of-type {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
+    .box-review:hover::before {
+      left: 150%;
+    }
 
-        /* Floating particles animation */
-        .box-review::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 6px;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
-            50% { transform: translateY(-10px) rotate(180deg); opacity: 1; }
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .review.container {
-                padding: 80px 15px;
-            }
-            
-            .area-review {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .box-review {
-                padding: 30px 25px;
-            }
-            
-            .box-review img {
-                width: 100px;
-                height: 100px;
-            }
-        }
-
-        /* Enhanced hover effects for desktop */
-        @media (hover: hover) {
-            .box-review {
-                cursor: pointer;
-            }
-            
-            .box-review:hover {
-                animation: pulse 2s infinite;
-            }
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
-            50% { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
-            100% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
-        }
+    @media (max-width: 768px) {
+      .review.container {
+        padding: 80px 20px;
+      }
+      .area-review {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .box-review {
+        min-height: auto;
+        padding: 40px 25px;
+      }
+    }
     </style>
-</head>
-<body>
     <div class="review container" id="review">
-        <h1 class="judul" data-aos="zoom-in-up" data-aos-duration="1000">Executive Team</h1>
+        <h2 class="judul" data-aos="zoom-in-up" data-aos-duration="1000">Executive Team</h2>
         <div class="area-review">
-            <div class="box-review" data-aos="fade-up" data-aos-duration="1500">
+            <div class="box-review" data-aos="fade-up" data-aos-duration="800">
                 <img src="assets/img/1000_F_269157868_KuKWdTSZ08lYL3r1u1EdyKcLTDPJsov3.jpg" alt="Ms. Sandra Kunda">
-                <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">Ms. Sandra Kunda</h1>
-                <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="800">Managing Director</p>
-                <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">+260 950 930 084</p>
+                <h2>Ms. Sandra Kunda</h2>
+                <div class="role">Managing Director</div>
+                <a href="tel:+260950930084" class="contact-link">
+                    <i class="fas fa-phone-alt"></i>
+                    +260 950 930 084
+                </a>
             </div>
             
-            <div class="box-review" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+            <div class="box-review" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                 <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Mrs. Emily Nambeya">
-                <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="700">Mrs. Emily Nambeya</h1>
-                <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="1000">Accounts/Administration</p>
-                <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="1000">+260 978 900 232</p>
+                <h2>Mrs. Emily Nambeya</h2>
+                <div class="role">Accounts/Administration</div>
+                <a href="tel:+260978900232" class="contact-link">
+                    <i class="fas fa-phone-alt"></i>
+                    +260 978 900 232
+                </a>
             </div>
 
-            <div class="box-review" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+            <div class="box-review" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                 <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Mr. Edwin Sisya">
-                <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="900">Mr. Edwin Sisya</h1>
-                <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="1200">Biomedical IT Manager</p>
-                <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="1200">+260 974 687 558</p>
+                <h2>Mr. Edwin Sisya</h2>
+                <div class="role">Biomedical IT Manager</div>
+                <a href="tel:+260974687558" class="contact-link">
+                    <i class="fas fa-phone-alt"></i>
+                    +260 974 687 558
+                </a>
             </div>
 
-            <div class="box-review" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+            <div class="box-review" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                 <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Ms. Bertha Kamalondo">
-                <h1 data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="1100">Ms. Bertha Kamalondo</h1>
-                <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="1400">Marketing Business Manager</p>
-                <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="1400">+260 968 838 336</p>
+                <h2>Ms. Bertha Kamalondo</h2>
+                <div class="role">Marketing Business Manager</div>
+                <a href="tel:+260968838336" class="contact-link">
+                    <i class="fas fa-phone-alt"></i>
+                    +260 968 838 336
+                </a>
             </div>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        });
+    <!-- ======= Executive End ======= -->
 
-        // Add interactive hover sound effect (optional)
-        document.querySelectorAll('.box-review').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
 
-        // Add ripple effect on click
-        document.querySelectorAll('.box-review').forEach(card => {
-            card.addEventListener('click', function(e) {
-                const ripple = document.createElement('div');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255, 255, 255, 0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    pointer-events: none;
-                `;
-                
-                this.appendChild(ripple);
-                
-                ripple.addEventListener('animationend', () => {
-                    ripple.remove();
-                });
-            });
-        });
+    <!-- ======= Partnership Start ======= -->
+    <section class="partner" id="partnership">
+        <h2 class="judul" data-aos="zoom-in-up" data-aos-duration="500">Our Partners</h2>
+        <p class="partner-subtitle" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">Trusted collaborations driving healthcare excellence</p>
 
-        // Add ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-  <!-- ======= Executive End ======= -->
+        <div class="logo-track-wrapper">
+            <!-- Two identical sets for seamless infinite CSS loop -->
+            <div class="logo-track">
+                <!-- Set 1 -->
+                <div class="logo-item"><img src="assets/img/vatech-uk.png" alt="Vatech UK"></div>
+                <div class="logo-item"><img src="assets/img/Infratel_logo.jpg" alt="Infratel"></div>
+                <div class="logo-item"><img src="assets/img/MOH.jpeg" alt="Ministry of Health"></div>
+                <div class="logo-item"><img src="assets/img/trivitron.png" alt="Trivitron"></div>
+                <div class="logo-item"><img src="assets/img/sonicdicom.png" alt="Sonic DICOM"></div>
+                <div class="logo-item"><img src="assets/img/download.jpg" alt="Partner"></div>
+                <div class="logo-item"><img src="assets/img/inlogo.png" alt="Partner"></div>
+                <!-- Set 2 (duplicate for seamless loop) -->
+                <div class="logo-item"><img src="assets/img/vatech-uk.png" alt="Vatech UK"></div>
+                <div class="logo-item"><img src="assets/img/Infratel_logo.jpg" alt="Infratel"></div>
+                <div class="logo-item"><img src="assets/img/MOH.jpeg" alt="Ministry of Health"></div>
+                <div class="logo-item"><img src="assets/img/trivitron.png" alt="Trivitron"></div>
+                <div class="logo-item"><img src="assets/img/sonicdicom.png" alt="Sonic DICOM"></div>
+                <div class="logo-item"><img src="assets/img/download.jpg" alt="Partner"></div>
+                <div class="logo-item"><img src="assets/img/inlogo.png" alt="Partner"></div>
+            </div>
+        </div>
+    </section>
+    <!-- ======= Partnership End ======= -->
 
-  <!-- ======= Partnership Start ======= -->
-  <div class="partner container" id="partnership"> 
-    <h1 class="judul" data-aos="zoom-in-up" data-aos-duration="500">Our Partners</h1>
-    <div class="main-carousel">
-      <div class="carousel-cell">
-        <img src="assets/img/vatech-uk.png" alt="Vatech UK">
-      </div>
-      <div class="carousel-cell">
-        <img src="assets/img/Infratel_logo.jpg" alt="Infratel">
-      </div>
-      <div class="carousel-cell">
-        <img src="assets/img/MOH.jpeg" alt="Ministry of Health">
-      </div>
-      <div class="carousel-cell">
-        <img src="assets/img/trivitron.png" alt="Trivitron">
-      </div>
-      <div class="carousel-cell">
-        <img src="assets/img/sonicdicom.png" alt="Sonic DICOM">
-      </div>
-      <div class="carousel-cell">
-        <img src="assets/img/download.jpg" alt="Partner">
-      </div>
-      <div class="carousel-cell">
-        <img src="assets/img/inlogo.png" alt="Partner">
-      </div>
+    <!-- ======= Outlet Start ======= -->
+    <div class="lokasi" id="lokasi">
+        <h2 class="judul" data-aos="fade-up" data-aos-duration="500">Our Location</h2>
+        <p class="lokasi-subtitle" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">Come visit us at our offices in Lusaka, Zambia</p>
+        <div class="map-wrapper" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="150">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3846.5834061990017!2d28.388049!3d-15.399032000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDIzJzU2LjUiUyAyOMKwMjMnMTcuMCJF!5e0!3m2!1sen!2szm!4v1739532376784!5m2!1sen!2szm"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
     </div>
-  </div>
-  <!-- ======= Partnership End ======= -->
+    <!-- ======= Outlet End ======= -->
 
-  <!-- ======= Outlet Start ======= -->
-  <div class="lokasi container" id="lokasi">
-    <h1 class="judul" data-aos="fade-up" data-aos-duration="500">Our Location</h1>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3846.5834061990017!2d28.388049!3d-15.399032000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDIzJzU2LjUiUyAyOMKwMjMnMTcuMCJF!5e0!3m2!1sen!2szm!4v1739532376784!5m2!1sen!2szm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-  <!-- ======= Outlet End ======= -->
-
-  <!-- ======= Footer Start ======= -->
-  <style>
+    <!-- ======= Footer Start ======= -->
+    <style>
         .footer {
             background: black;
             color: white;
@@ -1411,85 +1516,142 @@ End of Tawk.to Script-->
             text-decoration: none;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
-            
             .footer-content {
                 padding: 0 1rem;
             }
-            
             .footer {
                 padding: 2rem 0 1rem;
             }
         }
     </style>
-</head>
-<body>
-    <footer class="footer">
+
+    <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h2>Paras Technology</h2>
                     <p>Provide The Best Service. Let's make the world a better place through advanced medical technology.</p>
-                    <div class="social-media">
-                        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://x.com/eSisya19" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://wa.link/13e0nj" class="social-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                    <div class="social-row">
+                        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/eSisya19" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.link/13e0nj" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-
-                <div class="footer-section">
+                <div class="footer-col">
                     <h3>Quick Links</h3>
                     <div class="footer-links">
                         <a href="index.html" class="footer-link">Home</a>
                         <a href="port.html" class="footer-link">Services</a>
                         <a href="products.html" class="footer-link">Products</a>
                         <a href="contact.html" class="footer-link">Contact Us</a>
-                        <a href="assets/cms.html" class="footer-link">Data</a>
                     </div>
                 </div>
-
-                <div class="footer-section">
+                <div class="footer-col">
                     <h3>Contact</h3>
-                    <div class="contact-info">
-                        <a href="tel:+260978900232">+260 97 8900232</a><br>
-                        <a href="tel:+260968740238">+260 96 8740238</a><br><br>
-                        <a href="mailto:admin@Paras-Technology.com">admin@Paras-Technology.com</a><br><br>
-                        Plot 644 Peri Peri Street<br>
-                        Salama Park, Lusaka, Zambia
+                    <div class="footer-links">
+                        <a href="tel:+260978900232" class="footer-link"><i class="fas fa-phone"></i> +260 97 8900232</a>
+                        <a href="tel:+260968740238" class="footer-link"><i class="fas fa-phone"></i> +260 96 8740238</a>
+                        <a href="mailto:admin@Paras-Technology.com" class="footer-link"><i class="fas fa-envelope"></i> admin@Paras-Technology.com</a>
+                        <span class="footer-link"><i class="fas fa-map-marker-alt"></i> Plot 644 Peri Peri St, Lusaka</span>
                     </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                &copy; Copyright 2026, <a href="index.html">PARAS TECHNOLOGY LIMITED</a>. All Rights Reserved
+                &copy; 2026 <a href="index.html">PARAS TECHNOLOGY LIMITED</a>. All Rights Reserved.
             </div>
         </div>
     </footer>
-  <!-- ======= Footer End ======= -->
+    <!-- ======= Footer End ======= -->
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery.js/jquery.js"></script>
-  <script src="assets/vendor/type.js/type.js"></script>
-  <script src="assets/vendor/aos.js/aos.js"></script>
-  <script src="assets/vendor/flickity.js/flickity.pkgd.min.js"></script>
-  <script src="assets/vendor/smoth-scroll.js/smoth-scroll.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/jquery.js/jquery.js"></script>
+    <script src="assets/vendor/type.js/type.js"></script>
+    <script src="assets/vendor/aos.js/aos.js"></script>
+    <script src="assets/vendor/flickity.js/flickity.pkgd.min.js"></script>
+    <script src="assets/vendor/smoth-scroll.js/smoth-scroll.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="QNWnYQuevQEb9GMucM0KU";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        AOS.init({ duration: 1000, easing: 'ease-in-out', once: true, mirror: false });
+
+        // Count-up animation on stats
+        (function() {
+            const counters = document.querySelectorAll('.stat-number[data-count]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    const target = parseFloat(el.dataset.count);
+                    const suffix = el.dataset.suffix || '';
+                    const decimals = parseInt(el.dataset.decimals || '0');
+                    const span = el.querySelector('span');
+                    const spanText = span ? span.outerHTML : '';
+                    const duration = 1800;
+                    const start = performance.now();
+                    function step(now) {
+                        const progress = Math.min((now - start) / duration, 1);
+                        const ease = 1 - Math.pow(1 - progress, 3);
+                        const value = (target * ease).toFixed(decimals);
+                        el.innerHTML = value + suffix + ' ' + spanText;
+                        if (progress < 1) requestAnimationFrame(step);
+                    }
+                    requestAnimationFrame(step);
+                    observer.unobserve(el);
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(c => observer.observe(c));
+        })();
+
+        // Add ripple effect on click for the premium feel
+        document.querySelectorAll('.box-review').forEach(card => {
+            card.addEventListener('click', function(e) {
+                const ripple = document.createElement('div');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height) * 2;
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.15);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+                    pointer-events: none;
+                    z-index: 10;
+                `;
+                
+                this.appendChild(ripple);
+                ripple.addEventListener('animationend', () => ripple.remove());
+            });
+        });
+
+        // Ripple animation style
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // Chatbase Integration
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="QNWnYQuevQEb9GMucM0KU";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 </body>
-
 </html>
+

@@ -22,12 +22,7 @@
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="assets/img/LOGO_(Transparent bckgrnd).png" type="image/x-icon" />
-
-    <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href="assets/vendor/aos.css/aos.css" />
-    <link rel="stylesheet" href="assets/vendor/flickity.css/flickity.css" />
-
-    <!-- Template Main CSS File -->
+    <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <style>
         /* CSS Variables */
@@ -61,111 +56,7 @@
             background-color: #f9f9f9;
         }
 
-        /* Header Styles */
-        .nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 15px 20px;
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: var(--shadow);
-        }
-
-        .nav img {
-            height: 50px;
-            transition: var(--transition);
-        }
-
-        .nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-
-        .nav a:hover {
-            color: var(--primary-color);
-            background-color: rgba(101, 11, 173, 0.1);
-        }
-
-        /* Mobile Nav Button */
-        #btn-nav {
-            display: none;
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            padding: 5px;
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-
-        #btn-nav:hover {
-            background-color: rgba(101, 11, 173, 0.1);
-        }
-
-        /* Sidebar Styles */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: -250px;
-            height: 100vh;
-            width: 250px;
-            z-index: 1001;
-            background-color: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(15px);
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            transition: right 0.3s ease;
-            padding-top: 15px;
-        }
-
-        .sidebar.active {
-            right: 0;
-        }
-
-        .btn-menu {
-            width: 100%;
-            padding: 15px;
-            text-align: right;
-        }
-
-        .btn-menu img {
-            cursor: pointer;
-            width: 24px;
-            height: 24px;
-            padding: 5px;
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-
-        .btn-menu img:hover {
-            background-color: rgba(101, 11, 173, 0.1);
-        }
-
-        .sidebar a {
-            width: 100%;
-            padding: 15px 25px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 18px;
-            transition: var(--transition);
-            border-left: 3px solid transparent;
-        }
-
-        .sidebar a:hover {
-            background-color: rgba(101, 11, 173, 0.1);
-            color: var(--primary-color);
-            border-left: 3px solid var(--primary-color);
-        }
+        /* Header Styles
 
         /* Sub-Navigation */
         .sub-nav {
@@ -202,7 +93,7 @@
         .sub-nav a:hover,
         .sub-nav a.active {
             color: white;
-            background-color: var(--accent-color);
+            background-color: var(--sky);
         }
 
         /* Hero Section */
@@ -524,24 +415,6 @@
         }
 
         @media (max-width: 768px) {
-            .nav {
-                justify-content: space-between;
-                padding: 15px;
-            }
-
-            .nav a {
-                display: none;
-            }
-
-            .nav img:first-of-type {
-                height: 40px;
-                display: block;
-            }
-
-            #btn-nav {
-                display: block;
-            }
-
             .hero-content h1 {
                 font-size: 2.5rem;
             }
@@ -576,53 +449,69 @@
 
 <body>
 
-    <!-- ======= Header ======= -->
-    <div class="nav">
-        <a href="index.html"><img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo"></a>
-        <a href="index.html">Home</a>
-        <a href="products-bento.html">Products</a>
-        <a href="contact.html">Contact Us</a>
-        <img src="assets/img/menu.png" id="btn-nav" alt="Menu">
+    <!-- ======= Header & Navbar ======= -->
+    <div class="header-container" id="header-container">
+        <nav class="modern-nav">
+            <div class="nav-links left-links">
+                <a data-scroll data-easing="easeInQuint" href="index.html">Home</a>
+                <a data-scroll data-easing="easeInQuint" href="port.html">Portfolio</a>
+            </div>
+            
+            <a data-scroll data-easing="easeInQuint" href="index.html" class="nav-logo">
+                <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="Paras Technology Logo">
+            </a>
+            
+            <div class="nav-links right-links">
+                <a data-scroll data-easing="easeInQuint" href="products.html" class="active">Products</a>
+                <a data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-toggle" onclick="toggleModernSidebar()">
+                <img src="assets/img/menu.png" alt="Menu">
+            </div>
+        </nav>
     </div>
 
-    <!-- ======= Sub-Navigation ======= -->
-    <div class="sub-nav">
-        <div class="sub-nav-container">
-            <a href="#equipment">General</a>
-            <a href="#ecg">ECG</a>
-            <a href="#pm">Monitoring</a>
-            <a href="#ult">Ultrasound</a>
-            <a href="#hem">Hematology</a>
-            <a href="#ms">Software</a>
-            <a href="#ser">Services</a>
-            <a href="#mc">Consumables</a>
-        </div>
+    <!-- ======= Modern Sidebar ======= -->
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleModernSidebar()"></div>
+    <div class="modern-sidebar" id="modern-sidebar">
+        <div class="close-btn" onclick="toggleModernSidebar()">&times;</div>
+        <a data-scroll data-easing="easeInQuint" href="index.html" onclick="toggleModernSidebar()">Home</a>
+        <a data-scroll data-easing="easeInQuint" href="products.html" onclick="toggleModernSidebar()">Products</a>
+        <a data-scroll data-easing="easeInQuint" href="port.html" onclick="toggleModernSidebar()">Portfolio</a>
+        <a data-scroll data-easing="easeInQuint" href="index.html#review" onclick="toggleModernSidebar()">Executive</a>
+        <a data-scroll data-easing="easeInQuint" href="index.html#tentang" onclick="toggleModernSidebar()">About Us</a>
+        <a data-scroll data-easing="easeInQuint" href="contact.html" onclick="toggleModernSidebar()">Contact Us</a>
     </div>
 
-    <!-- ======= Sidebar ======= -->
-    <div class="sidebar">
-        <div class="btn-menu">
-            <img src="assets/img/close.png" id="btn-menu" alt="Close Menu">
-        </div>
-        <a href="index.html">Home</a>
-        <a href="products-bento.html">Products</a>
-        <a href="#ecg">ECG</a>
-        <a href="#pm">Patient Monitoring</a>
-        <a href="#ult">Ultrasound</a>
-        <a href="#hem">Hematology</a>
-        <a href="#ms">Medical Softwares</a>
-        <a href="#ser">Services</a>
-        <a href="#mc">Medical Consumables</a>
-        <a href="contact.html">Contact Us</a>
-    </div>
+    <script>
+        function toggleModernSidebar() {
+            const sidebar = document.getElementById('modern-sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
 
-    <!-- ======= Hero Section ======= -->
-    <section class="hero-section">
-        <div class="hero-content" data-aos="fade-up">
+        // Scroll shrink effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header-container');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <!-- ======= End Header ======= -->
+
+    <!-- ======= Page Hero ======= -->
+    <div class="page-hero">
+        <div class="page-hero-content">
             <h1>Medical Equipment</h1>
             <p>State-of-the-art tools for medical professionals</p>
         </div>
-    </section>
+    </div>
 
     <!-- ======= General Equipment Section ======= -->
     <section class="product-section" id="equipment">
@@ -1313,106 +1202,48 @@
         </div>
     </section>
 
-    <!-- ======= Footer ======= -->
-    <div class="footer">
-        <div class="footer-1">
-            <div class="footer-logo" data-aos="fade-down" data-aos-duration="800">
-                <img src="assets/img/LOGO_(Transparent bckgrnd).png" alt="">
-                <h1>Paras-TechnologyLTD</h1>
-            </div>
-            <p data-aos="fade-up" data-aos-duration="800">Provide The Best Service <br> Lets make the world a better
-                place</p>
-            <div class="sosial-media">
-                <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL">
-                    <img src="assets/img/facebook.png" alt="" data-aos="zoom-in-up" data-aos-duration="800"
-                        data-aos-delay="200">
-                </a>
-                <a href="https://x.com/eSisya19">
-                    <img src="assets/img/twitter.png" alt="" data-aos="zoom-in-up" data-aos-duration="800"
-                        data-aos-delay="300">
-                </a>
-                <a href="https://wa.link/13e0nj">
-                    <img src="assets/img/whatsapp (1).png" alt="" data-aos="zoom-in-up" data-aos-duration="800"
-                        data-aos-delay="300">
-                </a>
-            </div>
-        </div>
-
-        <div class="footer-2">
-            <h1 data-aos="fade-down" data-aos-duration="800" data-aos-delay="200">Contact Us</h1>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <img alt="Phone" class="contact-icon">
-                    <a href="tel:+260978900232" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">+260 97
-                        8900232</a>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Paras Technology</h2>
+                    <p>Provide The Best Service. Let's make the world a better place through advanced medical technology.</p>
+                    <div class="social-row">
+                        <a href="https://www.facebook.com/profile.php?id=61563605977793&mibextid=ZbWKwL" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/eSisya19" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.link/13e0nj" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <img alt="WhatsApp" class="contact-icon">
-                    <a href="https://wa.link/13e0nj" data-aos="fade-up" data-aos-duration="800"
-                        data-aos-delay="250">+260 974 687 558</a>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="port.html" class="footer-link">Services</a>
+                        <a href="products.html" class="footer-link">Products</a>
+                        <a href="contact.html" class="footer-link">Contact Us</a>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <img alt="Email" class="contact-icon">
-                    <a href="mailto:admin@Paras-Technology.com" data-aos="fade-up" data-aos-duration="800"
-                        data-aos-delay="300">admin@Paras-Technology.com</a>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <div class="footer-links">
+                        <a href="tel:+260978900232" class="footer-link"><i class="fas fa-phone"></i> +260 97 8900232</a>
+                        <a href="mailto:admin@Paras-Technology.com" class="footer-link"><i class="fas fa-envelope"></i> admin@Paras-Technology.com</a>
+                        <span class="footer-link"><i class="fas fa-map-marker-alt"></i> Plot 644 Peri Peri St, Lusaka</span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="footer-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-            <h1>Quick Links</h1>
-            <div class="footer-links">
-                <a data-scroll data-easing="easeInQuint" href="index.html">Home</a>
-                <a data-scroll data-easing="easeInQuint" href="products-bento.html">Products</a>
-                <a data-scroll data-easing="easeInQuint" href="contact.html">Contact Us</a>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <div class="footer-bottom">
-            <div class="footer-copyright">
-                <p>&copy; 2026 Paras-Technology LTD. All Rights Reserved</p>
-            </div>
-            <div class="social-links">
-
+            <div class="footer-bottom">
+                &copy; 2026 <a href="index.html">PARAS TECHNOLOGY LIMITED</a>. All Rights Reserved.
             </div>
         </div>
     </footer>
 
-    <!-- Vendor JS Files -->
     <script src="assets/vendor/jquery.js/jquery.js"></script>
-    <script src="assets/vendor/type.js/type.js"></script>
     <script src="assets/vendor/aos.js/aos.js"></script>
     <script src="assets/vendor/flickity.js/flickity.pkgd.min.js"></script>
-    <script src="assets/vendor/smoth-scroll.js/smoth-scroll.js"></script>
 
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-
-        // Mobile Menu Toggle
-        const btnNav = document.getElementById('btn-nav');
-        const sidebar = document.querySelector('.sidebar');
-        const btnMenu = document.getElementById('btn-menu');
-
-        btnNav.addEventListener('click', () => {
-            sidebar.classList.add('active');
-        });
-
-        btnMenu.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-        });
-
-        // Close sidebar when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!sidebar.contains(e.target) && !btnNav.contains(e.target)) {
-                sidebar.classList.remove('active');
-            }
-        });
+        AOS.init({ duration: 800, once: true, offset: 100 });
 
         // Sticky Sub-Nav Active State
         const sections = document.querySelectorAll('section');
@@ -1422,12 +1253,10 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
                 if (pageYOffset >= (sectionTop - 200)) {
                     current = section.getAttribute('id');
                 }
             });
-
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href').includes(current)) {
