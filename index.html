@@ -1337,25 +1337,29 @@ End of Tawk.to Script-->
 
     @media (max-width: 768px) {
       .review.container {
-        padding: 60px 12px;
+        padding: 40px 10px;
+        box-sizing: border-box;
       }
 
       .area-review {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 10px;
+        box-sizing: border-box;
       }
 
       .box-review {
         min-height: auto;
         min-width: 0;                /* override the 250px from desktop */
-        padding: 18px 10px 16px;
-        border-radius: 18px;
+        margin: 0;                   /* override global margins */
+        padding: 16px 8px;
+        border-radius: 16px;
         justify-content: flex-start;
         align-items: center;        /* centre children horizontally */
         text-align: center;          /* centre all inline text */
         overflow: hidden;            /* prevent card bleed */
         word-break: break-word;      /* stop long names from overflowing */
+        box-sizing: border-box;      /* ensure padding is included in width */
       }
 
       /* Compact avatar on mobile */
@@ -1365,6 +1369,7 @@ End of Tawk.to Script-->
         font-size: 1rem;
         margin-bottom: 10px;
         border-width: 3px;
+        box-sizing: border-box;
       }
 
       /* Hide the large image if it ever stays in HTML */
@@ -1373,26 +1378,30 @@ End of Tawk.to Script-->
       }
 
       .box-review h2 {
-        font-size: 0.78rem;
+        font-size: 0.75rem;
         margin-bottom: 5px;
         line-height: 1.3;
         width: 100%;
+        box-sizing: border-box;
       }
 
       .box-review .role {
         font-size: 0.6rem;
-        letter-spacing: 0.6px;
+        letter-spacing: 0.5px;
         margin-bottom: 12px;
         width: 100%;
+        box-sizing: border-box;
       }
 
       .box-review .contact-link {
-        padding: 8px 8px;
-        font-size: 0.68rem;
-        gap: 5px;
+        padding: 8px 4px;
+        font-size: 0.65rem;
+        gap: 4px;
         border-radius: 30px;
         width: 100%;
         justify-content: center;
+        box-sizing: border-box;      /* critical for 100% width with padding */
+        white-space: nowrap;         /* prevent phone number from wrapping awkwardly if it can fit */
       }
     }
     </style>
