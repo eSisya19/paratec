@@ -1303,17 +1303,87 @@ End of Tawk.to Script-->
       left: 150%;
     }
 
+    /* ── Initials Avatar (shared desktop + mobile) ── */
+    .member-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 35px;
+      border: 5px solid white;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      transition: all 0.5s ease;
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+      letter-spacing: 1px;
+    }
+
+    .box-review:hover .member-avatar {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 15px 30px rgba(43, 76, 126, 0.25);
+    }
+
+    /* Per-person avatar colours */
+    .avatar-sk { background: linear-gradient(135deg, #6a11cb, #2575fc); }
+    .avatar-en { background: linear-gradient(135deg, #f093fb, #f5576c); }
+    .avatar-es { background: linear-gradient(135deg, #0f9b58, #00bf8f); }
+    .avatar-bk { background: linear-gradient(135deg, #f7971e, #ffd200); color: #3a2a00; }
+
     @media (max-width: 768px) {
       .review.container {
-        padding: 80px 20px;
+        padding: 60px 15px;
       }
+
       .area-review {
-        grid-template-columns: 1fr;
-        gap: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
       }
+
       .box-review {
         min-height: auto;
-        padding: 40px 25px;
+        padding: 18px 12px 16px;
+        border-radius: 18px;
+        justify-content: flex-start;
+      }
+
+      /* Compact avatar on mobile */
+      .member-avatar {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+        margin-bottom: 10px;
+        border-width: 3px;
+      }
+
+      /* Hide the large image if it ever stays in HTML */
+      .box-review > img {
+        display: none;
+      }
+
+      .box-review h2 {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+        line-height: 1.25;
+      }
+
+      .box-review .role {
+        font-size: 0.65rem;
+        letter-spacing: 0.8px;
+        margin-bottom: 12px;
+      }
+
+      .box-review .contact-link {
+        padding: 8px 10px;
+        font-size: 0.72rem;
+        gap: 6px;
+        border-radius: 30px;
       }
     }
     </style>
@@ -1321,7 +1391,7 @@ End of Tawk.to Script-->
         <h2 class="judul" data-aos="zoom-in-up" data-aos-duration="1000">Executive Team</h2>
         <div class="area-review">
             <div class="box-review" data-aos="fade-up" data-aos-duration="800">
-                <img src="assets/img/1000_F_269157868_KuKWdTSZ08lYL3r1u1EdyKcLTDPJsov3.jpg" alt="Ms. Sandra Kunda">
+                <div class="member-avatar avatar-sk" aria-label="Ms. Sandra Kunda">SK</div>
                 <h2>Ms. Sandra Kunda</h2>
                 <div class="role">Managing Director</div>
                 <a href="tel:+260950930084" class="contact-link">
@@ -1329,9 +1399,9 @@ End of Tawk.to Script-->
                     +260 950 930 084
                 </a>
             </div>
-            
+
             <div class="box-review" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Mrs. Emily Nambeya">
+                <div class="member-avatar avatar-en" aria-label="Mrs. Emily Nambeya">EN</div>
                 <h2>Mrs. Emily Nambeya</h2>
                 <div class="role">Accounts/Administration</div>
                 <a href="tel:+260978900232" class="contact-link">
@@ -1341,7 +1411,7 @@ End of Tawk.to Script-->
             </div>
 
             <div class="box-review" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Mr. Edwin Sisya">
+                <div class="member-avatar avatar-es" aria-label="Mr. Edwin Sisya">ES</div>
                 <h2>Mr. Edwin Sisya</h2>
                 <div class="role">Biomedical IT Manager</div>
                 <a href="tel:+260974687558" class="contact-link">
@@ -1351,7 +1421,7 @@ End of Tawk.to Script-->
             </div>
 
             <div class="box-review" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-                <img src="assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Ms. Bertha Kamalondo">
+                <div class="member-avatar avatar-bk" aria-label="Ms. Bertha Kamalondo">BK</div>
                 <h2>Ms. Bertha Kamalondo</h2>
                 <div class="role">Marketing Business Manager</div>
                 <a href="tel:+260968838336" class="contact-link">
