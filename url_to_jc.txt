@@ -1,1 +1,1 @@
-https://jobcards-5rele2061-esisya19s-projects.vercel.app/login
+https://jobcards.vercel.app/login
