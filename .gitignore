@@ -1,0 +1,16 @@
+# Environment and credential files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+*_credentials.json
+secrets/
+
+# Never store mailbox or SMTP credential exports in this repository.
+smtp-credentials*
+mail-credentials*
+

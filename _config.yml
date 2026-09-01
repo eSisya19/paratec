@@ -1,0 +1,24 @@
+# GitHub Pages publishes repository files by default. Keep internal application
+# source and configuration out of the public marketing-site build.
+exclude:
+  - index0.html
+  - assets/cms.html
+  - assets/config.js
+  - assets/main.js
+  - assets/style.css
+  - assets/supabase_schema.sql
+  - assets/supabase
+  - assets/js/auth.js
+  - assets/js/assets.js
+  - assets/js/attendance.js
+  - assets/js/bulletins.js
+  - assets/js/dashboard.js
+  - assets/js/performance_reviews.js
+  - assets/js/products.js
+  - assets/js/reports.js
+  - assets/js/requests.js
+  - assets/js/servicedesk.js
+  - assets/js/trips.js
+  - assets/js/users.js
+  - assets/js/works.js
+
